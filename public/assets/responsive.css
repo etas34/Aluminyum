@@ -1,0 +1,82 @@
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {     
+	
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {     }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {  
+	
+	
+	/* threebox slider start */
+	.threebox-slider {
+		/* margin:0 40px; */
+	}
+	.swiper-left-arrow,
+	.swiper-right-arrow {
+		position:absolute;
+		top: 30%;
+	}
+	.swiper-left-arrow {
+		left: -55px;
+		right:auto;
+	}
+	.swiper-right-arrow {
+		right: -55px;
+		left:auto;
+	}
+	/* threebox-slider end */
+	
+	.detailbg {
+		margin-bottom:250px;
+	}
+	
+ }
+
+/* // Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+	
+}
+
+@media (min-width:1480px) {
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* // Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {     
+	
+	
+}
+
+/* // Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {  
+	.detail-logo {
+		max-width:75px;
+		max-height:75px;
+		
+	}
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {   }
+
+/* // Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {   
+	.bread h1 {
+		font-size:18px
+	}
+	
+}
