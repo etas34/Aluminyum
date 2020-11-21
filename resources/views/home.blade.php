@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Admin.layouts.mainFront')
 
 @section('content')
 <div class="container">
@@ -20,4 +20,6 @@
         </div>
     </div>
 </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 @endsection
