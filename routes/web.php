@@ -28,9 +28,21 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@home')->name('home')->middleware('auth');
 
 
-Route::prefix('admin')->group(function() {
-    Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('logout/', 'Auth\AdminLoginController@logout')->name('admin.logout');
-    Route::get('/', 'Admin\MainController@index')->name('admin.dashboard');
+Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
+    Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('login');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('login.submit');
+    Route::get('logout/', 'Auth\AdminLoginController@logout')->name('logout');
+    Route::get('/', 'Admin\MainController@index')->name('dashboard');
+
+
+    Route::group(['prefix'=>'bulten','as'=>'bulten.'],function (){
+        Route::get('/', 'Admin\BultenController@index')->name('index');
+        Route::get('/create', 'Admin\BultenController@create')->name('create');
+        Route::post('/create', 'Admin\BultenController@store')->name('store');
+        Route::get('/edit/{bulten}', 'Admin\BultenController@edit')->name('edit');
+        Route::post('/update/{bulten}', 'Admin\BultenController@update')->name('update');
+        Route::delete('/delete/{bulten}', 'Admin\BultenController@destroy')->name('delete');
+    });
+
+
 }) ;

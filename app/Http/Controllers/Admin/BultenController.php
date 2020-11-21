@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Bulten;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
 
 class BultenController extends Controller
 {
@@ -24,7 +26,7 @@ class BultenController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.bulten.create');
     }
 
     /**

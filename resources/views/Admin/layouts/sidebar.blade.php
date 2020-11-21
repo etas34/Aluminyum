@@ -38,7 +38,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="../forms/general.html" class="nav-link">
+                            <a href="{{route('admin.bulten.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Yeni Ekle</p>
                             </a>
