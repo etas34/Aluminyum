@@ -46,3 +46,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
 
 
 }) ;
+Route::Group(['prefix'=>'firma','middleware'=>'auth'],function() {
+    Route::get('/edit','MusteriController@edit')->name('musteri.edit');
+    Route::post('/edit','MusteriController@update')->name('musteri.update');
+
+}) ;
