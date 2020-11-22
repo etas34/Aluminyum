@@ -22,6 +22,13 @@
 <!-- AdminLTE App -->
 <script src="{{asset('public/adminlte/dist/js/adminlte.min.js')}}"></script>
 
+<!-- InputMask -->
+<script src="{{asset('public/adminlte/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('public/adminlte/plugins/inputmask/min/jquery.inputmask.bundle.min.js')}}"></script>
+<!-- date-range-picker -->
+<script src="{{asset('public/adminlte/plugins/daterangepicker/daterangepicker.js')}}"></script>
+
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 

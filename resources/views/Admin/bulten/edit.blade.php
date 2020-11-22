@@ -10,10 +10,10 @@
                     <div class="col-md-12">
                         <div class="card card-primary">
 
-                            <form action="{{route('admin.bulten.store')}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+                            <form action="{{route('admin.bulten.update',$bulten)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="card-header">
-                                    <h3 class="card-title">Yeni Bülten Ekle</h3>
+                                    <h3 class="card-title">Bülten Düzenle</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group col-md-12">
@@ -23,21 +23,14 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Baslik</label>
-                                        <input type="text"  name="baslik" class="form-control" required>
+                                        <input type="text"  name="baslik" class="form-control" value="{{$bulten->baslik}}" required>
                                     </div>
 
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">İçerik</label>
-                                         <textarea class="form-control" name="icerik" id="textarea" required></textarea>
+                                         <textarea class="form-control" name="icerik" id="textarea" required>value="{{$bulten->icerik}}"</textarea>
                                     </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Tarih</label>
-                                        <input type="text" class="form-control pull-right" name="tarih" id="tarih">
-                                    </div>
-
-
                                 </div>
                                 <div class="card-footer pull-right">
                                     <input type="submit" class="btn btn-success px-5 float-right" value="Kaydet">
@@ -69,16 +62,7 @@
 
                 height: 300,
                 }
-            );
-
-
-            $('#tarih').daterangepicker({
-
-                singleDatePicker:true,
-                locale: {
-                    format: 'DD/MM/YYYY'
-                }
-            })
+            )
         })
     </script>
 

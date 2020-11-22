@@ -15,6 +15,10 @@ class CreateBultensTable extends Migration
     {
         Schema::create('bultens', function (Blueprint $table) {
             $table->id();
+            $table->string('foto');
+            $table->string('baslik');
+            $table->text('icerik');
+            $table->string('tarih');
             $table->timestamps();
         });
     }

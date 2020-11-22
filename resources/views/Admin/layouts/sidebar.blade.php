@@ -44,7 +44,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../forms/advanced.html" class="nav-link">
+                            <a href="{{route('admin.bulten.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Bültenler</p>
                             </a>

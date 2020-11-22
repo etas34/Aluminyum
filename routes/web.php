@@ -41,7 +41,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::post('/create', 'Admin\BultenController@store')->name('store');
         Route::get('/edit/{bulten}', 'Admin\BultenController@edit')->name('edit');
         Route::post('/update/{bulten}', 'Admin\BultenController@update')->name('update');
-        Route::delete('/delete/{bulten}', 'Admin\BultenController@destroy')->name('delete');
+        Route::delete('/delete/{bulten}', 'Admin\BultenController@destroy')->name('destroy');
     });
 
 
