@@ -28,6 +28,7 @@
                                                     <th>Telefon</th>
                                                     <th>Adres</th>
                                                     <th>Onaylı</th>
+                                                    <th>Onay</th>
                                                     <th style="width: 100px">İşlemler</th>
                                                 </tr>
                                                 </thead>
@@ -40,14 +41,14 @@
                                                         <td>{{$value->phone}}</td>
                                                         <td>{{$value->adres}}</td>
                                                         <td>@if($value->durum==1)Evet @else Hayır @endif</td>
+                                                        <td>  <a href="{{route('admin.user.onayla',$value)}}" onclick="return confirm('Kullanıcı Kaydı Onaylanacak, Emin misiniz?')"><span
+                                                                    class="badge bg-success p-2">Onayla</span></a></td>
                                                         <td>
                                                             <a href="{{route('admin.user.edit',$value)}}"><span
-                                                                    class="badge bg-warning p-2"><i
-                                                                        class="fas fa-edit"></i></span></a>
+                                                                    class="badge bg-warning p-2">Düzenle</span></a>
                                                             <a href="{{route('admin.user.destroy',$value)}}"
                                                                onclick="return confirm('Kayıt Silinecek, Emin misiniz?')"><span
-                                                                    class="badge bg-danger p-2"><i
-                                                                        class="fas fa-trash"></i></span></a>
+                                                                    class="badge bg-danger p-2">Sil</span></a>
 
                                                         </td>
 

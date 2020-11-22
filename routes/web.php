@@ -63,6 +63,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::get('/create', 'Admin\UserController@create')->name('create');
         Route::post('/create', 'Admin\UserController@store')->name('store');
         Route::get('/edit/{user}', 'Admin\UserController@edit')->name('edit');
+        Route::get('/onayla/{user}', 'Admin\UserController@onayla')->name('onayla');
         Route::post('/update/{user}', 'Admin\UserController@update')->name('update');
         Route::get('/delete/{user}', 'Admin\UserController@destroy')->name('destroy');
     });

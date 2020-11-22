@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use http\Client\Curl\User;
+use http\Encoding\Stream\Inflate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 class MusteriController extends Controller
 {
@@ -56,7 +60,9 @@ class MusteriController extends Controller
      */
     public function edit()
     {
-        return view('musteri.edit');
+        $user = \App\User::find(Auth::id());
+
+        return view('musteri.edit',compact('user'));
     }
 
     /**
@@ -68,7 +74,44 @@ class MusteriController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request->icerik   );
+        $user = \App\User::find(Auth::id());
+        $user->name =$request->firma_unvan;
+        $user->email =$request->email;
+        $user->youtube_link =$request->video_url;
+        $user->yetkili =$request->firma_yetkili;
+        $user->phone =$request->telefon;
+        if ($request->file('foto'))
+        {
+
+            $image=$request->file('foto');
+            $ext=$image->extension();
+            $image_name='logo'.time().".".$ext;
+            $upload_path='logolar/';
+            $image_url="storage/app/".$upload_path.$image_name;
+
+            $image->storeAs($upload_path,$image_name);
+
+            $user->foto=url($image_url);
+
+        }
+
+        $user->adres =$request->adres;
+        $user->hakkimizda =$request->hakkimizda;
+
+        $saved = $user->save();
+
+        if ($saved)
+            $notification=array(
+                'messege'=>'Düzenleme Başarılı',
+                'alert-type'=>'success'
+            );
+        else
+            $notification=array(
+                'messege'=>'Dikkat ! Bir Hata Oluştu',
+                'alert-type'=>'error'
+            );
+
+        return back()->with($notification);
     }
 
     /**

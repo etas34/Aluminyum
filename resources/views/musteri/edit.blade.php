@@ -18,27 +18,39 @@
                                 <div class="row">
 
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Firma Ünvanı</label>
-                                            <input type="text" name="firma_unvan" class="form-control" value=""/>
-                                        </div>
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Firma Yetkilisi</label>
-                                            <input type="text" name="firma_yetkili" class="form-control" value=""/>
-                                        </div>
-
-                                    </div>
-
-
-
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            <label>Firma Ünvanı</label>
+                                            <input required type="text" value="{{$user->name}}"  name="firma_unvan" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <div class="form-group">
+                                            <label>E-posta</label>
+
+                                            <div class="input-group">
+                                                <input required type="email" value="{{$user->email}}" name="email" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Firma Yetkilisi</label>
+                                            <input required type="text" value="{{$user->yetkili}}" name="firma_yetkili" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <label>YouTube Video Linki</label>
-                                            <input type="text" name="video_url" class="form-control" value=""/>
+                                            <input required type="text" value="{{$user->youtube_link}}" name="video_url" class="form-control" />
                                         </div>
 
                                     </div>
@@ -48,37 +60,32 @@
                                             <label>Telefon</label>
 
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="telefon" id="phone">
+                                                <input required type="text" value="{{$user->phone}}" class="form-control" name="telefon" id="phone">
                                             </div>
                                             <!-- /.input group -->
                                         </div>
                                         <!-- /.form group -->
 
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <div class="form-group">
-                                            <label>E-posta</label>
-
-                                            <div class="input-group">
-                                                <input type="email" name="email" class="form-control">
-                                            </div>
-                                            <!-- /.input group -->
-                                        </div>
-                                        <!-- /.form group -->
-
+                                    <div class="form-group col-md-12">
+                                        <label class="control-label">Logo</label>
+                                        <input type="file"  name="foto" class="form-control" accept="image/*">
                                     </div>
+
+
+
 
                                     <div class="col-md-12">
                                         <!-- textarea -->
                                         <div class="form-group">
                                             <label>Adres</label>
-                                            <textarea name="adres" class="form-control" rows="3" placeholder="Adresiniz..."></textarea>
+                                            <textarea required name="adres" class="form-control" rows="3" placeholder="Adresiniz...">{{$user->adres}}</textarea>
                                         </div>
                                     </div>
 
                                         <div class="form-group col-md-12">
                                             <label class="control-label">Hakkımızda</label>
-                                            <textarea class="form-control" name="hakkimizda" id="textarea"></textarea>
+                                            <textarea required class="form-control" name="hakkimizda" id="textarea">{{$user->hakkimizda}}</textarea>
                                         </div>
 
 
