@@ -19,8 +19,11 @@
 <script src="{{asset('public/adminlte/plugins/jquery/jquery.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('public/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('public/adminlte/dist/js/adminlte.min.js')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('public/adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('public/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{asset('public/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+<script src="{{asset('public/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 
 <!-- InputMask -->
 <script src="{{asset('public/adminlte/plugins/moment/moment.min.js')}}"></script>
@@ -31,6 +34,8 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
+<!-- AdminLTE App -->
+<script src="{{asset('public/adminlte/dist/js/adminlte.min.js')}}"></script>
 
 <script>
         @if(Session::has('messege'))
@@ -102,7 +107,21 @@
 
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function () {
 
+        $('#example2').DataTable({
+
+            "autoWidth": false,
+            responsive : true,
+
+            // "aaSorting": [[0,'desc']],
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json'
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

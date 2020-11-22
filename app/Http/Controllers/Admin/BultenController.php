@@ -104,7 +104,38 @@ class BultenController extends Controller
      */
     public function update(Request $request, Bulten $bulten)
     {
-        //
+
+        $bulten->baslik=$request->baslik;
+        $bulten->icerik=$request->icerik;
+        $bulten->tarih=$request->tarih;
+
+        if ($request->file('foto'))
+        {
+
+            $image=$request->file('foto');
+            $ext=$image->extension();
+            $image_name='bulten'.time().".".$ext;
+            $upload_path='images/';
+            $image_url="storage/app/".$upload_path.$image_name;
+
+            $image->storeAs($upload_path,$image_name);
+
+            $bulten->foto=url($image_url);
+
+        }
+        $saved=$bulten->save();
+        if ($saved)
+            $notification=array(
+                'messege'=>'Kayıt Başarılı',
+                'alert-type'=>'success'
+            );
+        else
+            $notification=array(
+                'messege'=>'Dikkat ! Bir Hata Oluştu',
+                'alert-type'=>'error'
+            );
+
+        return back()->with($notification);
     }
 
     /**
@@ -115,6 +146,19 @@ class BultenController extends Controller
      */
     public function destroy(Bulten $bulten)
     {
-        //
+
+        $saved=$bulten->delete();
+        if ($saved)
+            $notification=array(
+                'messege'=>'Kayıt Başarı İle Silindi',
+                'alert-type'=>'success'
+            );
+        else
+            $notification=array(
+                'messege'=>'Dikkat ! Bir Hata Oluştu',
+                'alert-type'=>'error'
+            );
+
+        return back()->with($notification);
     }
 }

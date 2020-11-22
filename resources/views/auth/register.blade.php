@@ -38,6 +38,12 @@
 {{--                            </div>--}}
 
                             <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Firma Ünvanı</label>
+                                <div class="col-md-6">
+                                    <input type="text" required name="name" class="form-control" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                                 <div class="col-md-6">
@@ -73,12 +79,6 @@
                             </div>
 
 
-                                <div class="form-group row">
-                                    <label class="col-md-4 col-form-label text-md-right">Firma Ünvanı</label>
-                                    <div class="col-md-6">
-                                    <input type="text" required name="firma_unvan" class="form-control" value=""/>
-                                </div>
-                            </div>
 
 {{--                            <div class="form-group row">--}}
 {{--                                <label class="col-md-4 col-form-label text-md-right">Firma Yetkilisi</label>--}}

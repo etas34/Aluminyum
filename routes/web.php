@@ -41,7 +41,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::post('/create', 'Admin\BultenController@store')->name('store');
         Route::get('/edit/{bulten}', 'Admin\BultenController@edit')->name('edit');
         Route::post('/update/{bulten}', 'Admin\BultenController@update')->name('update');
-        Route::delete('/delete/{bulten}', 'Admin\BultenController@destroy')->name('destroy');
+        Route::get('/delete/{bulten}', 'Admin\BultenController@destroy')->name('destroy');
     });
     Route::group(['prefix'=>'kategori','as'=>'kategori.'],function (){
         Route::get('/indexUst', 'Admin\KategoriController@indexUst')->name('indexUst');
@@ -58,7 +58,14 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::any('/deleteAlt/{altkategori}', 'Admin\KategoriController@destroyAlt')->name('destroyAlt');
 
     });
-
+    Route::group(['prefix'=>'user','as'=>'user.'],function (){
+        Route::get('/', 'Admin\UserController@index')->name('index');
+        Route::get('/create', 'Admin\UserController@create')->name('create');
+        Route::post('/create', 'Admin\UserController@store')->name('store');
+        Route::get('/edit/{user}', 'Admin\UserController@edit')->name('edit');
+        Route::post('/update/{user}', 'Admin\UserController@update')->name('update');
+        Route::get('/delete/{user}', 'Admin\UserController@destroy')->name('destroy');
+    });
 
 }) ;
 Route::Group(['prefix'=>'firma','middleware'=>'auth'],function() {
