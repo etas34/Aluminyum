@@ -43,6 +43,21 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::post('/update/{bulten}', 'Admin\BultenController@update')->name('update');
         Route::delete('/delete/{bulten}', 'Admin\BultenController@destroy')->name('destroy');
     });
+    Route::group(['prefix'=>'kategori','as'=>'kategori.'],function (){
+        Route::get('/indexUst', 'Admin\KategoriController@indexUst')->name('indexUst');
+        Route::get('/indexAlt', 'Admin\KategoriController@indexAlt')->name('indexAlt');
+        Route::get('/createUst', 'Admin\KategoriController@createUst')->name('createUst');
+        Route::get('/createAlt', 'Admin\KategoriController@createAlt')->name('createAlt');
+        Route::get('/editUst/{kategori}', 'Admin\KategoriController@editUst')->name('editUst');
+        Route::get('/editAlt/{altkategori}', 'Admin\KategoriController@editAlt')->name('editAlt');
+        Route::post('/editUst/{kategori}', 'Admin\KategoriController@updateUst')->name('updateUst');
+        Route::post('/editAlt/{altkategori}', 'Admin\KategoriController@updateAlt')->name('updateAlt');
+        Route::post('/createUst', 'Admin\KategoriController@storeUst')->name('storeUst');
+        Route::post('/createAlt', 'Admin\KategoriController@storeAlt')->name('storeAlt');
+        Route::any('/deleteUst/{kategori}', 'Admin\KategoriController@destroyUst')->name('destroyUst');
+        Route::any('/deleteAlt/{altkategori}', 'Admin\KategoriController@destroyAlt')->name('destroyAlt');
+
+    });
 
 
 }) ;
