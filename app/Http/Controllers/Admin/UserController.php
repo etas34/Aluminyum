@@ -156,6 +156,12 @@ class UserController extends Controller
 //            //başarısız
 //            }
 //        }
+        if ($user->foto){
+            $path_parts = pathinfo($user->foto);
+            $deleted = unlink(storage_path('app/logolar/'.$path_parts['basename']));
+        }
+
+
         $saved = $user->delete();
         if ($saved)
             $notification=array(
