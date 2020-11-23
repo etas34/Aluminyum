@@ -71,10 +71,12 @@
                                         <label class="control-label">Logo</label>
                                         <input type="file"  name="foto" class="form-control" accept="image/*">
                                     </div>
-                                    <div class="form-group col-md-6">
-                                     <img src="{{$user->foto}}">
-                                    </div>
+                                    @if($user->foto)
+                                        <div class="form-group col-md-6">
+                                            <img width="150" height="150" src="{{$user->foto}}">
+                                        </div>
 
+                                    @endif
 
 
 

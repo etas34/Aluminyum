@@ -67,12 +67,16 @@
                                         <!-- /.form group -->
 
                                     </div>
-                                    <div class="form-group col-md-12">
+                                    <div class="form-group col-md-6">
                                         <label class="control-label">Logo</label>
                                         <input type="file"  name="foto" class="form-control" accept="image/*">
                                     </div>
+                                    @if($user->foto)
+                                    <div class="form-group col-md-6">
+                                        <img width="150" height="150" src="{{$user->foto}}">
+                                    </div>
 
-
+                                    @endif
 
 
                                     <div class="col-md-12">

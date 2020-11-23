@@ -142,8 +142,32 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+
+//        if ($user->foto){
+//            $path_parts = pathinfo($user->foto);
+//            $filename = $path_parts['filename'].".".$path_parts['extension'];
+//            if(\File::exists(public_path("app\logolar\\$filename"))){
+//
+//                \File::delete(public_path("app\logolar\\$filename"));
+//
+//            }else{
+//            //başarısız
+//            }
+//        }
+        $saved = $user->delete();
+        if ($saved)
+            $notification=array(
+                'messege'=>'Silme Başarılı',
+                'alert-type'=>'success'
+            );
+        else
+            $notification=array(
+                'messege'=>'Dikkat ! Bir Hata Oluştu',
+                'alert-type'=>'error'
+            );
+
+        return back()->with($notification);
     }
 }
