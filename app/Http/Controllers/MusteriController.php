@@ -93,7 +93,7 @@ class MusteriController extends Controller
 
             $image->storeAs($upload_path,$image_name);
 
-            $user->foto=url($image_url);
+            $user->logo=url($image_url);
 
         }
 

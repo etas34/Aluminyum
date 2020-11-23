@@ -1,9 +1,7 @@
 @extends('Admin.layouts.mainFront')
 
 @section('content')
-    <style>
 
-    </style>
     <div class="content-wrapper" style="min-height: 1203.6px;">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -85,6 +83,9 @@
                                         </select>
                                         <!-- /.input group -->
                                     </div>
+                                    @if($user->logo)
+                                    <div class="form-group col-md-6">
+                                        <img width="150" height="150" src="{{$user->logo}}">
                                     <!-- /.form group -->
 
 {{----}}
@@ -129,6 +130,7 @@
                                         <textarea required class="form-control" name="hakkimizda"
                                                   id="textarea">{{$user->hakkimizda}}</textarea>
                                     </div>
+
 
 
                                 </div>

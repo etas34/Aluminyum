@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->text('adres')->nullable();
             $table->text('hakkimizda')->nullable();
             $table->string('youtube_link')->nullable();
-            $table->string('foto')->nullable();
+            $table->string('logo')->nullable();
             $table->tinyInteger('durum')->default('0');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

@@ -115,7 +115,7 @@ class UserController extends Controller
 
             $image->storeAs($upload_path,$image_name);
 
-            $user->foto=url($image_url);
+            $user->logo=url($image_url);
 
         }
 
@@ -158,8 +158,8 @@ class UserController extends Controller
 //            //başarısız
 //            }
 //        }
-        if ($user->foto){
-            $path_parts = pathinfo($user->foto);
+        if ($user->logo){
+            $path_parts = pathinfo($user->logo);
             $deleted = unlink(storage_path('app/logolar/'.$path_parts['basename']));
         }
 
