@@ -24,7 +24,7 @@
 
                                         <select class="form-control" required name="ust_kategori_id"
                                                 id="ust_kategori_id">
-                                            <option></option>
+                                            <option value="" disabled selected>Üst Kategori Seçiniz </option>
                                             @foreach($kategori as $key=>$value)
                                                 <option value="{{$value->id}}">{{$value->ust_kategori}}</option>
                                             @endforeach

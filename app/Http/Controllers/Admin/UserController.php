@@ -138,6 +138,32 @@ class UserController extends Controller
         return back()->with($notification);
     }
 
+
+    public function getUserbyId(Request $request)
+
+    {
+
+        $user =User::where('durum',1)
+        ->where('altkategori_id',$request->altkategori_id)->get();
+
+
+        return response()->json($user);
+
+    }
+
+    public function getUserbyId2(Request $request)
+
+    {
+
+        $user =User::where('durum',1)
+        ->join('alt_kategoris','users.altkategori_id','=','alt_kategoris.id')
+            ->select('users.*')
+            ->where('ust_kategori_id',$request->ustkategori_id)->get();
+
+
+        return response()->json($user);
+
+    }
     /**
      * Remove the specified resource from storage.
      *

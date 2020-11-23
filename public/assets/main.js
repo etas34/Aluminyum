@@ -28,13 +28,31 @@ if($(".threebox-slider").length){
 			}
 		}
 	});
-}	
+}
 /* threebox slider end */
 
 $(document).ready(function(){
-	
+
 	$(".toTop").click(function() {
 		$("html, body").animate({ scrollTop: 0 }, "slow");
 		return false;
 	});
+
+
+	$(".filterBtn .btn").click(function(){
+
+		// $(this).siblings().removeClass("btn-danger").addClass("btn-outline-secondary");
+		// if($(this).hasClass("btn-danger")){
+		// 	$(this).removeClass("btn-danger").addClass("btn-outline-secondary");
+		// }else {
+		// 	$(this).removeClass("btn-outline-secondary").addClass("btn-danger");
+		// }
+        $(this).siblings().removeClass("btn-danger").addClass("btn-outline-secondary");
+
+
+        $(this).removeClass("btn-outline-secondary").addClass("btn-danger");
+
+
+    });
+
 });

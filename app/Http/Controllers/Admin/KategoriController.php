@@ -200,6 +200,20 @@ class KategoriController extends Controller
         return redirect()->route('admin.kategori.indexAlt')->with($notification);
     }
 
+
+
+    public function getAltkategori(Request $request)
+
+    {
+
+        $altkategori =AltKategori::where('ust_kategori_id',$request->ustkategori_id)->get();
+
+
+        return response()->json($altkategori);
+
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *

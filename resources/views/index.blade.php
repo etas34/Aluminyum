@@ -45,20 +45,20 @@
             </div>
         </div>
         <div class="row text-center mb-4">
-            <div class="col-12">
-                <button class="btn btn-outline-secondary mr-2 mb-2 mb-md-0">Bars, Rods & Profiles</button>
-                <button class="btn btn-danger mr-2 mb-2 mb-md-0">Flat Products</button>
-                <button class="btn btn-outline-secondary mr-2 mb-2 mb-md-0">Construction Materials</button>
-                <button class="btn btn-outline-secondary mr-2 mb-2 mb-md-0">Others</button>
-                <button class="btn btn-outline-secondary mb-2 mb-md-0">Vehicle Parts</button>
+            <div class="col-12 filterBtn">
+
+                @foreach($ustkategori as $key=>$value)
+                <button class="btn @if($key==0) btn-danger @else btn-outline-secondary @endif mr-2 mb-2 mb-md-0"  onclick="myFunction2(this)" data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
+                    @endforeach
+
             </div>
         </div>
         <div class="row text-center mb-5">
-            <div class="col-12 d-flex flex-wrap align-items-strech justify-content-center">
-                <button class="btn btn-outline-danger mr-3 mb-2 mb-md-0"><img class="mr-2" src="{{asset('public/assets/images/sheet.svg')}}" alt="..." />Sheet</button>
-                <button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0"><img class="mr-2" src="{{asset('public/assets/images/roll.svg')}}" alt="..." />Roll</button>
-                <button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0"><img class="mr-2" src="{{asset('public/assets/images/disc.svg')}}" alt="..." />Disc</button>
-                <button class="btn btn-outline-secondary mb-2 mb-md-0"><img class="mr-2" src="{{asset('public/assets/images/foil.svg')}}" alt="..." />Foil</button>
+            <div class="col-12 d-flex flex-wrap align-items-strech justify-content-center filterBtn" id="altkategoriappend">
+
+                @foreach($altkategori as $key=>$value)
+                    <button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="{{$value->id}}"><img class="mr-2" src="{{asset('public/assets/images')}}/{{$value->icon}}" alt="..." />{{$value->alt_kategori}}</button>
+                @endforeach
             </div>
         </div>
         <div class="row text-center mb-4">
@@ -66,133 +66,22 @@
                 <h4>Aluminium Sheet Producers</h4>
             </div>
         </div>
-        <div class="row row-cols-sm-2 row-cols-md-3">
-            <div class="col-12 mb-3 mb-md-5">
+        <div class="row row-cols-sm-2 row-cols-md-3" id="firmaAppend">
+
+            @foreach($firma as $key=>$value)
+            <div class="col-12 mb-3 mb-md-5 firma">
                 <div class="card">
                     <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
+                        <img class="card-img-top" src="{{$value->logo}} " height="255" width="360" alt="..." />
                     </div>
                     <div class="card-footer text-center bg-white">
                         <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
+                            {{$value->name}}
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-12 mb-3 mb-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3 mb-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3 mb-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3 mb-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3 mb-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3 mb-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3 mb-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 mb-3 mb-md-5">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{asset('public/assets/images/logo1.png')}}" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                            Deima <br />
-                            Elektronik Urunler Imalat <br />
-                            San.ve Tic. A.S.
-                        </p>
-                    </div>
-                </div>
-            </div>
+                @endforeach
 
 
         </div>
@@ -201,3 +90,137 @@
 <!-- filter end	 -->
 
 @endsection
+
+@push('scripts')
+
+    <script>
+
+        $.ajaxSetup({
+
+            headers: {
+
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+
+            }
+
+        });
+
+        function myFunction(elem) {
+
+            $('.firma').remove();
+
+            var x = $(elem).attr("data-id");
+
+
+            $.ajax({
+
+                type:'POST',
+                url: '{{ route('getUser') }}',
+
+                data:{altkategori_id:x},
+
+                success:function(data){
+
+
+                    data.forEach(function(firma) {
+
+
+                            var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
+                                '<div class="card">' +
+                                '<div class="card-header">' +
+                                '<img class="card-img-top" src="'+firma['logo']+'" alt="..." height="255" width="360" />' +
+                                '</div>' +
+                                '<div class="card-footer text-center bg-white">' +
+                                '<p class="card-text">' +
+                                firma['name']+'<br />' +
+                                '</p></div></div></div>';
+
+                        $("#firmaAppend").append(temp);
+                        });
+
+                    // $("#ad").val(data.ad);
+
+                }
+
+            });
+
+
+            $(elem).siblings().removeClass("btn-danger").addClass("btn-outline-secondary");
+
+
+            $(elem).removeClass("btn-outline-secondary").addClass("btn-danger");
+
+        }
+
+
+        function myFunction2(elem) {
+
+            $('.firma').remove();
+            $('.altkategori').remove();
+
+            var x = $(elem).attr("data-id");
+
+            $.ajax({
+
+                type:'POST',
+                url: '{{ route('getUser2') }}',
+
+                data:{ustkategori_id:x},
+
+                success:function(data){
+
+
+                    data.forEach(function(firma) {
+
+
+                        var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
+                            '<div class="card">' +
+                            '<div class="card-header">' +
+                            '<img class="card-img-top" src="'+firma['logo']+'" alt="..." height="255" width="360" />' +
+                            '</div>' +
+                            '<div class="card-footer text-center bg-white">' +
+                            '<p class="card-text">' +
+                            firma['name']+'<br />' +
+                            '</p></div></div></div>';
+
+                        $("#firmaAppend").append(temp);
+                    });
+
+                    // $("#ad").val(data.ad);
+
+                }
+
+            });
+
+            $.ajax({
+
+                type:'POST',
+                url: '{{ route('getAltkategori') }}',
+
+                data:{ustkategori_id:x},
+
+                success:function(data){
+
+                    console.log(data);
+
+                    data.forEach(function(altkategori) {
+
+
+                       var temp='<button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/assets/images')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
+
+                        $("#altkategoriappend").append(temp);
+                    });
+
+                    // $("#ad").val(data.ad);
+
+                }
+
+
+        });
+
+        }
+
+    </script>
+
+
+    @endpush

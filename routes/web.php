@@ -81,3 +81,7 @@ Route::Group(['prefix'=>'urun','as'=>'urun.','middleware'=>'auth'],function() {
     Route::post('/edit/{urun}','UrunController@update')->name('update');
     Route::any('/delete/{urun}','UrunController@destroy')->name('destroy');
 }) ;
+
+Route::post('/get', 'Admin\UserController@getUserbyId')->name('getUser');
+Route::post('/get2', 'Admin\UserController@getUserbyId2')->name('getUser2');
+Route::post('/getAltkategori', 'Admin\KategoriController@getAltkategori')->name('getAltkategori');

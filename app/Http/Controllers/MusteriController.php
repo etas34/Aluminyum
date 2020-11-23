@@ -115,7 +115,6 @@ class MusteriController extends Controller
 
         return back()->with($notification);
     }
-
     /**
      * Remove the specified resource from storage.
      *
