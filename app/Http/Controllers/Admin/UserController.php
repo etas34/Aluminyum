@@ -84,7 +84,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admin.user.edit',compact('user'));
     }
 
     /**
@@ -94,9 +95,45 @@ class UserController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $user->name =$request->firma_unvan;
+        $user->email =$request->email;
+        $user->youtube_link =$request->video_url;
+        $user->yetkili =$request->firma_yetkili;
+        $user->phone =$request->telefon;
+        if ($request->file('foto'))
+        {
+
+            $image=$request->file('foto');
+            $ext=$image->extension();
+            $image_name='logo'.time().".".$ext;
+            $upload_path='logolar/';
+            $image_url="storage/app/".$upload_path.$image_name;
+
+            $image->storeAs($upload_path,$image_name);
+
+            $user->foto=url($image_url);
+
+        }
+
+        $user->adres =$request->adres;
+        $user->hakkimizda =$request->hakkimizda;
+
+        $saved = $user->save();
+
+        if ($saved)
+            $notification=array(
+                'messege'=>'Düzenleme Başarılı',
+                'alert-type'=>'success'
+            );
+        else
+            $notification=array(
+                'messege'=>'Dikkat ! Bir Hata Oluştu',
+                'alert-type'=>'error'
+            );
+
+        return back()->with($notification);
     }
 
     /**

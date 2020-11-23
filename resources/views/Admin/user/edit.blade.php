@@ -2,88 +2,132 @@
 @section('content')
 
     <div class="content-wrapper" style="min-height: 1203.6px;">
-        <!-- Main content -->
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card">
 
-                    <div class="col-md-12">
-                        <div class="card card-primary">
+                        <form action="{{route('admin.user.update',$user)}}" method="post" autocomplete="off"
+                              enctype="multipart/form-data">
+                            {{csrf_field()}}
+                            <div class="card-header">
+                                <h3 class="card-title"><strong>{{$user->name}}</strong> Bilgisi Düzenleme</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
 
-                            <form action="{{route('admin.bulten.update',$bulten)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
-                                {{csrf_field()}}
-                                <div class="card-header">
-                                    <h3 class="card-title">Bülten Düzenle</h3>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Firma Ünvanı</label>
+                                            <input required type="text" value="{{$user->name}}"  name="firma_unvan" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <div class="form-group">
+                                            <label>E-posta</label>
+
+                                            <div class="input-group">
+                                                <input required type="email" value="{{$user->email}}" name="email" class="form-control">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Firma Yetkilisi</label>
+                                            <input required type="text" value="{{$user->yetkili}}" name="firma_yetkili" class="form-control" />
+                                        </div>
+
+                                    </div>
+
+
+
+
+                                    <div class="form-group col-md-6">
+                                        <div class="form-group">
+                                            <label>Telefon</label>
+
+                                            <div class="input-group">
+                                                <input required type="text" value="{{$user->phone}}" class="form-control" name="telefon" id="phone">
+                                            </div>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>YouTube Video Linki</label>
+                                            <input required type="text" value="{{$user->youtube_link}}" name="video_url" class="form-control" />
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label class="control-label">Logo</label>
+                                        <input type="file"  name="foto" class="form-control" accept="image/*">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                     <img src="{{$user->foto}}">
+                                    </div>
+
+
+
+
+                                    <div class="col-md-12">
+                                        <!-- textarea -->
+                                        <div class="form-group">
+                                            <label>Adres</label>
+                                            <textarea required name="adres" class="form-control" rows="3" placeholder="Adresiniz...">{{$user->adres}}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-12">
+                                        <label class="control-label">Hakkımızda</label>
+                                        <textarea required class="form-control" name="hakkimizda" id="textarea">{{$user->hakkimizda}}</textarea>
+                                    </div>
+
+
+
                                 </div>
-                                <div class="card-body">
-
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Seçili Fotoğraf</label><br>
-                                        <img type="file" src="{{$bulten->foto}}" height="200px" >
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Fotoğraf</label>
-                                        <input type="file"  name="foto" class="form-control" accept="image/*"  required>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Baslik</label>
-                                        <input type="text"  name="baslik" class="form-control" value="{{$bulten->baslik}}" required>
-                                    </div>
-
-
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">İçerik</label>
-                                         <textarea class="form-control" name="icerik" id="textarea" required>{{$bulten->icerik}}</textarea>
-                                    </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Tarih</label>
-                                        <input type="text" class="form-control pull-right" name="tarih" value="{{$bulten->tarih}}" id="tarih">
-                                    </div>
-
-                                </div>
-                                <div class="card-footer pull-right">
+                                <p style="padding: 19px"></p>
+                                <div class=" pull-right" >
                                     <input type="submit" class="btn btn-success px-5 float-right" value="Kaydet">
                                 </div>
+                            </div>
 
-                            </form>
-                        </div>
-
-
+                        </form>
 
                     </div>
-
                 </div>
             </div>
-        </section>
-
+        </div>
     </div>
-
 @endsection
 
 @push('scripts')
 
 
     <script src="{{asset('public/adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <script src="{{asset('public/adminlte/plugins/inputmask/jquery.inputmask.js')}}"></script>
+
+
     <script>
+        $("#phone").inputmask({"mask": "(999) 999-9999"});
         $(function () {
             // Summernote
             $('#textarea').summernote({
 
-                height: 300,
+                    height: 300,
                 }
-            );
-
-            $('#tarih').daterangepicker({
-
-                singleDatePicker:true,
-                locale: {
-                    format: 'DD/MM/YYYY'
-                }
-            })
+            )
         })
+
     </script>
 
 
-    @endpush
+@endpush
