@@ -18,6 +18,9 @@
 
     <link rel="stylesheet" href="{{asset('public/assets/style.css')}}" />
     <link rel="stylesheet" href="{{asset('public/assets/responsive.css')}}" />
+    <!-- toastr CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
 
     <title>Aliminum v1</title>
 </head>
@@ -114,8 +117,29 @@
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <script src="{{asset('public/assets/main.js')}}"></script>
+
+<script>
+        @if(Session::has('messege'))
+    var type="{{Session::get('alert-type','info')}}"
+    switch(type){
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
+</script>
 @stack('scripts')
 </body>
 </html>
