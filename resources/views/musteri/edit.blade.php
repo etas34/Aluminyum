@@ -17,10 +17,10 @@
                             <div class="card-body">
                                 <div class="row">
 
-                                    @if($user->foto)
+                                    @if($user->logo)
                                         <label class="control-label">Seçili Logo</label>
                                         <div class="form-group col-md-12">
-                                            <img height="100" src="{{$user->foto}}">
+                                            <img height="100" src="{{$user->logo}}">
                                         </div>
 
                                     @endif
@@ -83,11 +83,7 @@
                                         </select>
                                         <!-- /.input group -->
                                     </div>
-                                    @if($user->logo)
-                                    <div class="form-group col-md-6">
-                                        <img width="150" height="150" src="{{$user->logo}}">
-                                    <!-- /.form group -->
-
+                     
 {{----}}
                                     <div id="sub" class="form-group col-md-6">
                                         <label>Alt Kategori Seçiniz</label>
