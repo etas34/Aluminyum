@@ -74,7 +74,9 @@ class MusteriController extends Controller
      */
     public function update(Request $request)
     {
+
         $user = \App\User::find(Auth::id());
+        $user->altkategori_id =$request->subcategory;
         $user->name =$request->firma_unvan;
         $user->email =$request->email;
         $user->youtube_link =$request->video_url;
@@ -122,6 +124,6 @@ class MusteriController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

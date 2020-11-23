@@ -97,6 +97,8 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+
+        $user->altkategori_id =$request->subcategory;
         $user->name =$request->firma_unvan;
         $user->email =$request->email;
         $user->youtube_link =$request->video_url;

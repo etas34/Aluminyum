@@ -1,6 +1,9 @@
-@extends('Admin.layouts.main')
-@section('content')
+@extends('Admin.layouts.mainFront')
 
+@section('content')
+    <style>
+
+    </style>
     <div class="content-wrapper" style="min-height: 1203.6px;">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -11,11 +14,22 @@
                               enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="card-header">
-                                <h3 class="card-title"><strong>{{$user->name}}</strong> Bilgisi Düzenleme</h3>
+                                <h3 class="card-title"><strong>Firma</strong> Bilgisi Düzenleme</h3>
                             </div>
                             <div class="card-body">
                                 <div class="row">
 
+                                    @if($user->foto)
+                                        <label class="control-label">Seçili Logo</label>
+                                        <div  class="form-group col-md-12">
+                                            <img height="100" src="{{$user->foto}}">
+                                        </div>
+
+                                    @endif
+                                    <div class="form-group col-md-12">
+                                        <label class="control-label">Logo</label>
+                                        <input type="file"  name="foto" class="form-control" accept="image/*">
+                                    </div>
 
                                     <div class="col-md-12">
                                         <div class="form-group">
@@ -44,9 +58,6 @@
 
                                     </div>
 
-
-
-
                                     <div class="form-group col-md-6">
                                         <div class="form-group">
                                             <label>Telefon</label>
@@ -59,24 +70,45 @@
                                         <!-- /.form group -->
 
                                     </div>
+                                        <div class="form-group col-md-6">
+                                            <label>Üst Kategori Seçiniz</label>
 
-                                    <div class="col-md-12">
+                                            <select required class="form-control" id="category">
+
+                                                @foreach(\App\Kategori::all() as $values)
+                                                    <option  @if( (\App\Kategori::find(\App\AltKategori::find($user->altkategori_id))->first()->id) == $values->id )  selected @endif value="{{$values->id}}">{{$values->ust_kategori}}</option>
+                                                @endforeach
+                                            </select>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+
+                                        {{----}}
+                                        <div id="sub" class="form-group col-md-6">
+                                            <label>Alt Kategori Seçiniz</label>
+
+                                            <select class="form-control" name="subcategory" id="subcategory">
+                                                @foreach(\App\Kategori::all() as $values)
+                                                    <optgroup label="{{$values->id}}">
+                                                        @foreach(\App\AltKategori::where('ust_kategori_id','=',$values->id)->get() as $values2)
+                                                            <option @if($user->altkategori_id ==$values2->id ) selected @endif  value="{{$values2->id}}">{{$values2->alt_kategori}}</option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                @endforeach
+                                            </select>
+                                            <!-- /.input group -->
+                                        </div>
+                                        <!-- /.form group -->
+
+
+                                        <div class="col-md-12">
                                         <div class="form-group">
                                             <label>YouTube Video Linki</label>
                                             <input required type="text" value="{{$user->youtube_link}}" name="video_url" class="form-control" />
                                         </div>
 
                                     </div>
-                                    <div class="form-group col-md-6">
-                                        <label class="control-label">Logo</label>
-                                        <input type="file"  name="foto" class="form-control" accept="image/*">
-                                    </div>
-                                    @if($user->foto)
-                                        <div class="form-group col-md-6">
-                                            <img width="150" height="150" src="{{$user->foto}}">
-                                        </div>
 
-                                    @endif
 
 
 
@@ -119,6 +151,22 @@
 
 
     <script>
+        $(document).ready(function(){
+
+            // $( "#sub" ).hide();
+            var $optgroups = $('#subcategory > optgroup');
+
+            $("#category").on("change",function(){
+                $( "#sub" ).show();
+                var selectedVal = this.value;
+
+                // if (selectedVal == "")
+                //     $( "#sub" ).hide();
+
+
+                $('#subcategory').html($optgroups.filter('[label="'+selectedVal+'"]'));
+            });
+        });
         $("#phone").inputmask({"mask": "(999) 999-9999"});
         $(function () {
             // Summernote

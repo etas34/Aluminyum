@@ -38,13 +38,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="../forms/general.html" class="nav-link">
+                            <a href="{{route('urun.create')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Yeni Ekle</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="../forms/advanced.html" class="nav-link">
+                            <a href="{{route('urun.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Ürünler</p>
                             </a>
