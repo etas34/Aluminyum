@@ -42,7 +42,8 @@
                     <li class="nav-item"><a href="#" class="nav-link">How it works?</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Calendar</a></li>
                     <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
-                    <li class="nav-item"><a href="{{route('login')}}" class="nav-link"><button class="btn btn-outline-danger">LOGİN</button></a></li>
+                  @if(Auth::check())<li class="nav-item"><a href="{{route('home')}}" class="nav-link"><button class="btn btn-outline-danger">{{Auth::user()['name']}}</button></a></li>
+                  @else  <li class="nav-item"><a href="{{route('login')}}" class="nav-link"><button class="btn btn-outline-danger">LOGİN</button></a></li>  @endif
                 </ul>
             </div>
         </nav>
