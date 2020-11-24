@@ -18,6 +18,17 @@ class UserController extends Controller
         $users = User::all();
         return view('Admin.user.index', compact('users'));
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function onaylanmamis()
+    {
+        $users = User::where('durum','=',0)
+        ->get();
+        return view('Admin.user.index', compact('users'));
+    }
 
     /**
      * Show the form for creating a new resource.
