@@ -17,10 +17,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('preventBackHistory');
-    }
     /**
      * Show the application dashboard.
      *

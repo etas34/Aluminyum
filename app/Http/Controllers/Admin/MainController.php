@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
 
+
     /**
      * Create a new controller instance.
      *

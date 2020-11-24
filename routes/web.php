@@ -40,10 +40,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('login.submit');
     Route::post('logout/', 'Auth\AdminLoginController@logout')->name('logout');
-    Route::get('/', 'Admin\MainController@index')->name('dashboard');
+    Route::get('/', 'Admin\MainController@index')->name('dashboard')->middleware('authAdmin');
 
 
-    Route::group(['prefix'=>'bulten','as'=>'bulten.'],function (){
+    Route::group(['prefix'=>'bulten','as'=>'bulten.','middleware'=>'authAdmin'],function (){
         Route::get('/', 'Admin\BultenController@index')->name('index');
         Route::get('/create', 'Admin\BultenController@create')->name('create');
         Route::post('/create', 'Admin\BultenController@store')->name('store');
@@ -51,7 +51,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::post('/update/{bulten}', 'Admin\BultenController@update')->name('update');
         Route::get('/delete/{bulten}', 'Admin\BultenController@destroy')->name('destroy');
     });
-    Route::group(['prefix'=>'kategori','as'=>'kategori.'],function (){
+    Route::group(['prefix'=>'kategori','as'=>'kategori.','middleware'=>'authAdmin'],function (){
         Route::get('/indexUst', 'Admin\KategoriController@indexUst')->name('indexUst');
         Route::get('/indexAlt', 'Admin\KategoriController@indexAlt')->name('indexAlt');
         Route::get('/createUst', 'Admin\KategoriController@createUst')->name('createUst');
@@ -66,7 +66,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::any('/deleteAlt/{altkategori}', 'Admin\KategoriController@destroyAlt')->name('destroyAlt');
 
     });
-    Route::group(['prefix'=>'user','as'=>'user.'],function (){
+    Route::group(['prefix'=>'user','as'=>'user.','middleware'=>'authAdmin'],function (){
         Route::get('/', 'Admin\UserController@index')->name('index');
         Route::get('/onaylanmamis', 'Admin\UserController@onaylanmamis')->name('onaylanmamis');
         Route::get('/create', 'Admin\UserController@create')->name('create');

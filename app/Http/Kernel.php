@@ -64,5 +64,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'preventBackHistory' => \App\Http\Middleware\PreventBackHistory::class,
         'musteriOnay' => \App\Http\Middleware\musteriOnay::class,
+        'authAdmin' => \App\Http\Middleware\authAdmin::class,
     ];
 }
