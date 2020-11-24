@@ -140,6 +140,16 @@
                                     </div>
 
 
+                                        <div class="form-group col-md-12">
+                                        <label class="control-label">Anahtar Kelimeler</label>
+                                            <input height="100" name="anahtar_kelime" id="tag" placeholder="örn : (Aluminyum - Aluminium Sheet - Aluminium Sheet  )" value="{{$user->anahtar_kelime}}">
+                                    </div>
+                                         <div class="form-group col-md-12">
+                                        <label class="control-label">Katıldığı Fuarlar</label>
+                                            <input name="fuar" id="tag2" placeholder="örn : (European Aluminium 2019 - European Aluminium 2019 - European Aluminium 2018 )" value="{{$user->fuar}}">
+                                    </div>
+
+
 
                                 </div>
                                 <p style="padding: 19px"></p>
@@ -165,6 +175,8 @@
 
 
     <script>
+        $('#tag').tagify();
+        $('#tag2').tagify();
         $(document).ready(function () {
 
 

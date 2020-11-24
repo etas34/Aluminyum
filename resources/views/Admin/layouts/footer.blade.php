@@ -1,7 +1,7 @@
 
 <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-        <b>Version</b> 1.0.1
+        <b>Version</b> 1.0.0
     </div>
     <strong>Copyright &copy; 2020 Turkish Metal Developed By   <a href="https://www.omerli.co/">omerli.co </a> & <a href="http://www.felixartstudios.com/">felixartstudios.com </a></strong> All rights
     reserved.
@@ -17,6 +17,7 @@
 
 <!-- jQuery -->
 <script src="{{asset('public/adminlte/plugins/jquery/jquery.min.js')}}"></script>
+<script src="{{asset('public/adminlte/plugins/tagify/jQuery.tagify.min.js')}}"></script>
 <!-- Bootstrap 4 -->
 <script src="{{asset('public/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- DataTables -->

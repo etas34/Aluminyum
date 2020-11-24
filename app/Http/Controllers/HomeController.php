@@ -52,6 +52,11 @@ class HomeController extends Controller
 
         return view('contact');
     }
+    public function about()
+    {
+
+        return view('about');
+    }
     public function details(User $user)
     {
         $urun = Urun::where('user_id','=',$user->id)

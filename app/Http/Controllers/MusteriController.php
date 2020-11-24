@@ -77,6 +77,7 @@ class MusteriController extends Controller
     {
 
         $user = \App\User::find(Auth::id());
+
         $user->altkategori_id =$request->subcategory;
         $user->name =$request->firma_unvan;
         $user->email =$request->email;
@@ -100,6 +101,8 @@ class MusteriController extends Controller
 
         $user->adres =$request->adres;
         $user->hakkimizda =$request->hakkimizda;
+        $user->anahtar_kelime = $request->anahtar_kelime;
+        $user->fuar = $request->fuar;
 
         $saved = $user->save();
 

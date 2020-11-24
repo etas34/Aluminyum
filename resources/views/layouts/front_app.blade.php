@@ -37,7 +37,7 @@
 
             <div class="collapse navbar-collapse" id="mynav">
                 <ul class="navbar-nav align-items-lg-center ml-auto">
-                    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="{{route('news')}}" class="nav-link">News</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">How it works?</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Calendar</a></li>

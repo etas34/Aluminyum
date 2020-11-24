@@ -6,6 +6,7 @@
     <title>Bayi Panel</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{{asset('public/adminlte/plugins/tagify/tagify.css')}}" rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('public/adminlte/plugins/fontawesome-free/css/all.min.css')}}">

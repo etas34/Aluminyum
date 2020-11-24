@@ -159,27 +159,23 @@
             <div class="row mb-4">
                 <div class="col-12">
                     <h4>Keywords</h4>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium Disc</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium Sheet</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium Disc</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium Sheet</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium Disc</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium Sheet</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">Aluminium</button>
-
+                    @if($user->anahtar_kelime)
+                        @foreach(json_decode($user->anahtar_kelime) as $value)
+                             <button class="btn btn-outline-secondary mr-2 mb-2">{{$value->value}}</button>
+                        @endforeach
+                    @endif
                 </div>
             </div>
             <div class="row">
                 <div class="col-12">
                     <h4>Fairs Participated</h4>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">European Aluminium 2020</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">European Aluminium 2019</button>
-                    <button class="btn btn-outline-secondary mr-2 mb-2">European Aluminium 2018</button>
+                    @if($user->fuar)
+                        @foreach(json_decode($user->fuar) as $value)
+                            <button class="btn btn-outline-secondary mr-2 mb-2">{{$value->value}}</button>
+                        @endforeach
+                    @endif
+
+
                 </div>
             </div>
         </div>
