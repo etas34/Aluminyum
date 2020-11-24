@@ -125,7 +125,8 @@
 
                     data.forEach(function(firma) {
 
-
+                        var url = '{{ route("details", ":id") }}';
+                            url = url.replace(':id', firma['id']);
                             var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
                                 '<div class="card">' +
                                 '<div class="card-header">' +
@@ -133,7 +134,7 @@
                                 '</div>' +
                                 '<div class="card-footer text-center bg-white">' +
                                 '<p class="card-text">' +
-                                firma['name']+'<br />' +
+                                '<a href="'+url+'"> '+firma['name']+'</a><br />' +
                                 '</p></div></div></div>';
 
                         $("#firmaAppend").append(temp);
@@ -174,6 +175,9 @@
                     data.forEach(function(firma) {
 
 
+
+                        var url = '{{ route("details", ":id") }}';
+                        url = url.replace(':id', firma['id']);
                         var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
                             '<div class="card">' +
                             '<div class="card-header">' +
@@ -181,7 +185,7 @@
                             '</div>' +
                             '<div class="card-footer text-center bg-white">' +
                             '<p class="card-text">' +
-                            firma['name']+'<br />' +
+                            '<a href="'+url+'"> '+firma['name']+'</a><br />' +
                             '</p></div></div></div>';
 
                         $("#firmaAppend").append(temp);
@@ -252,6 +256,9 @@
                         data.forEach(function(firma) {
 
 
+
+                            var url = '{{ route("details", ":id") }}';
+                            url = url.replace(':id', firma['id']);
                             var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
                                 '<div class="card">' +
                                 '<div class="card-header">' +
@@ -259,7 +266,7 @@
                                 '</div>' +
                                 '<div class="card-footer text-center bg-white">' +
                                 '<p class="card-text">' +
-                                firma['name']+'<br />' +
+                                '<a href="'+url+'"> '+firma['name']+'</a><br />' +
                                 '</p></div></div></div>';
 
                             $("#firmaAppend").append(temp);

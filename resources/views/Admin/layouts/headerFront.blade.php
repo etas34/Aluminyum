@@ -56,17 +56,23 @@
                     <!-- Menu Body -->
                     <li class="user-body">
 
-                        <div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-user-cog mr-4"></i> Ayarlar
-                            </a>
-                        </div>                <!-- /.row -->
+{{--                        <div>--}}
+{{--                            <a href="#" class="dropdown-item">--}}
+{{--                                <i class="fas fa-user-cog mr-4"></i> Ayarlar--}}
+{{--                            </a>--}}
+{{--                        </div>                <!-- /.row -->--}}
 
                         <hr>
                         <div>
-                            <a href="#" class="dropdown-item">
+                            <a class="dropdown-item"  href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                 <i class="fas fa-power-off mr-4"></i> Çıkış
                             </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
                     </li>
 

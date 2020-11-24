@@ -59,11 +59,11 @@
                     <!-- Menu Body -->
                     <li class="user-body">
 
-                        <div>
-                            <a href="#" class="dropdown-item">
-                                <i class="fas fa-user-cog mr-4"></i> Ayarlar
-                            </a>
-                        </div>                <!-- /.row -->
+{{--                        <div>--}}
+{{--                            <a href="#" class="dropdown-item">--}}
+{{--                                <i class="fas fa-user-cog mr-4"></i> Ayarlar--}}
+{{--                            </a>--}}
+{{--                        </div>                <!-- /.row -->--}}
 
                         <hr>
                         <div>
