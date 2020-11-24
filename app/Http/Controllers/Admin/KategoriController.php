@@ -145,7 +145,7 @@ class KategoriController extends Controller
         $path = public_path('icons');
         $files = File::files($path);
         $kategori = Kategori::all();
-        return view('admin.kategori.editAlt',compact('altkategori','kategori','files'));
+        return view('Admin.kategori.editAlt',compact('altkategori','kategori','files'));
     }
 
     /**
