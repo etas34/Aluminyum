@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $firma=User::where('durum',1)->get();
+        $firma=User::where('durum',1)->paginate(9);
         $ustkategori=Kategori::all();
         $ustkategori_ilk=Kategori::first();
         $altkategori=AltKategori::where('ust_kategori_id',$ustkategori_ilk->id)->get();

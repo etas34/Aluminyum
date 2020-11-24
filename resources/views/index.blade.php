@@ -77,7 +77,7 @@
                     </div>
                     <div class="card-footer text-center bg-white">
                         <p class="card-text">
-                           <a href="{{route('details',$value->id)}}"> {{$value->name}}</a>
+                           <a style="color: #212529;" href="{{route('details',$value->id)}}"> {{$value->name}}</a>
                         </p>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                                 '</div>' +
                                 '<div class="card-footer text-center bg-white">' +
                                 '<p class="card-text">' +
-                                '<a href="'+url+'"> '+firma['name']+'</a><br />' +
+                                '<a  style="color: #212529;" href="'+url+'"> '+firma['name']+'</a><br />' +
                                 '</p></div></div></div>';
 
                         $("#firmaAppend").append(temp);
@@ -185,7 +185,7 @@
                             '</div>' +
                             '<div class="card-footer text-center bg-white">' +
                             '<p class="card-text">' +
-                            '<a href="'+url+'"> '+firma['name']+'</a><br />' +
+                            '<a style="color: #212529;"  href="'+url+'"> '+firma['name']+'</a><br />' +
                             '</p></div></div></div>';
 
                         $("#firmaAppend").append(temp);
@@ -237,6 +237,9 @@
             var element =document.getElementById('ustkat'+ustkategori_id.value);
             element.classList.remove("btn-outline-secondary");
             element.classList.add("btn-danger");
+
+
+
             $('.firma').remove();
             $('.altkategori').remove();
 
@@ -266,7 +269,7 @@
                                 '</div>' +
                                 '<div class="card-footer text-center bg-white">' +
                                 '<p class="card-text">' +
-                                '<a href="'+url+'"> '+firma['name']+'</a><br />' +
+                                '<a style="color: #212529;"  href="'+url+'"> '+firma['name']+'</a><br />' +
                                 '</p></div></div></div>';
 
                             $("#firmaAppend").append(temp);
