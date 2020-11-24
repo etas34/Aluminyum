@@ -82,7 +82,7 @@ Route::Group(['prefix'=>'firma','middleware'=>'auth'],function() {
     Route::get('/edit','MusteriController@edit')->name('musteri.edit');
     Route::post('/edit','MusteriController@update')->name('musteri.update');
 }) ;
-Route::Group(['prefix'=>'urun','as'=>'urun.','middleware'=>'auth'],function() {
+Route::Group(['prefix'=>'urun','as'=>'urun.','middleware' => ['auth', 'musteriOnay']],function() {
     Route::get('/','UrunController@index')->name('index');
     Route::get('/create','UrunController@create')->name('create');
     Route::get('/edit/{urun}','UrunController@edit')->name('edit');
