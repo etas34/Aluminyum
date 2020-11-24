@@ -15,17 +15,18 @@
                 </p>
                 <div class="row mb-5">
                     <div class="col-md-3 mb-3 mb-md-0">
-                        <select name="cat" class="form-control">
-                            <option value="1">Categories</option>
-                            <option value="2">cat 1</option>
-                            <option value="3">cat 2</option>
+                        <select name="cat" id="category" class="form-control">
+
+                            @foreach($ustkategori as $key=>$value)
+                            <option value="{{$value->id}}">{{$value->ust_kategori}}</option>
+                                @endforeach
                         </select>
                     </div>
                     <div class="col-md-7 mb-3 mb-md-0">
-                        <input type="text" class="form-control" placeholder="Search Product Name, Company or Brand Name" />
+                        <input type="text" id="searchinput" class="form-control" placeholder="Search Category Name" />
                     </div>
                     <div class="col-md-2">
-                        <button class="btn btn-danger">SEARCH</button>
+                        <button class="btn btn-danger" onclick="myFunction3(this)">SEARCH</button>
                     </div>
                 </div>
                 <a href="javascript:void(0);" class="toBottom text-dark"><img src="{{asset('public/assets/images/arrow-down.svg')}}" alt="" /></a>
@@ -36,7 +37,7 @@
 <!-- hero end -->
 
 <!-- filter start -->
-<div class="filter">
+<div id="filtre" class="filter">
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-12">
@@ -48,7 +49,7 @@
             <div class="col-12 filterBtn">
 
                 @foreach($ustkategori as $key=>$value)
-                <button class="btn @if($key==0) btn-danger @else btn-outline-secondary @endif mr-2 mb-2 mb-md-0"  onclick="myFunction2(this)" data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
+                <button class="btn @if($key==0) btn-danger @else btn-outline-secondary @endif mr-2 mb-2 mb-md-0 ustkategori" id="ustkat{{$value->id}}" onclick="myFunction2(this)" data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
                     @endforeach
 
             </div>
@@ -217,6 +218,87 @@
 
 
         });
+
+        }
+
+
+        function myFunction3() {
+            var ustkategori_id = document.getElementById("category");
+            var text = document.getElementById("searchinput");
+            // alert(text.value);
+            location.href = "#filtre";
+
+
+            $('.ustkategori').removeClass("btn-danger").addClass("btn-outline-secondary");
+            var element =document.getElementById('ustkat'+ustkategori_id.value);
+            element.classList.remove("btn-outline-secondary");
+            element.classList.add("btn-danger");
+            $('.firma').remove();
+            $('.altkategori').remove();
+
+            var x = ustkategori_id.value;
+            $.ajax({
+
+                type:'POST',
+                url: '{{ route('getUser3') }}',
+
+                data:{
+                    ustkategori_id:x,
+                    text:text.value,
+                    },
+
+                success:function(data){
+
+                        data.forEach(function(firma) {
+
+
+                            var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
+                                '<div class="card">' +
+                                '<div class="card-header">' +
+                                '<img class="card-img-top" src="'+firma['logo']+'" alt="..." height="255" width="360" />' +
+                                '</div>' +
+                                '<div class="card-footer text-center bg-white">' +
+                                '<p class="card-text">' +
+                                firma['name']+'<br />' +
+                                '</p></div></div></div>';
+
+                            $("#firmaAppend").append(temp);
+                        });
+
+
+                    }
+
+
+            });
+
+
+
+            $.ajax({
+
+                type:'POST',
+                url: '{{ route('getAltkategori') }}',
+
+                data:{ustkategori_id:x},
+
+                success:function(data){
+
+                    console.log(data);
+
+                    data.forEach(function(altkategori) {
+
+
+                        var temp='<button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/assets/images')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
+
+                        $("#altkategoriappend").append(temp);
+                    });
+
+                    // $("#ad").val(data.ad);
+
+                }
+
+
+            });
+
 
         }
 

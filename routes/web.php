@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
-
+Auth::routes([
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
 //cache temizleme
 Route::get('/reset', function(){
     Artisan::call('config:cache');
@@ -37,7 +39,7 @@ Route::post('/schedule', 'HomeController@schedule')->name('schedule');
 Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('login');
     Route::post('/login', 'Auth\AdminLoginController@login')->name('login.submit');
-    Route::get('logout/', 'Auth\AdminLoginController@logout')->name('logout');
+    Route::post('logout/', 'Auth\AdminLoginController@logout')->name('logout');
     Route::get('/', 'Admin\MainController@index')->name('dashboard');
 
 
@@ -90,4 +92,5 @@ Route::Group(['prefix'=>'urun','as'=>'urun.','middleware'=>'auth'],function() {
 
 Route::post('/get', 'Admin\UserController@getUserbyId')->name('getUser');
 Route::post('/get2', 'Admin\UserController@getUserbyId2')->name('getUser2');
+Route::post('/get3', 'Admin\UserController@getUserbyId3')->name('getUser3');
 Route::post('/getAltkategori', 'Admin\KategoriController@getAltkategori')->name('getAltkategori');

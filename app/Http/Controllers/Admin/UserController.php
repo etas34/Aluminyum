@@ -164,6 +164,21 @@ class UserController extends Controller
         return response()->json($user);
 
     }
+    public function getUserbyId3(Request $request)
+
+    {
+
+        $user =User::where('durum',1)
+            ->join('alt_kategoris','users.altkategori_id','=','alt_kategoris.id')
+            ->select('users.*')
+            ->where('ust_kategori_id',$request->ustkategori_id)
+            ->where('alt_kategori', 'like', '%' . $request->text . '%')->get();
+
+
+        return response()->json($user);
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *

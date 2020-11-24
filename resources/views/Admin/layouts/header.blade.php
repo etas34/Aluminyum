@@ -67,9 +67,15 @@
 
                         <hr>
                         <div>
-                            <a href="#" class="dropdown-item">
+                            <a class="dropdown-item"  href="{{ route('admin.logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                 <i class="fas fa-power-off mr-4"></i> Çıkış
                             </a>
+
+                            <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </div>
                     </li>
 
