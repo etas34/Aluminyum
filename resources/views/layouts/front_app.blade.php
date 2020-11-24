@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!-- googlefonts -->
@@ -37,10 +38,10 @@
             <div class="collapse navbar-collapse" id="mynav">
                 <ul class="navbar-nav align-items-lg-center ml-auto">
                     <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">News</a></li>
+                    <li class="nav-item"><a href="{{route('news')}}" class="nav-link">News</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">How it works?</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Calendar</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><button class="btn btn-outline-danger">LOGİN</button></a></li>
                 </ul>
             </div>
@@ -115,6 +116,8 @@
 
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

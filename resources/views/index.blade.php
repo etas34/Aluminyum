@@ -76,7 +76,7 @@
                     </div>
                     <div class="card-footer text-center bg-white">
                         <p class="card-text">
-                            {{$value->name}}
+                           <a href="{{route('details',$value->id)}}"> {{$value->name}}</a>
                         </p>
                     </div>
                 </div>

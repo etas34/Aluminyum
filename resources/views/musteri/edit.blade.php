@@ -78,12 +78,12 @@
                                         <select required class="form-control" id="category">
 
                                             @foreach(\App\Kategori::all() as $values)
-                                                <option  @if( (\App\Kategori::find(\App\AltKategori::find($user->altkategori_id))->first()->id) == $values->id )  selected @endif value="{{$values->id}}">{{$values->ust_kategori}}</option>
+                                                <option @if($user->altkategori_id) @if( (\App\Kategori::find(\App\AltKategori::find($user->altkategori_id))->first()->id) == $values->id )  selected @endif  @endif value="{{$values->id}}">{{$values->ust_kategori}}</option>
                                             @endforeach
                                         </select>
                                         <!-- /.input group -->
                                     </div>
-                     
+
 {{----}}
                                     <div id="sub" class="form-group col-md-6">
                                         <label>Alt Kategori Seçiniz</label>

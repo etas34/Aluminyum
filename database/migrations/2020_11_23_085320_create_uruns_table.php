@@ -15,6 +15,7 @@ class CreateUrunsTable extends Migration
     {
         Schema::create('uruns', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
             $table->string('foto');
             $table->string('ad');
             $table->text('aciklama')->nullable();

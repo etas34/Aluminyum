@@ -40,9 +40,10 @@
                                                         <td>{{$value->altkategori_id}}</td>
                                                         <td>{{$value->phone}}</td>
                                                         <td>{{$value->adres}}</td>
-                                                        <td>@if($value->durum==1)Evet @else Hayır @endif</td>
-                                                        <td>  <a href="{{route('admin.user.onayla',$value)}}" onclick="return confirm('Kullanıcı Kaydı Onaylanacak, Emin misiniz?')"><span
-                                                                    class="badge bg-@if($value->durum==1){{'success'}}@else{{'danger'}}@endif p-2">Onayla</span></a></td>
+                                                        <td>@if($value->durum==1)<p  class="bg-success">Evet<p> @else <p  class="bg-danger">Hayır<p>   @endif</td>
+                                                          <td>@if($value->durum==0)  <a href="{{route('admin.user.onayla',$value)}}" onclick="return confirm('Kullanıcı Kaydı Onaylanacak, Emin misiniz?')"><span
+                                                                    class="badge bg-success p-2">Onayla</span></a>        @endif </td>
+
                                                         <td>
                                                             <a href="{{route('admin.user.edit',$value)}}"><span
                                                                     class="badge bg-warning p-2">Düzenle</span></a>

@@ -1,6 +1,7 @@
 @extends('Admin.layouts.main')
 @section('content')
 
+
     <div class="content-wrapper" style="min-height: 1203.6px;">
         <!-- Main content -->
         <section class="content">
@@ -23,7 +24,7 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Fotoğraf</label>
-                                        <input type="file"  name="foto" class="form-control" accept="image/*"  required>
+                                        <input type="file"  name="foto" class="form-control" accept="image/*" >
                                     </div>
 
                                     <div class="form-group col-md-12">
@@ -34,9 +35,8 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">İçerik</label>
-                                         <textarea class="form-control" name="icerik" id="textarea" required>{{$bulten->icerik}}</textarea>
+                                        <textarea class="form-control" name="icerik" id="textarea" required>{{$bulten->icerik}}</textarea>
                                     </div>
-
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Tarih</label>
                                         <input type="text" class="form-control pull-right" name="tarih" value="{{$bulten->tarih}}" id="tarih">
@@ -71,19 +71,50 @@
             // Summernote
             $('#textarea').summernote({
 
-                height: 300,
+                    height: 300,
                 }
             );
+
 
             $('#tarih').daterangepicker({
 
                 singleDatePicker:true,
                 locale: {
-                    format: 'DD/MM/YYYY'
+                    format: 'DD/MM/YYYY',
+                    "separator": " - ",
+                    "applyLabel": "Uygula",
+                    "cancelLabel": "Vazgeç",
+                    "fromLabel": "Dan",
+                    "toLabel": "a",
+                    "customRangeLabel": "Seç",
+                    "daysOfWeek": [
+                        "Pt",
+                        "Sl",
+                        "Çr",
+                        "Pr",
+                        "Cm",
+                        "Ct",
+                        "Pz"
+                    ],
+                    "monthNames": [
+                        "Ocak",
+                        "Şubat",
+                        "Mart",
+                        "Nisan",
+                        "Mayıs",
+                        "Haziran",
+                        "Temmuz",
+                        "Ağustos",
+                        "Eylül",
+                        "Ekim",
+                        "Kasım",
+                        "Aralık"
+                    ],
+                    "firstDay": 1
                 }
             })
         })
     </script>
 
 
-    @endpush
+@endpush

@@ -28,10 +28,10 @@
                                     </div>
 
 
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Açıklama</label>
-                                         <textarea class="form-control" name="aciklama" id="textarea" ></textarea>
-                                    </div>
+{{--                                    <div class="form-group col-md-12">--}}
+{{--                                        <label class="control-label">Açıklama</label>--}}
+{{--                                         <textarea class="form-control" name="aciklama" id="textarea" ></textarea>--}}
+{{--                                    </div>--}}
 
 
                                 </div>

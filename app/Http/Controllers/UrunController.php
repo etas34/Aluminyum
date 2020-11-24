@@ -15,7 +15,7 @@ class UrunController extends Controller
      */
     public function index()
     {
-        $urun = Urun::all();
+        $urun = Urun::where('user_id','=',\Auth::id())->get();
         return view('urun.index',compact('urun'));
     }
 
@@ -56,6 +56,7 @@ class UrunController extends Controller
             $urun->foto=url($image_url);
 
         }
+        $urun->user_id = \Auth::id();
         $urun->ad = $request->ad;
         $urun->aciklama	= $request->aciklama;
         $saved = $urun->save();

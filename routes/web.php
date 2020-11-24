@@ -25,7 +25,13 @@ Route::get('/reset', function(){
 
 });
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('/news', 'HomeController@news')->name('news');
+Route::get('/details/{user}', 'HomeController@details')->name('details');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/news/detay/{bulten}', 'HomeController@newsdetay')->name('newsdetay');
 Route::get('/home', 'HomeController@home')->name('home')->middleware('auth');
+Route::post('/contact', 'HomeController@contactform')->name('contactform');
+Route::post('/schedule', 'HomeController@schedule')->name('schedule');
 
 
 Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
