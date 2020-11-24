@@ -74,7 +74,7 @@
 
 
 
-
+@if(strpos($user->youtube_link,'='))
         <hr/>
         <div class="video-wrapper py-5">
             <div class="container">
@@ -105,6 +105,7 @@
             </div>
         </div>
         <hr/>
+        @endif
         <!-- threebox slider start -->
         <div class="container py-5">
             <div class="row justify-content-center mb-5">
