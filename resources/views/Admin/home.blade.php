@@ -11,9 +11,9 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>Yeni Bülten Ekle<sup style="font-size: 20px"></sup></h3>
+                                <h3>&nbsp;<sup style="font-size: 20px"></sup></h3>
 
-                                <p>&nbsp;</p>
+                                <p>Yeni Bülten Ekle</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-plus-circled"></i>
