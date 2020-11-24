@@ -42,7 +42,7 @@
                     <li class="nav-item"><a href="#" class="nav-link">How it works?</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">Calendar</a></li>
                     <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><button class="btn btn-outline-danger">LOGİN</button></a></li>
+                    <li class="nav-item"><a href="{{route('login')}}" class="nav-link"><button class="btn btn-outline-danger">LOGİN</button></a></li>
                 </ul>
             </div>
         </nav>
