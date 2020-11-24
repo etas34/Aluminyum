@@ -16,7 +16,7 @@
                 <div  class=" col-md-7 ml-auto mr-8">
 
                     <div style="text-align: center;">
-                        <h2>Giriş Yap</h2>
+                        <h2>Kayıt Ol</h2>
                     </div>
 
                     <div class="card-body">
