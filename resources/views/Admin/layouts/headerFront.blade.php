@@ -56,11 +56,13 @@
                     <!-- Menu Body -->
                     <li class="user-body">
 
-{{--                        <div>--}}
-{{--                            <a href="#" class="dropdown-item">--}}
-{{--                                <i class="fas fa-user-cog mr-4"></i> Ayarlar--}}
-{{--                            </a>--}}
-{{--                        </div>                <!-- /.row -->--}}
+                        <div>
+                            <a href="{{route('musteri.edit')}}" class="dropdown-item">
+                                <i class="nav-icon fas fa-user">
+                                   &nbsp;&nbsp; Firma Ayarları
+                                </i>
+                            </a>
+                        </div>                <!-- /.row -->
 
                         <hr>
                         <div>

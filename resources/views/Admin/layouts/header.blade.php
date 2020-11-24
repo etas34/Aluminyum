@@ -65,7 +65,7 @@
 {{--                            </a>--}}
 {{--                        </div>                <!-- /.row -->--}}
 
-                        <hr>
+{{--                        <hr>--}}
                         <div>
                             <a class="dropdown-item"  href="{{ route('admin.logout') }}"
                                onclick="event.preventDefault();
