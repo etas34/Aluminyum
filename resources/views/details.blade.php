@@ -53,7 +53,7 @@
         </div>
         <div class="detailbg">
             <img src="{{asset('public/assets/images/detaybg.svg')}}" alt="..." class="img-fluid"/>
-            <img height="300" width="300" src="{{$user->logo}}" alt="..." class="detail-logo"/>
+            <img height="200" width="200" src="{{$user->logo}}" alt="..." class="detail-logo"/>
         </div>
 
 
@@ -74,7 +74,7 @@
 
 
 
-@if(strpos($user->youtube_link,'='))
+@if(strpos($user->youtube_link,'?v='))
         <hr/>
         <div class="video-wrapper py-5">
             <div class="container">
@@ -97,7 +97,7 @@
                                 height: 100%;
                             }</style>
                         <div class='embed-container'>
-                            <iframe src='https://www.youtube.com/embed/{{explode("=",$user->youtube_link)[1]}}' frameborder='0'
+                            <iframe src='https://www.youtube.com/embed/{!! explode("?v=",$user->youtube_link)[1] !!}' frameborder='0'
                                     allowfullscreen></iframe>
                         </div>
                     </div>
