@@ -18,7 +18,7 @@ class KategoriController extends Controller
     public function indexUst()
     {
         $kategori = Kategori::all();
-        return view('admin.kategori.indexUst',compact('kategori'));
+        return view('Admin.kategori.indexUst',compact('kategori'));
     }
     /**
      * Display a listing of the resource.
@@ -28,7 +28,7 @@ class KategoriController extends Controller
     public function indexAlt()
     {
         $altkategori = AltKategori::all();
-        return view('admin.kategori.indexAlt',compact('altkategori'));
+        return view('Admin.kategori.indexAlt',compact('altkategori'));
     }
 
     /**
@@ -39,7 +39,7 @@ class KategoriController extends Controller
     public function createUst()
     {
 
-        return view('admin.kategori.createUst');
+        return view('Admin.kategori.createUst');
     }
 
     /**
@@ -52,7 +52,7 @@ class KategoriController extends Controller
         $path = public_path('icons');
         $files = File::files($path);
         $kategori = Kategori::all();
-        return view('admin.kategori.createAlt',compact('kategori','files'));
+        return view('Admin.kategori.createAlt',compact('kategori','files'));
 
     }
 
@@ -132,7 +132,7 @@ class KategoriController extends Controller
     {
 
 
-        return view('admin.kategori.editUst',compact('kategori'));
+        return view('Admin.kategori.editUst',compact('kategori'));
     }
     /**
      * Show the form for editing the specified resource.

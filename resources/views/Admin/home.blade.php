@@ -58,7 +58,7 @@
                             <div class="inner">
                                 <h3>{{\App\User::where('durum','=',0)->count()}}</h3>
 
-                                <p>Onaylanmamış Bayiler</p>
+                                <p>Onay Bekleyen Bayiler</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-close-circled"></i>
