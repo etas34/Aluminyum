@@ -73,11 +73,11 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-12">
-                    <button class="btn btn-outline-secondary mb-2 mr-2">About</button>
-                    <button class="btn btn-outline-secondary mb-2 mr-2">New</button>
+                    <a href="{{route('about')}}" class="btn btn-outline-secondary mb-2 mr-2">About</a>
+                    <a href="{{route('news')}}" class="btn btn-outline-secondary mb-2 mr-2">News</a>
                     <button class="btn btn-outline-secondary mb-2 mr-2">How it works</button>
                     <button class="btn btn-outline-secondary mb-2 mr-2">Calendar</button>
-                    <button class="btn btn-outline-secondary mb-2 mr-2">Contact</button>
+                    <a href="{{route('contact')}}" class="btn btn-outline-secondary mb-2 mr-2">Contact</a>
                     <button class="btn btn-outline-secondary mb-2">Üyelik</button> <br />
                     <button class="btn btn-outline-secondary mb-2 mr-2">Proﬁle</button>
                     <button class="btn btn-outline-secondary mb-2 mr-2">My Meetings</button>
