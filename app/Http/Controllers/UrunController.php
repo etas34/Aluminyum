@@ -58,6 +58,8 @@ class UrunController extends Controller
         $urun->user_id = \Auth::id();
         $urun->ad = $request->ad;
         $urun->aciklama = $request->aciklama;
+        $urun->kategori_id = $request->category;
+        $urun->alt_kategori_id = $request->subcategory;
         $saved = $urun->save();
 
         if ($saved)
@@ -124,6 +126,9 @@ class UrunController extends Controller
 
             }
             $urun->ad = $request->ad;
+            $urun->aciklama = $request->aciklama;
+            $urun->kategori_id = $request->category;
+            $urun->alt_kategori_id = $request->subcategory;
             $urun->aciklama = $request->aciklama;
             $saved = $urun->save();
 

@@ -91,6 +91,12 @@ Route::Group(['prefix'=>'urun','as'=>'urun.','middleware' => ['auth', 'musteriOn
     Route::post('/edit/{urun}','UrunController@update')->name('update');
     Route::any('/delete/{urun}','UrunController@destroy')->name('destroy');
 }) ;
+Route::Group(['prefix'=>'gorusme','as'=>'gorusme.','middleware' => ['auth', 'musteriOnay']],function() {
+    Route::get('/','GorusmeController@index')->name('index');
+    Route::get('/bekleme/{gorusme}','GorusmeController@bekleme')->name('bekleme');
+    Route::get('/kabul/{gorusme}','GorusmeController@kabul')->name('kabul');
+    Route::any('/delete/{gorusme}','GorusmeController@destroy')->name('destroy');
+}) ;
 
 Route::post('/get', 'Admin\UserController@getUserbyId')->name('getUser');
 Route::post('/get2', 'Admin\UserController@getUserbyId2')->name('getUser2');

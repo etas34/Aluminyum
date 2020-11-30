@@ -136,7 +136,7 @@
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Hakkımızda</label>
                                         <textarea required class="form-control" name="hakkimizda"
-                                                  id="textarea">{{$user->hakkimizda}}</textarea>
+                                                >{{$user->hakkimizda}}</textarea>
                                     </div>
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Bulten;
 use App\AltKategori;
+use App\Gorusme;
 use App\Kategori;
 use App\Urun;
 use App\User;
@@ -110,6 +111,18 @@ class HomeController extends Controller
                 ->subject('Schedule Meeting');
             $message->from('afyonyazilimevi@gmail.com','Schedule Meeting');
         });
+        $gorusme = new Gorusme();
+        $gorusme->user_id = $request->user_id;
+        $gorusme->ad_soyad = $request->adSoyad;
+        $gorusme->mesaj = $request->mesaj;
+        $gorusme->tarih = $request->datetimes;
+        $gorusme->firma_unvan = $request->firmaUnvan;
+        $gorusme->tel = $request->telefon;
+        $gorusme->website = $request->website;
+        $gorusme->ulke = $request->ulke;
+        $saved = $gorusme->save();
+
+
 
         if (!Mail::failures())
             $notification=array(
@@ -121,6 +134,17 @@ class HomeController extends Controller
                 'messege'=>'Bir Şeyler Ters Gitti \nEMAIL_SERVER_ERROR',
                 'alert-type'=>'error'
             );
+
+
+
+
+
+
+
+
+
+
+
         return back()->with($notification);
 
 

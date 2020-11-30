@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUrunsTable extends Migration
+class CreateGorusmesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateUrunsTable extends Migration
      */
     public function up()
     {
-        Schema::create('uruns', function (Blueprint $table) {
+        Schema::create('gorusmes', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('foto');
-            $table->string('ad');
-            $table->text('aciklama')->nullable();
-            $table->id('kategori_id')->nullable();
-            $table->id('alt_kategori_id')->nullable();
+            $table->string('ad_soyad');
+            $table->text('mesaj');
+            $table->string('tarih');
+            $table->string('firma_unvan');
+            $table->string('tel');
+            $table->string('website');
+            $table->string('ulke');
+            $table->tinyInteger('durum')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +35,6 @@ class CreateUrunsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('uruns');
+        Schema::dropIfExists('gorusmes');
     }
 }

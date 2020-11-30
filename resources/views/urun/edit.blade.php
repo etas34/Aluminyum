@@ -18,6 +18,37 @@
                                 </div>
                                 <div class="card-body">
 
+<div class="row">
+
+                                    <div class="form-group col-md-6">
+                                        <label>Üst Kategori Seçiniz</label>
+
+                                        <select name="category" required class="form-control" id="category">
+
+                                            @foreach(\App\Kategori::all() as $values)
+                                            <option></option>
+                                                <option @if($urun->alt_kategori_id) @if(  $urun->kategori_id == $values->id  ) selected @endif  @endif value="{{ $values->id }}">{{ $values->ust_kategori }}</option>
+                                            @endforeach
+                                        </select>
+                                        <!-- /.input group -->
+                                    </div>
+
+                                    <div id="sub" class="form-group col-md-6">
+                                        <label>Alt Kategori Seçiniz</label>
+
+                                        <select class="form-control" name="subcategory" id="subcategory">
+                                            <option></option>
+
+                                        @foreach(\App\Kategori::all() as $values)
+                                                <optgroup label="{{$values->id}}">
+                                                    @foreach(\App\AltKategori::where('ust_kategori_id','=',$values->id)->get() as $values2)
+                                                        <option @if($urun->alt_kategori_id ==$values2->id ) selected @endif  value="{{$values2->id}}">{{$values2->alt_kategori}}</option>
+                                                    @endforeach
+                                                </optgroup>
+                                            @endforeach
+                                        </select>
+                                        <!-- /.input group -->
+                                    </div>
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Ürün Görseli</label><br>
                                         <img type="file" src="{{$urun->foto}}" height="200px" >
@@ -33,6 +64,9 @@
                                     </div>
 
 
+                                    <!-- /.form group -->
+
+
 {{--                                    <div class="form-group col-md-12">--}}
 {{--                                        <label class="control-label">Açıklama</label>--}}
 {{--                                         <textarea class="form-control" name="aciklama" id="textarea" >{{$urun->aciklama}}</textarea>--}}
@@ -44,9 +78,11 @@
                                 <div class="card-footer pull-right">
                                     <input type="submit" class="btn btn-success px-5 float-right" value="Kaydet">
                                 </div>
-
+                                </div>
                             </form>
-                        </div>
+
+
+                    </div>
 
 
 
