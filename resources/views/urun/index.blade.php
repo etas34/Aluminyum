@@ -21,6 +21,8 @@
                                     <tr>
                                         <th>Ürün Görseli</th>
                                         <th>Ürün İsmi</th>
+                                        <th>Üst Kategori</th>
+                                        <th>Alt Kategori</th>
                                         <th>Düzenle</th>
                                         <th>Kaldır</th>
                                     </tr>
@@ -30,6 +32,9 @@
                                         <tr>
                                             <td><img src="{{$value->foto}}" height="100px"></td>
                                             <td>{{$value->ad}}</td>
+                                            <td>{{\App\Kategori::find($value->kategori_id)['ust_kategori']}}</td>
+                                            <td>{{\App\AltKategori::find($value->alt_kategori_id)['alt_kategori']}}</td>
+
                                             <td><a href="{{route('urun.edit',$value)}}"><span
                                                         class="badge bg-warning p-2">Düzenle</span></a></td>
                                             <td><a href="{{route('urun.destroy',$value)}}"

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Gorusme;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,4 +25,11 @@ class MainController extends Controller
     {
         return view('Admin.home');
     }
+    public function gorusme()
+    {
+        $gorusme = Gorusme::all();
+        return view('admin.gorusme.index',compact('gorusme'));
+    }
+
+
 }

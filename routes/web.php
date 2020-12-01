@@ -67,6 +67,9 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::any('/deleteAlt/{altkategori}', 'Admin\KategoriController@destroyAlt')->name('destroyAlt');
 
     });
+    Route::Group(['prefix'=>'gorusme','as'=>'gorusme.','middleware' => 'authAdmin'],function() {
+        Route::get('/','Admin\MainController@gorusme')->name('index');
+    }) ;
     Route::group(['prefix'=>'user','as'=>'user.','middleware'=>'authAdmin'],function (){
         Route::get('/', 'Admin\UserController@index')->name('index');
         Route::get('/onaylanmamis', 'Admin\UserController@onaylanmamis')->name('onaylanmamis');
