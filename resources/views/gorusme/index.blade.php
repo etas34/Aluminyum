@@ -52,15 +52,15 @@
 
                                             <td class="text-center">
 
-                                                <a  @if($value->durum == 1) style="  pointer-events: none; cursor: default;" @endif href="{{route('gorusme.bekleme',$value->id)}}"
+                                                @if( $value->durum == 0)      <a  href="{{route('gorusme.bekleme',$value->id)}}"
                                                    onclick="return confirm('Görüşme Beklemeye Alınacak, Emin misiniz?')"
 
-                                                ><span
-                                                        class="badge bg-warning p-2">Beklemeye Al</span></a>
+                                                ><span class="badge bg-warning p-2">Beklemeye Al</span></a>@endif
 
-                                                <a href="{{route('gorusme.kabul',$value->id)}}"
-                                                   @if($value->durum == 2) style="  pointer-events: none; cursor: default;" @endif onclick="return confirm('Görüşme Kabul Edilecek, Emin misiniz?')"><span
-                                                        class="badge bg-success p-2">Kabul Et</span></a>
+                                                @if($value->durum == 1 or $value->durum == 0)
+                                                        <a href="{{route('gorusme.kabul',$value->id)}}"
+                                                onclick="return confirm('Görüşme Kabul Edilecek, Emin misiniz?')"><span
+                                                        class="badge bg-success p-2">Kabul Et</span></a> @endif
 
                                             </td>
 

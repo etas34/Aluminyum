@@ -78,12 +78,17 @@ class MusteriController extends Controller
 
         $user = \App\User::find(Auth::id());
 
-        $user->altkategori_id =$request->subcategory;
+        $user->altkategori_id = implode(',',$request->altkategori);
         $user->name =$request->firma_unvan;
         $user->email =$request->email;
         $user->youtube_link =$request->video_url;
         $user->yetkili =$request->firma_yetkili;
         $user->phone =$request->telefon;
+
+        $user->ihracat =$request->ihracat;
+        $user->ihracat_tel =$request->ihracat_tel;
+        $user->website =$request->website;
+        $user->ulke =$request->ulke;
         if ($request->file('foto'))
         {
 
@@ -98,6 +103,21 @@ class MusteriController extends Controller
             $user->logo=url($image_url);
 
         }
+        if ($request->file('header'))
+        {
+
+            $image=$request->file('header');
+            $ext=$image->extension();
+            $image_name='header'.time().".".$ext;
+            $upload_path='headerlar/';
+            $image_url="storage/app/".$upload_path.$image_name;
+
+            $image->storeAs($upload_path,$image_name);
+
+            $user->header=url($image_url);
+
+        }
+
 
         $user->adres =$request->adres;
         $user->hakkimizda =$request->hakkimizda;

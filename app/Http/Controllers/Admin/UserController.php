@@ -108,13 +108,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-
+dd($request->website);
         $user->altkategori_id =$request->subcategory;
         $user->name =$request->firma_unvan;
         $user->email =$request->email;
         $user->youtube_link =$request->video_url;
         $user->yetkili =$request->firma_yetkili;
         $user->phone =$request->telefon;
+        $user->ihracat =$request->ihracat;
+        $user->ihracat_tel =$request->ihracat_tel;
+        $user->website =$request->website;
+        $user->ulke =$request->ulke;
         if ($request->file('foto'))
         {
 
@@ -122,6 +126,20 @@ class UserController extends Controller
             $ext=$image->extension();
             $image_name='logo'.time().".".$ext;
             $upload_path='logolar/';
+            $image_url="storage/app/".$upload_path.$image_name;
+
+            $image->storeAs($upload_path,$image_name);
+
+            $user->logo=url($image_url);
+
+        }
+        if ($request->file('header'))
+        {
+
+            $image=$request->file('header');
+            $ext=$image->extension();
+            $image_name='header'.time().".".$ext;
+            $upload_path='headerlar/';
             $image_url="storage/app/".$upload_path.$image_name;
 
             $image->storeAs($upload_path,$image_name);
@@ -213,6 +231,10 @@ class UserController extends Controller
         if ($user->logo){
             $path_parts = pathinfo($user->logo);
             $deleted = unlink(storage_path('app/logolar/'.$path_parts['basename']));
+        }
+        if ($user->header){
+            $path_parts = pathinfo($user->header);
+            $deleted = unlink(storage_path('app/headerlar/'.$path_parts['basename']));
         }
 
 

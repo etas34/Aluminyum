@@ -69,6 +69,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
     });
     Route::Group(['prefix'=>'gorusme','as'=>'gorusme.','middleware' => 'authAdmin'],function() {
         Route::get('/','Admin\MainController@gorusme')->name('index');
+        Route::get('/gorusmebekle','Admin\MainController@gorusmebekle')->name('gorusmebekle');
+        Route::get('/gorusmekabul','Admin\MainController@gorusmekabul')->name('gorusmekabul');
     }) ;
     Route::group(['prefix'=>'user','as'=>'user.','middleware'=>'authAdmin'],function (){
         Route::get('/', 'Admin\UserController@index')->name('index');

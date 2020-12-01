@@ -8,6 +8,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-6">
+
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
@@ -20,11 +21,7 @@
                             </div>
                             <a href="{{route('admin.bulten.create')}}" class="small-box-footer">Ekle <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                    </div>
-                    <!-- ./col -->
-                    <div class="col-lg-3 col-6">
-                        <!-- small box -->
-                        <div class="small-box bg-success">
+                        <div class="small-box bg-info">
                             <div class="inner">
                                 <h3>{{\App\Bulten::count()}}<sup style="font-size: 20px"></sup></h3>
 
@@ -35,7 +32,10 @@
                             </div>
                             <a href="{{route('admin.bulten.index')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
+
                     </div>
+                    <!-- ./col -->
+
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
@@ -65,6 +65,45 @@
                             </div>
                             <a href="{{route('admin.user.onaylanmamis')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
+                    </div>
+
+
+                    <div class="col-lg-3 col-6">
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>{{\App\Gorusme::all()->count()}}</h3>
+
+                                <p>Görüşme Talepleri</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-chatboxes"></i>
+                            </div>
+                            <a href="{{route('admin.gorusme.index')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>{{\App\Gorusme::where('durum','=',2)->count()}}</h3>
+
+                                <p>Kabul Edilen Görüşmeler</p>
+
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-chatbox-working"></i>
+                            </div>
+                            <a href="{{route('admin.gorusme.gorusmekabul')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+                        <div class="small-box bg-success">
+                            <div class="inner">
+                                <h3>{{\App\Gorusme::where('durum','=',1)->count()}}</h3>
+                                <p>Beklemeye Alınan Görüşmeler</p>
+
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-clock"></i>
+                            </div>
+                            <a href="{{route('admin.gorusme.gorusmebekle')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
+
                     </div>
                     <!-- ./col -->
                 </div>

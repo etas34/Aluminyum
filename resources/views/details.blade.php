@@ -436,7 +436,7 @@
                     <h3 class="text-danger">About Company</h3>
                     <br>
 
-                    {!! $user->hakkimizda !!}
+                    {{ $user->hakkimizda }}
                 </div>
             </div>
             <div class="row mb-4">

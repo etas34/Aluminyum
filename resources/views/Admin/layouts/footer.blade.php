@@ -32,6 +32,8 @@
 <!-- date-range-picker -->
 <script src="{{asset('public/adminlte/plugins/daterangepicker/daterangepicker.js')}}"></script>
 
+<!-- Select2 -->
+<script src="{{asset('public/adminlte/plugins/select2/js/select2.full.min.js')}}"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 

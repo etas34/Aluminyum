@@ -28,7 +28,23 @@ class MainController extends Controller
     public function gorusme()
     {
         $gorusme = Gorusme::all();
-        return view('admin.gorusme.index',compact('gorusme'));
+        $header = "Görüşme Talepleri";
+        return view('admin.gorusme.index',compact('gorusme','header'));
+    }
+    public function gorusmekabul()
+    {
+        $gorusme = Gorusme::where('durum',2)
+        ->get();
+        $header = "Kabul Edilen Görüşme Talepleri";
+        return view('admin.gorusme.index',compact('gorusme','header'));
+    }
+    public function gorusmebekle()
+    {
+        $gorusme = Gorusme::where('durum',1)
+            ->get();
+        $header = "Beklemeye Alınan Görüşme Talepleri";
+
+        return view('admin.gorusme.index',compact('gorusme','header'));
     }
 
 

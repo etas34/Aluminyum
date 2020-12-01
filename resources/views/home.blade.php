@@ -69,7 +69,7 @@
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">
                         <!-- small box -->
-                        <div class="small-box bg-fuchsia">
+                        <div class="small-box bg-gradient-blue">
                             <div class="inner">
                                 <h3>{{\App\Gorusme::where('user_id','=',Auth::id())->count()}}</h3>
 
