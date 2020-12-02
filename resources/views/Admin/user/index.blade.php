@@ -45,8 +45,8 @@
                                                                     class="badge bg-primary p-2">Onayla</span></a>        @endif </td>
 
                                                         <td>
-{{--                                                            <a href="{{route('admin.user.edit',$value)}}"><span--}}
-{{--                                                                    class="badge bg-warning p-2">Düzenle</span></a>--}}
+                                                            <a href="{{route('admin.user.edit',$value)}}"><span
+                                                                    class="badge bg-warning p-2">Düzenle</span></a>
                                                             <a href="{{route('admin.user.destroy',$value)}}"
                                                                onclick="return confirm('Kayıt Silinecek, Emin misiniz?')"><span
                                                                     class="badge bg-danger p-2">Sil</span></a>

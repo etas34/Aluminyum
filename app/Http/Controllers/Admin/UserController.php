@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\AltKategori;
 use App\Http\Controllers\Controller;
+use App\Kategori;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -108,14 +109,29 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-    {
-dd($request->website);
-        $user->altkategori_id =$request->subcategory;
+    {    $ustkategoris ="";
+
+
+
+        $user->altkategori_id = implode(',',$request->altkategori);
+
+        foreach ( $request->altkategori as $value ){
+            $altkategori = AltKategori::find($value)['ust_kategori_id'];
+            $ustkategoris .= Kategori::find($altkategori)['id'] . ",";
+
+        }
+
+
+        $ust_kategori = implode(',', array_unique(explode(',', $ustkategoris)));
+        $user->ustkategori_id = rtrim($ust_kategori,",");
+//       dd($user->ustkategori_id);
+
         $user->name =$request->firma_unvan;
         $user->email =$request->email;
         $user->youtube_link =$request->video_url;
         $user->yetkili =$request->firma_yetkili;
         $user->phone =$request->telefon;
+
         $user->ihracat =$request->ihracat;
         $user->ihracat_tel =$request->ihracat_tel;
         $user->website =$request->website;
@@ -145,12 +161,15 @@ dd($request->website);
 
             $image->storeAs($upload_path,$image_name);
 
-            $user->logo=url($image_url);
+            $user->header=url($image_url);
 
         }
 
+
         $user->adres =$request->adres;
         $user->hakkimizda =$request->hakkimizda;
+        $user->anahtar_kelime = $request->anahtar_kelime;
+        $user->fuar = $request->fuar;
 
         $saved = $user->save();
 

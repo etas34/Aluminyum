@@ -22,7 +22,7 @@
 
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('public/adminlte/plugins/summernote/summernote-bs4.css')}}">
-    <link rel="stylesheet" href="{{asset('public/adminlte/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/adminlte/plugins/select2/css/select2.css')}}">
 
     <!-- daterange picker -->
     <link rel="stylesheet" href="{{asset('public/adminlte/plugins/daterangepicker/daterangepicker.css')}}">
