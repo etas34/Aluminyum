@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('header');
             $table->string('ihracat');
             $table->string('ihracat_tel');
-            $table->string('website');
+            $table->string('website')->nullable();
             $table->string('ulke');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
