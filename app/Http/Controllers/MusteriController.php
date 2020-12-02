@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\AltKategori;
+use App\Kategori;
 use http\Client\Curl\User;
 use http\Encoding\Stream\Inflate;
 use Illuminate\Http\Request;
@@ -75,10 +77,23 @@ class MusteriController extends Controller
      */
     public function update(Request $request)
     {
+        $ustkategoris ="";
 
         $user = \App\User::find(Auth::id());
 
         $user->altkategori_id = implode(',',$request->altkategori);
+
+        foreach ( $request->altkategori as $value ){
+            $altkategori = AltKategori::find($value)['ust_kategori_id'];
+            $ustkategoris .= Kategori::find($altkategori)['id'] . ",";
+
+        }
+
+
+        $ust_kategori = implode(',', array_unique(explode(',', $ustkategoris)));
+        $user->ustkategori_id = rtrim($ust_kategori,",");
+//       dd($user->ustkategori_id);
+
         $user->name =$request->firma_unvan;
         $user->email =$request->email;
         $user->youtube_link =$request->video_url;
