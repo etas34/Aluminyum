@@ -9,7 +9,7 @@
                 <div class="col-md-12">
                     <div class="card">
 
-                        <form action="{{route('musteri.update')}}" method="post" autocomplete="off"
+                        <form action="{{route('admin.user.update',$user)}}" method="post" autocomplete="off"
                               enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="card-header">
