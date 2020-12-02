@@ -111,7 +111,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {    $ustkategoris ="";
 
-
+        dd($request->email);
 
         $user->altkategori_id = implode(',',$request->altkategori);
 
@@ -127,7 +127,7 @@ class UserController extends Controller
 //       dd($user->ustkategori_id);
 
         $user->name =$request->firma_unvan;
-        $user->email =$request->email;
+        $user->email = $request->email;
         $user->youtube_link =$request->video_url;
         $user->yetkili =$request->firma_yetkili;
         $user->phone =$request->telefon;

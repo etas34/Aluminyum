@@ -71,14 +71,14 @@
                     <div class="col-lg-3 col-6">
                         <div class="small-box bg-success">
                             <div class="inner">
-                                <h3>{{\App\Gorusme::all()->count()}}</h3>
+                                <h3>{{\App\Gorusme::where('durum','=',0)->count()}}</h3>
+                                <p>İşlem İçin Bekleyen Görüşmeler</p>
 
-                                <p>Görüşme Talepleri</p>
                             </div>
                             <div class="icon">
-                                <i class="ion ion-chatboxes"></i>
+                                <i class="ion ion-clock"></i>
                             </div>
-                            <a href="{{route('admin.gorusme.index')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{route('admin.gorusme.gorusmebekle')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                         <div class="small-box bg-success">
                             <div class="inner">
@@ -92,17 +92,7 @@
                             </div>
                             <a href="{{route('admin.gorusme.gorusmekabul')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
-                        <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>{{\App\Gorusme::where('durum','=',1)->count()}}</h3>
-                                <p>Beklemeye Alınan Görüşmeler</p>
 
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-clock"></i>
-                            </div>
-                            <a href="{{route('admin.gorusme.gorusmebekle')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
-                        </div>
 
                     </div>
                     <!-- ./col -->
