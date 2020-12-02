@@ -77,11 +77,16 @@
                                                 <input required type="email" value="{{$user->email}}" name="email"
                                                        class="form-control">
                                             </div>
+
                                             <!-- /.input group -->
                                         </div>
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                         <!-- /.form group -->
 
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Firma Yetkilisi</label>

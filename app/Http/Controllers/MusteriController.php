@@ -77,6 +77,10 @@ class MusteriController extends Controller
      */
     public function update(Request $request)
     {
+        $validateData = $request->validate([
+            'email'=> 'required|unique:users|max:255'
+        ]);
+
         $ustkategoris ="";
 
         $user = \App\User::find(Auth::id());

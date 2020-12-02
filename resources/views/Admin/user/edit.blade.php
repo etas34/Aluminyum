@@ -67,7 +67,10 @@
                                             </div>
                                             <!-- /.input group -->
                                         </div>
-                                        <!-- /.form group -->
+                                        @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                    <!-- /.form group -->
 
                                     </div>
                                     <div class="col-md-6">
@@ -151,8 +154,6 @@
                                                             selected
                                                             @endif
                                                             @endif
-
-
 
 
                                                             value="{{ $alt->id }}"> {{ $alt->alt_kategori }}  </option>

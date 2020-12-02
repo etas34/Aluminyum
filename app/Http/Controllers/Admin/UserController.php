@@ -109,9 +109,14 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, User $user)
-    {    $ustkategoris ="";
+    {
+        $validateData = $request->validate([
+            'email'=> 'required|unique:users|max:255'
 
-        dd($request->email);
+        ]);
+
+
+        $ustkategoris ="";
 
         $user->altkategori_id = implode(',',$request->altkategori);
 
