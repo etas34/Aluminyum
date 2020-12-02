@@ -149,7 +149,7 @@
 
 
                                     <div class="form-group col-md-12">
-                                        <label>Alt Kategori Seçiniz</label>
+                                        <label>Kategori Seçiniz</label>
 
                                         <select name="altkategori[]" required class="form-control select2" id="category"
                                                 multiple="multiple">
