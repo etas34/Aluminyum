@@ -119,7 +119,7 @@
 
                                             <div class="input-group">
                                                 <input required type="text" value="{{$user->ihracat_tel}}"
-                                                       class="form-control" name="ihracat_tel" id="phone">
+                                                       class="form-control" name="ihracat_tel" id="phone2">
                                             </div>
                                             <!-- /.input group -->
                                         </div>
@@ -603,6 +603,7 @@
             });
         });
         $("#phone").inputmask({"mask": "(999) 999-9999"});
+        $("#phone2").inputmask({"mask": "(999) 999-9999"});
         $(function () {
             // Summernote
             $('#textarea').summernote({

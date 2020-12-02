@@ -334,7 +334,11 @@
 
         </div>
         <div class="detailbg">
+            @if($user->header)
+            <img src="{{$user->header}}" alt="..." class="img-fluid"/>
+            @else
             <img src="{{asset('public/assets/images/detaybg.svg')}}" alt="..." class="img-fluid"/>
+            @endif
             <img height="200" width="200" src="{{$user->logo}}" alt="..." class="detail-logo"/>
         </div>
 

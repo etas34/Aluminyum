@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->text('anahtar_kelime')->nullable();
             $table->text('fuar')->nullable();
             $table->tinyInteger('durum')->default('0');
-            $table->string('header');
+            $table->string('header')->nullable();
             $table->string('ihracat');
             $table->string('ihracat_tel');
             $table->string('website')->nullable();
