@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\AltKategori;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
@@ -173,7 +174,7 @@ dd($request->website);
     {
 
         $user =User::where('durum',1)
-        ->where('altkategori_id',$request->altkategori_id)->get();
+            ->whereRaw('FIND_IN_SET('.$request->altkategori_id.',altkategori_id)')->get();
 
 
         return response()->json($user);
@@ -183,11 +184,8 @@ dd($request->website);
     public function getUserbyId2(Request $request)
 
     {
-
         $user =User::where('durum',1)
-        ->join('alt_kategoris','users.altkategori_id','=','alt_kategoris.id')
-            ->select('users.*')
-            ->where('ust_kategori_id',$request->ustkategori_id)->get();
+            ->whereRaw('FIND_IN_SET('.$request->ustkategori_id.',ustkategori_id)')->get();
 
 
         return response()->json($user);
@@ -197,12 +195,13 @@ dd($request->website);
 
     {
 
-        $user =User::where('durum',1)
-            ->join('alt_kategoris','users.altkategori_id','=','alt_kategoris.id')
-            ->select('users.*')
-            ->where('ust_kategori_id',$request->ustkategori_id)
-            ->where('alt_kategori', 'like', '%' . $request->text . '%')->get();
+        $altkategori=AltKategori::where('alt_kategori', '=', $request->text)->first();
 
+
+        $user =User::where('durum',1)
+            ->whereRaw('FIND_IN_SET('.$request->ustkategori_id.',ustkategori_id)')
+            ->whereRaw('FIND_IN_SET('.$altkategori->id.',altkategori_id)')
+            ->get();
 
         return response()->json($user);
 
