@@ -32,6 +32,7 @@ Route::get('/details/{user}', 'HomeController@details')->name('details');
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/news/detay/{bulten}', 'HomeController@newsdetay')->name('newsdetay');
+Route::get('/howitworks', 'HomeController@howitworks')->name('howitworks');
 Route::get('/home', 'HomeController@home')->name('home')->middleware('auth');
 Route::post('/contact', 'HomeController@contactform')->name('contactform');
 Route::post('/schedule', 'HomeController@schedule')->name('schedule');

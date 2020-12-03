@@ -62,34 +62,34 @@
             {{csrf_field()}}
         <div class="row mb-4">
             <div class="col-12">
-                <textarea name="konu" class="form-control" rows="4" placeholder="İletişim Konusu"></textarea>
+                <textarea name="konu" class="form-control" rows="4" placeholder="Message"></textarea>
             </div>
         </div>
         <div class="row mb-4">
             <div class="col-md-6">
                 <div class="row mb-4">
                     <div class="col-12">
-                        <input type="text" name="ad" class="form-control" placeholder="İsim Soyisim" />
+                        <input type="text" name="ad" class="form-control" placeholder="Name" />
                     </div>
                 </div>
                 <div class="row mb-4">
                     <div class="col-12">
-                        <input type="text" name="eposta" class="form-control" placeholder="E-Posta" />
+                        <input type="text" name="eposta" class="form-control" placeholder="E-Mail" />
                     </div>
                 </div>
                 <div class="row mb-4 mb-md-0">
                     <div class="col-12">
-                        <input type="text" name="telefon" class="form-control" placeholder="Telefon" />
+                        <input type="text" name="telefon" class="form-control" placeholder="Phone Number" />
                     </div>
                 </div>
             </div>
             <div class="col-md-6">
-                <textarea name="adres"  class="form-control h-100"  placeholder="Adres"></textarea>
+                <textarea name="adres"  class="form-control h-100"  placeholder="Address"></textarea>
             </div>
         </div>
         <div class="row">
             <div class="col-12">
-                <button class="btn btn-danger">GÖNDER</button>
+                <button class="btn btn-danger">Send</button>
             </div>
         </div>
         </form>
