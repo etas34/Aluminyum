@@ -13,10 +13,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex flex-wrap">
-                <h4>Yayın Akışı</h4>
+                <h4>News - Recent News about Turkish Aluminium Sector
+                    How it works - Meet with Aluminium Producers via 3 Steps
+                    Contact - We would love to hear from you</h4>
 
                 <button class="btn btn-link text-dark ml-auto text-decoration-none">
-                    Daha fazla bilgi <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
+                    More Information <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
                 </button>
 
             </div>

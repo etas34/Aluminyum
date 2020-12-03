@@ -43,7 +43,7 @@
                             <div class="inner">
                                 <h3>{{\App\User::count()}}</h3>
 
-                                <p>Tüm Bayiler</p>
+                                <p>Tüm Firmalar</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-navicon"></i>
@@ -58,7 +58,7 @@
                             <div class="inner">
                                 <h3>{{\App\User::where('durum','=',0)->count()}}</h3>
 
-                                <p>Onay Bekleyen Bayiler</p>
+                                <p>Onay Bekleyen Firmalar</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-close-circled"></i>

@@ -40,7 +40,6 @@
                     <li class="nav-item"><a href="{{route('about')}}" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="{{route('news')}}" class="nav-link">News</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">How it works?</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Calendar</a></li>
                     <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
                   @if(Auth::check())<li class="nav-item"><a href="{{route('home')}}" class="nav-link"><button class="btn btn-outline-danger">{{Auth::user()['name']}}</button></a></li>
                   @else  <li class="nav-item"><a href="{{route('login')}}" class="nav-link"><button class="btn btn-outline-danger">LOGİN</button></a></li>  @endif
@@ -76,14 +75,9 @@
                     <a href="{{route('about')}}" class="btn btn-outline-secondary mb-2 mr-2">About</a>
                     <a href="{{route('news')}}" class="btn btn-outline-secondary mb-2 mr-2">News</a>
                     <button class="btn btn-outline-secondary mb-2 mr-2">How it works</button>
-                    <button class="btn btn-outline-secondary mb-2 mr-2">Calendar</button>
-                    <a href="{{route('contact')}}" class="btn btn-outline-secondary mb-2 mr-2">Contact</a>
-                    <button class="btn btn-outline-secondary mb-2">Üyelik</button> <br />
-                    <button class="btn btn-outline-secondary mb-2 mr-2">Proﬁle</button>
-                    <button class="btn btn-outline-secondary mb-2 mr-2">My Meetings</button>
-                    <button class="btn btn-outline-secondary mb-2">Upcoming Meetings</button> <br />
-                    <button class="btn btn-outline-secondary mr-2">Become Exhibitor</button>
-                    <button class="btn btn-outline-secondary">Exhibitor Login</button>
+                    <a href="{{route('contact')}}" class="btn btn-outline-secondary mb-2 mr-2">Contact</a><br />
+                    <a  href="{{route('register')}}" class="btn btn-outline-secondary mr-2">Register</a>
+                    <a href="{{route('login')}}" class="btn btn-outline-secondary">Exhibitor Login</a>
                 </div>
             </div>
         </div>

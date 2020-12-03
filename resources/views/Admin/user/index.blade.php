@@ -10,7 +10,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Bayiler</h3>
+                                <h3 class="card-title">Firmalar</h3>
 
                             </div>
                             <!-- /.card-header -->
@@ -22,7 +22,7 @@
                                             <table id="example2" class="table table-bordered table-striped  dataTable">
                                                 <thead>
                                                 <tr>
-                                                    <th>Bayi Ünvan</th>
+                                                    <th>Firma Ünvan</th>
                                                     <th>Yetkili</th>
                                                     <th>Kategori</th>
                                                     <th>Telefon</th>
