@@ -32,7 +32,9 @@
 <header class="header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light" id="mynavbar">
-            <a href="{{route('index')}}" class="navbar-brand">LOGO</a>
+{{--            <a href="{{route('index')}}" class="navbar-brand">LOGO</a>--}}
+           <a href="{{route('index')}}"> <img width="180" src="{{asset('public/assets/images/Header_Logo.svg')}}" alt="..." />
+           </a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#mynav"><span class="navbar-toggler-icon"></span></button>
 
             <div class="collapse navbar-collapse" id="mynav">
@@ -42,7 +44,7 @@
                     <li class="nav-item"><a href="#" class="nav-link">How it works?</a></li>
                     <li class="nav-item"><a href="{{route('contact')}}" class="nav-link">Contact</a></li>
                   @if(Auth::check())<li class="nav-item"><a href="{{route('home')}}" class="nav-link"><button class="btn btn-outline-danger">{{Auth::user()['name']}}</button></a></li>
-                  @else  <li class="nav-item"><a href="{{route('login')}}" class="nav-link"><button class="btn btn-outline-danger">LOGİN</button></a></li>  @endif
+                  @else  <li class="nav-item"><a href="{{route('login')}}" class="nav-link"><button class="btn btn-outline-danger">LOGIN</button></a></li>  @endif
                 </ul>
             </div>
         </nav>
@@ -101,7 +103,7 @@
                     </ul>
                 </div>
                 <div class="col-md-3">
-                    <h1 class="display-3"><a class="text-dark text-decoration-none" href="#">LOGO</a></h1>
+                    <img src="{{asset('public/assets/images/Footer_Logo.svg')}}" alt="..." />
                 </div>
             </div>
         </div>

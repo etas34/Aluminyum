@@ -29,10 +29,10 @@ class CreateUsersTable extends Migration
             $table->text('fuar')->nullable();
             $table->tinyInteger('durum')->default('0');
             $table->string('header')->nullable();
-            $table->string('ihracat');
-            $table->string('ihracat_tel');
+            $table->string('ihracat')->nullable();
+            $table->string('ihracat_tel')->nullable();
             $table->string('website')->nullable();
-            $table->string('ulke');
+            $table->string('ulke')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

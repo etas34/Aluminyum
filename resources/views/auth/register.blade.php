@@ -4,6 +4,7 @@
 
     <main class="py-4">
 
+        <hr/>
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
