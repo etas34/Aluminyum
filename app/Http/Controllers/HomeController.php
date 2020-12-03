@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
 use App\Bulten;
 use App\AltKategori;
 use App\Gorusme;
+use App\Howitworks;
 use App\Kategori;
 use App\Urun;
 use App\User;
@@ -56,13 +58,13 @@ class HomeController extends Controller
     }
     public function howitworks()
     {
-
-        return view('howitworks');
+        $howitworks = Howitworks::first();
+        return view('howitworks',compact('howitworks'));
     }
     public function about()
     {
-
-        return view('about');
+        $about = About::first();
+        return view('about',compact('about'));
     }
     public function details(User $user)
     {

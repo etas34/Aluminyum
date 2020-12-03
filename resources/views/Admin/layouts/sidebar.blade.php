@@ -100,6 +100,24 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.about.edit')}}" class="nav-link">
+                        <i class="nav-icon fas fa-info-circle"></i>
+                        <p>
+                            Hakkımızda
+                        </p>
+                    </a>
+
+                </li>
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('admin.howitworks.edit')}}" class="nav-link">--}}
+{{--                        <i class="nav-icon fas fa-cog"></i>--}}
+{{--                        <p>--}}
+{{--                            Nasıl Çalışır--}}
+{{--                        </p>--}}
+{{--                    </a>--}}
+
+{{--                </li>--}}
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

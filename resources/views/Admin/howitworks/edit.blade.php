@@ -1,6 +1,7 @@
 @extends('Admin.layouts.main')
 @section('content')
 
+
     <div class="content-wrapper" style="min-height: 1203.6px;">
         <!-- Main content -->
         <section class="content">
@@ -10,38 +11,49 @@
                     <div class="col-md-12">
                         <div class="card card-primary">
 
-                            <form action="{{route('admin.bulten.store')}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+                            <form action="{{route('admin.howitworks.update',$howitworks)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="card-header">
-                                    <h3 class="card-title">Yeni Bülten Ekle</h3>
+                                    <h3 class="card-title">Nasıl Çalışır Sayfasını Düzenle</h3>
                                 </div>
                                 <div class="card-body">
+{{--                                    @if($howitworks->foto)--}}
+{{--                                        <div class="form-group col-md-12">--}}
+{{--                                            <label class="control-label">Seçili Fotoğraf</label><br>--}}
+{{--                                            <img type="file" src="{{$howitworks->foto}}" height="200px" >--}}
+{{--                                        </div>--}}
+{{--                                    @else--}}
+{{--                                        <div class="form-group col-md-12">--}}
+{{--                                            <label class="control-label">Seçili Fotoğraf</label><br>--}}
+{{--                                            <img type="file" src="{{asset('public/assets/images/about.svg')}}" height="200px" >--}}
+{{--                                        </div>--}}
+{{--                                    @endi--}}
+
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label">Seçili Fotoğraf</label><br>
+                                            <img type="file" src="{{asset('public/assets/images/about.svg')}}" height="200px" >
+                                        </div>
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Fotoğraf</label>
-                                        <input type="file" id="foto" name="foto" class="form-control" accept="image/*"  required>
-                                        <span id="error_foto"></span>
+                                        <label class="control-label">Fotoğraf  </label>
+                                        <input  id="header" type="file"  name="foto" class="form-control" accept="image/*" >
+                                        <span id="error_header"></span>
+
                                     </div>
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Baslik</label>
-                                        <input type="text"  name="baslik" class="form-control" required>
+                                        <input type="text"  name="baslik" class="form-control" value="{{$howitworks->baslik}}" required>
                                     </div>
 
 
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">İçerik</label>
-                                         <textarea class="form-control" name="icerik" rows="8"  required></textarea>
+                                        <label class="control-label">Metin</label>
+                                        <textarea class="form-control" name="metin" rows="8" required>{{$howitworks->metin}}</textarea>
                                     </div>
-
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Tarih</label>
-                                        <input type="text" class="form-control pull-right" name="tarih" id="tarih">
-                                    </div>
-
 
                                 </div>
                                 <div class="card-footer pull-right">
-                                    <input type="submit" class="btn btn-success px-5 float-right" id="edit" value="Kaydet">
+                                    <input type="submit" class="btn btn-success px-5 float-right" value="Kaydet">
                                 </div>
 
                             </form>
@@ -64,31 +76,30 @@
 
     <script src="{{asset('public/adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
-        var _URL1 = window.URL || window.webkitURL;
+        var _URL2 = window.URL || window.webkitURL;
 
-        $("#foto").change(function (e) {
+        $("#header").change(function (e) {
             var file, img;
             if ((file = this.files[0])) {
                 img = new Image();
-                var objectUrl = _URL1.createObjectURL(file);
+                var objectUrl = _URL2.createObjectURL(file);
                 img.onload = function () {
 
-                    if (  this.width / this.height === (4 / 3)) {
+                    if (this.width != 1200 && this.height != 470) {
 
-                        $('#error_foto').html('<label class="text-success"></label>');
-                        $('#foto').removeClass('has-error');
-                        $('#edit').attr('disabled', false);
+                        $('#error_header').html('<label class="text-danger">Lütfen  1200 X 470 boyutlarında yükleyiniz</label>');
+                        $('#header').addClass('has-error');
+                        $('#edit').attr('disabled', true);
                     } else {
 
-                        $('#error_foto').html('<label class="text-danger">Lütfen 4:3 Oranında Fotoğraf Yükleyiniz</label>');
-                        $('#foto').addClass('has-error');
-                        $('#edit').attr('disabled', true);
-
+                        $('#error_header').html('<label class="text-success"></label>');
+                        $('#header').removeClass('has-error');
+                        $('#edit').attr('disabled', false);
 
                     }
 
 
-                    _URL1.revokeObjectURL(objectUrl);
+                    _URL2.revokeObjectURL(objectUrl);
                 };
                 img.src = objectUrl;
             }
@@ -99,7 +110,7 @@
             // Summernote
             $('#textarea').summernote({
 
-                height: 300,
+                    height: 300,
                 }
             );
 
@@ -145,4 +156,4 @@
     </script>
 
 
-    @endpush
+@endpush

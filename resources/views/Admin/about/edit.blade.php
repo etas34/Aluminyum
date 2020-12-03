@@ -11,35 +11,40 @@
                     <div class="col-md-12">
                         <div class="card card-primary">
 
-                            <form action="{{route('admin.bulten.update',$bulten)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+                            <form action="{{route('admin.about.update',$about)}}" method="post" autocomplete="off"  enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="card-header">
-                                    <h3 class="card-title">Bülten Düzenle</h3>
+                                    <h3 class="card-title">Hakkımızda Sayfasını Düzenle</h3>
                                 </div>
                                 <div class="card-body">
+                                    @if($about->foto)
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label">Seçili Fotoğraf</label><br>
+                                            <img type="file" src="{{$about->foto}}" height="200px" >
+                                        </div>
+                                    @else
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label">Seçili Fotoğraf</label><br>
+                                            <img type="file" src="{{asset('public/assets/images/about.svg')}}" height="200px" >
+                                        </div>
+                                    @endif
 
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Seçili Fotoğraf</label><br>
-                                        <img type="file" src="{{$bulten->foto}}" height="200px" >
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Fotoğraf</label>
-                                        <input type="file"  name="foto" class="form-control" accept="image/*" >
+                                        <label class="control-label">Fotoğraf  </label>
+                                        <input  id="header" type="file"  name="foto" class="form-control" accept="image/*" >
+                                        <span id="error_header"></span>
+
                                     </div>
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Baslik</label>
-                                        <input type="text"  name="baslik" class="form-control" value="{{$bulten->baslik}}" required>
+                                        <input type="text"  name="baslik" class="form-control" value="{{$about->baslik}}" required>
                                     </div>
 
 
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">İçerik</label>
-                                        <textarea class="form-control" name="icerik" rows="8" required>{{$bulten->icerik}}</textarea>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label class="control-label">Tarih</label>
-                                        <input type="text" class="form-control pull-right" name="tarih" value="{{$bulten->tarih}}" id="tarih">
+                                        <label class="control-label">Metin</label>
+                                        <textarea class="form-control" name="metin" rows="8" required>{{$about->metin}}</textarea>
                                     </div>
 
                                 </div>
@@ -67,6 +72,36 @@
 
     <script src="{{asset('public/adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
+        var _URL2 = window.URL || window.webkitURL;
+
+        $("#header").change(function (e) {
+            var file, img;
+            if ((file = this.files[0])) {
+                img = new Image();
+                var objectUrl = _URL2.createObjectURL(file);
+                img.onload = function () {
+
+                    if (this.width != 1200 && this.height != 470) {
+
+                        $('#error_header').html('<label class="text-danger">Lütfen  1200 X 470 boyutlarında yükleyiniz</label>');
+                        $('#header').addClass('has-error');
+                        $('#edit').attr('disabled', true);
+                    } else {
+
+                        $('#error_header').html('<label class="text-success"></label>');
+                        $('#header').removeClass('has-error');
+                        $('#edit').attr('disabled', false);
+
+                    }
+
+
+                    _URL2.revokeObjectURL(objectUrl);
+                };
+                img.src = objectUrl;
+            }
+
+        })
+
         $(function () {
             // Summernote
             $('#textarea').summernote({
