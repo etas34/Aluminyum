@@ -14,10 +14,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex flex-wrap">
-                <h4>Rum intio veribus core adis exerum, vel el mollabo...</h4>
+                <h4>We would love to hear from you</h4>
 
                 <button class="btn btn-link text-dark ml-auto text-decoration-none">
-                    Daha falza bilgi <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
+                    More Information <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
                 </button>
 
             </div>
@@ -54,7 +54,6 @@
         <div class="row mb-4">
             <div class="col-12">
                 <h2 class="text-danger">İletişim ve Öneri Formu</h2>
-                <h4 class="text-secondary">Firma güvencesiyle!</h4>
             </div>
         </div>
 

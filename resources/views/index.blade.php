@@ -49,7 +49,7 @@
             <div class="col-12 filterBtn">
 
                 @foreach($ustkategori as $key=>$value)
-                <button class="btn @if($key==0) btn-danger @else btn-outline-secondary @endif mr-2 mb-2 mb-md-0 ustkategori" id="ustkat{{$value->id}}" onclick="myFunction2(this)" data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
+                <button class="btn btn-outline-secondary mr-2 mb-2 mb-md-0 ustkategori" id="ustkat{{$value->id}}" onclick="myFunction2(this)" data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
                     @endforeach
 
             </div>
@@ -57,9 +57,9 @@
         <div class="row text-center mb-5">
             <div class="col-12 d-flex flex-wrap align-items-strech justify-content-center filterBtn" id="altkategoriappend">
 
-                @foreach($altkategori as $key=>$value)
-                    <button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="{{$value->id}}"><img class="mr-2" src="{{asset('public/assets/images')}}/{{$value->icon}}" alt="..." />{{$value->alt_kategori}}</button>
-                @endforeach
+{{--                @foreach($altkategori as $key=>$value)--}}
+{{--                    <button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="{{$value->id}}"><img class="mr-2" src="{{asset('public/assets/images')}}/{{$value->icon}}" alt="..." />{{$value->alt_kategori}}</button>--}}
+{{--                @endforeach--}}
             </div>
         </div>
         <div class="row text-center mb-4">
@@ -69,20 +69,20 @@
         </div>
         <div class="row row-cols-sm-2 row-cols-md-3" id="firmaAppend">
 
-            @foreach($firma as $key=>$value)
-            <div class="col-12 mb-3 mb-md-5 firma">
-                <div class="card">
-                    <div class="card-header">
-                        <img class="card-img-top" src="{{$value->logo}} " height="255" width="360" alt="..." />
-                    </div>
-                    <div class="card-footer text-center bg-white">
-                        <p class="card-text">
-                           <a style="color: #212529;" href="{{route('details',$value->id)}}"> {{$value->name}}</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-                @endforeach
+{{--            @foreach($firma as $key=>$value)--}}
+{{--            <div class="col-12 mb-3 mb-md-5 firma">--}}
+{{--                <div class="card">--}}
+{{--                    <div class="card-header">--}}
+{{--                        <img class="card-img-top" src="{{$value->logo}} " height="255" width="360" alt="..." />--}}
+{{--                    </div>--}}
+{{--                    <div class="card-footer text-center bg-white">--}}
+{{--                        <p class="card-text">--}}
+{{--                           <a style="color: #212529;" href="{{route('details',$value->id)}}"> {{$value->name}}</a>--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--                @endforeach--}}
 
 
         </div>
