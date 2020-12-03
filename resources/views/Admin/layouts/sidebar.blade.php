@@ -109,15 +109,15 @@
                     </a>
 
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a href="{{route('admin.howitworks.edit')}}" class="nav-link">--}}
-{{--                        <i class="nav-icon fas fa-cog"></i>--}}
-{{--                        <p>--}}
-{{--                            Nasıl Çalışır--}}
-{{--                        </p>--}}
-{{--                    </a>--}}
+                <li class="nav-item">
+                    <a href="{{route('admin.howitworks.edit')}}" class="nav-link">
+                        <i class="nav-icon fas fa-cog"></i>
+                        <p>
+                            Nasıl Çalışır
+                        </p>
+                    </a>
 
-{{--                </li>--}}
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

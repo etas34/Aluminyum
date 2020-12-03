@@ -17,22 +17,19 @@
                                     <h3 class="card-title">Nasıl Çalışır Sayfasını Düzenle</h3>
                                 </div>
                                 <div class="card-body">
-{{--                                    @if($howitworks->foto)--}}
-{{--                                        <div class="form-group col-md-12">--}}
-{{--                                            <label class="control-label">Seçili Fotoğraf</label><br>--}}
-{{--                                            <img type="file" src="{{$howitworks->foto}}" height="200px" >--}}
-{{--                                        </div>--}}
-{{--                                    @else--}}
-{{--                                        <div class="form-group col-md-12">--}}
-{{--                                            <label class="control-label">Seçili Fotoğraf</label><br>--}}
-{{--                                            <img type="file" src="{{asset('public/assets/images/about.svg')}}" height="200px" >--}}
-{{--                                        </div>--}}
-{{--                                    @endi--}}
-
+                                    @if($howitworks->foto)
+                                        <div class="form-group col-md-12">
+                                            <label class="control-label">Seçili Fotoğraf</label><br>
+                                            <img type="file" src="{{$howitworks->foto}}" height="200px" >
+                                        </div>
+                                    @else
                                         <div class="form-group col-md-12">
                                             <label class="control-label">Seçili Fotoğraf</label><br>
                                             <img type="file" src="{{asset('public/assets/images/about.svg')}}" height="200px" >
                                         </div>
+                                    @endif
+
+
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Fotoğraf  </label>
                                         <input  id="header" type="file"  name="foto" class="form-control" accept="image/*" >

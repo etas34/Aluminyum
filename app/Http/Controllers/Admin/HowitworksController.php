@@ -58,6 +58,7 @@ class HowitworksController extends Controller
      */
     public function edit()
     {
+
         $howitworks = Howitworks::first();
 
         return view('Admin.howitworks.edit', compact('howitworks'));
