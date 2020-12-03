@@ -8,10 +8,10 @@
                 <div class="row">
 
                     <div class="col-md-12">
-
-                            <div class="box">
-                                <div class="box-header">
-                                    <h3 class="box-title">{{ $header }}</h3>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">{{ $header }}</h3>
                                 </div>
                                 <!-- /.box-header -->
                                 <div class="box-body">
@@ -82,6 +82,7 @@
                         </div>
 
                     </div>
+                    </div>
         </section>
 
     </div>
@@ -93,14 +94,7 @@
     <script>
         $(function () {
             $('#example1').DataTable()
-            $('#example2').DataTable({
-                'paging': true,
-                'lengthChange': false,
-                'searching': false,
-                'ordering': true,
-                'info': true,
-                'autoWidth': false
-            })
+
         })
     </script>
 

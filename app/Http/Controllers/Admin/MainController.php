@@ -29,14 +29,14 @@ class MainController extends Controller
     {
         $gorusme = Gorusme::all();
         $header = "Görüşme Talepleri";
-        return view('admin.gorusme.index',compact('gorusme','header'));
+        return view('Admin.gorusme.index',compact('gorusme','header'));
     }
     public function gorusmekabul()
     {
         $gorusme = Gorusme::where('durum',2)
         ->get();
         $header = "Kabul Edilen Görüşme Talepleri";
-        return view('admin.gorusme.index',compact('gorusme','header'));
+        return view('Admin.gorusme.index',compact('gorusme','header'));
     }
     public function gorusmebekle()
     {
@@ -44,7 +44,7 @@ class MainController extends Controller
             ->get();
         $header = "Beklemeye Alınan Görüşme Talepleri";
 
-        return view('admin.gorusme.index',compact('gorusme','header'));
+        return view('Admin.gorusme.index',compact('gorusme','header'));
     }
 
 

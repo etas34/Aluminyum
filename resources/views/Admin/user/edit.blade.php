@@ -68,8 +68,8 @@
                                             <!-- /.input group -->
                                         </div>
                                         @error('email')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
                                     <!-- /.form group -->
 
                                     </div>

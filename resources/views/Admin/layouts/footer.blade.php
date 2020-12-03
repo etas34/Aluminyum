@@ -123,6 +123,16 @@
                 url: '//cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json'
             }
         });
+        $('#example1').DataTable({
+
+            "autoWidth": false,
+            responsive : true,
+
+            // "aaSorting": [[0,'desc']],
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.10.20/i18n/Turkish.json'
+            }
+        });
     });
 </script>
 
