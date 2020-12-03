@@ -83,6 +83,14 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::post('/update/{user}', 'Admin\UserController@update')->name('update');
         Route::get('/delete/{user}', 'Admin\UserController@destroy')->name('destroy');
     });
+    Route::Group(['prefix'=>'about','as'=>'about.','middleware'=>'authAdmin'],function() {
+        Route::get('/edit','Admin\AboutController@edit')->name('edit');
+        Route::post('/edit','Admin\AboutController@update')->name('update');
+    }) ;
+    Route::Group(['prefix'=>'howitworks','as'=>'howitworks.','middleware'=>'authAdmin'],function() {
+        Route::get('/edit','Admin\HowitworksController@edit')->name('edit');
+        Route::post('/edit','Admin\HowitworksController@update')->name('update');
+    }) ;
 
 }) ;
 Route::Group(['prefix'=>'firma','middleware'=>'auth'],function() {
