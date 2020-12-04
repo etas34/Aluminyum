@@ -33,6 +33,7 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/news/detay/{bulten}', 'HomeController@newsdetay')->name('newsdetay');
 Route::get('/howitworks', 'HomeController@howitworks')->name('howitworks');
+Route::get('/privacy', 'HomeController@privacy')->name('privacy');
 Route::get('/home', 'HomeController@home')->name('home')->middleware('auth');
 Route::post('/contact', 'HomeController@contactform')->name('contactform');
 Route::post('/schedule', 'HomeController@schedule')->name('schedule');
@@ -86,6 +87,10 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
     Route::Group(['prefix'=>'about','as'=>'about.','middleware'=>'authAdmin'],function() {
         Route::get('/edit','Admin\AboutController@edit')->name('edit');
         Route::post('/edit','Admin\AboutController@update')->name('update');
+    }) ;
+    Route::Group(['prefix'=>'privacy','as'=>'privacy.','middleware'=>'authAdmin'],function() {
+        Route::get('/edit','Admin\PrivacyController@edit')->name('edit');
+        Route::post('/edit','Admin\PrivacyController@update')->name('update');
     }) ;
     Route::Group(['prefix'=>'howitworks','as'=>'howitworks.','middleware'=>'authAdmin'],function() {
         Route::get('/edit','Admin\HowitworksController@edit')->name('edit');

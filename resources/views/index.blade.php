@@ -62,11 +62,11 @@
 {{--                @endforeach--}}
             </div>
         </div>
-        <div class="row text-center mb-4">
-            <div class="col-12">
-                <h4>Aluminium Sheet Producers</h4>
-            </div>
-        </div>
+{{--        <div class="row text-center mb-4">--}}
+{{--            <div class="col-12">--}}
+{{--                <h4>Aluminium Sheet Producers</h4>--}}
+{{--            </div>--}}
+{{--        </div>--}}
         <div class="row row-cols-sm-2 row-cols-md-3" id="firmaAppend">
 
 {{--            @foreach($firma as $key=>$value)--}}

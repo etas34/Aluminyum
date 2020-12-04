@@ -95,11 +95,11 @@
                         <li class="list-inline-item"><a href="#"><img src="{{asset('public/assets/images/youtube.svg')}}" alt="..." /></a></li>
                     </ul>
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a class="text-dark" href="#">Copyright © 2020,</a></li>
-                        <li class="list-inline-item"><a class="text-dark" href="#">Her hakkı saklıdır</a></li>
-                        <li class="list-inline-item"><a class="text-dark" href="#">Gizlilik  </a></li>
-                        <li class="list-inline-item"><a class="text-dark" href="#">Şartlar   </a></li>
-                        <li class="list-inline-item"><a class="text-dark" href="#">Site haritası   </a></li>
+                        <li class="list-inline-item">Copyright © 2020, </li>
+                        <li class="list-inline-item">All right reserved</li>
+                        <li class="list-inline-item"><a class="text-dark" href="{{ route('privacy') }}">Privacy Policy </a></li>
+{{--                        <li class="list-inline-item"><a class="text-dark" href="#">Terms of Use   </a></li>--}}
+{{--                        <li class="list-inline-item"><a class="text-dark" href="#">Site Map   </a></li>--}}
                     </ul>
                 </div>
                 <div class="col-md-3">

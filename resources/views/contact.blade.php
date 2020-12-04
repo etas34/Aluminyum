@@ -8,7 +8,7 @@
         <img src="{{asset('public/assets/images/contact.svg')}}" alt="" class="img-fluid" />
 
         <div class="container">
-            <div class="bread"><h1 class="text-white">İletişim</h1></div>
+            <div class="bread"><h1 class="text-white">Contact</h1></div>
         </div>
     </div>
     <div class="container">
@@ -27,7 +27,7 @@
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col-12">
-                <h2 class="text-danger">Adres Bilgileri</h2>
+                <h2 class="text-danger">Headquarters</h2>
             </div>
         </div>
         <div class="row">
@@ -35,8 +35,8 @@
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d892.64562907046!2d28.821488269894534!3d40.999246640433554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1606133045783!5m2!1str!2str" width="540" height="305" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
             <div class="col-md-6">
-                <h4 class="mb-4">İstanbul Demir ve Demir Dışı Metaller<br />
-                    İhracatçıları Birliği
+                <h4 class="mb-4">Istanbul Ferrous and Non-Ferrous Metals Exporters' Association
+
                 </h4>
                 <h6 class="mb-4">
                     Sanayi Cad. No:3, Dış Ticaret Kompleksi <br />
@@ -45,7 +45,7 @@
                 </h6>
                 <h5><a class="text-dark text-decoration-none mb-2 d-block" href="tel:02126111515">+90 (212) 611 15 15 (Pbx)</a></h5>
                 <h5><a class="text-dark text-decoration-none mb-4 d-block" href="mailto:info@turkishmetals.org">info@turkishmetals.org</a></h5>
-                <h5><a href="https://goo.gl/maps/bHnwuaoJxjgwSd1Q9" target="_blank" class="text-danger">Adrese Git</a></h5>
+                <h5><a href="https://goo.gl/maps/bHnwuaoJxjgwSd1Q9" target="_blank" class="text-danger">Go to Address </a></h5>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
     <div class="container py-5">
         <div class="row mb-4">
             <div class="col-12">
-                <h2 class="text-danger">İletişim ve Öneri Formu</h2>
+                <h2 class="text-danger">Contact Form</h2>
             </div>
         </div>
 
@@ -95,7 +95,7 @@
     </div>
     <hr />
     <div class="container py-5">
-        <h2 class="text-danger mb-4">Sıkça Sorulan Sorular</h2>
+        <h2 class="text-danger mb-4">FAQ - Frequently Asked Questions</h2>
         <div class="accordion" id="accordionExample">
             <div class="card mb-4">
                 <div id="headingOne" class="card-header p-0 bg-white">

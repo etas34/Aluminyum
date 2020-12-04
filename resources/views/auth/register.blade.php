@@ -17,7 +17,7 @@
                 <div  class=" col-md-7 ml-auto mr-8">
 
                     <div style="text-align: center;">
-                        <h2>Kayıt Ol</h2>
+                        <h2>Register</h2>
                     </div>
 
                     <div class="card-body">
@@ -39,7 +39,7 @@
 {{--                            </div>--}}
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">Firma Ünvanı</label>
+                                <label class="col-md-4 col-form-label text-md-right">Company Info</label>
                                 <div class="col-md-6">
                                     <input type="text" required name="name" class="form-control" value=""/>
                                 </div>

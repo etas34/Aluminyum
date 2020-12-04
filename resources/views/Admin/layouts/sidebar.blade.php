@@ -118,6 +118,15 @@
                     </a>
 
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.privacy.edit')}}" class="nav-link">
+                        <i class="nav-icon fas fa-lock"></i>
+                        <p>
+                            Gizlilik
+                        </p>
+                    </a>
+
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

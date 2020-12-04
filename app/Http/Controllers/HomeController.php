@@ -8,6 +8,7 @@ use App\AltKategori;
 use App\Gorusme;
 use App\Howitworks;
 use App\Kategori;
+use App\Privacy;
 use App\Urun;
 use App\User;
 use Illuminate\Http\Request;
@@ -60,6 +61,11 @@ class HomeController extends Controller
     {
         $howitworks = Howitworks::first();
         return view('howitworks',compact('howitworks'));
+    }
+    public function privacy()
+    {
+        $privacy = Privacy::first();
+        return view('privacy',compact('privacy'));
     }
     public function about()
     {
