@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\About;
 use App\Bulten;
 use App\AltKategori;
+use App\Faq;
 use App\Gorusme;
 use App\Howitworks;
 use App\Kategori;
@@ -54,9 +55,11 @@ class HomeController extends Controller
 
     public function contact()
     {
-
-        return view('contact');
+        $faq = Faq::all();
+        return view('contact',compact('faq'));
     }
+
+
     public function howitworks()
     {
         $howitworks = Howitworks::first();

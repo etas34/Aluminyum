@@ -97,62 +97,68 @@
     <div class="container py-5">
         <h2 class="text-danger mb-4">FAQ - Frequently Asked Questions</h2>
         <div class="accordion" id="accordionExample">
+
+            @foreach($faq as $key=>$value)
             <div class="card mb-4">
-                <div id="headingOne" class="card-header p-0 bg-white">
+                <div id="heading{{$key}}" class="card-header p-0 bg-white">
                     <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left  px-2 py-3  text-decoration-none text-dark" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                            Araştırma-Geliştirme Destekleri Hakkında Bilgi Verebilir misiniz?
+                        <button class="btn btn-link btn-block text-left  px-2 py-3  text-decoration-none text-dark" type="button" data-toggle="collapse" data-target="#collapse{{$key}}" aria-expanded="false" aria-controls="collapseOne">
+                            {{ $value->soru }}
                         </button>
                     </h2>
                 </div>
 
-                <div id="collapseOne" class="collapse" data-parent="#accordionExample">
+                <div id="collapse{{$key}}" class="collapse" data-parent="#accordionExample">
                     <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                        tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                        lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                       {{ $value->cevap }}
                     </div>
                 </div>
             </div>
-            <div class="card mb-4">
-                <div id="headingTwo" class="card-header p-0 bg-white">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed px-2 py-3 text-decoration-none text-dark" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                            2023 Türkiye İhracat Stratejisi nedir?
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <p>
-                            2023 Türkiye İhracat Stratejisi, Türkiye’nin ulusal strateji ve politika dökümanlarında öngörülen
-                            çerçeveye uygun olarak, Ticaret Bakanlığı’nın koordinasyonunda, Ticaret Bakanlığı, Kalkınma Bakanlığı
-                            ve Türkiye İhracatçılar Meclisi (TİM) işbirliği içinde hazırlanmıştır.
-                        </p>
-                        <p>
-                            2023 Türkiye İhracat Stratejisinin Vizyonu, “Cumhuriyetimizin 100. kuruluş yıldönümü olan 2023 yılında
-                            500 milyar dolar ihracata ulaşarak, ülkemizin dünya ticaretinde lider ülkeler arasında yer almasının
-                            sağlanması” olarak belirlenmiştir.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div id="headingThree" class="card-header p-0 bg-white">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link btn-block text-left collapsed px-2 py-3 text-decoration-none text-dark" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Rest harchil moluptatur rest harchil moluptatur?
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon
-                        tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice
-                        lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
+
+{{--            <div class="card mb-4">--}}
+{{--                <div id="headingTwo" class="card-header p-0 bg-white">--}}
+{{--                    <h2 class="mb-0">--}}
+{{--                        <button class="btn btn-link btn-block text-left collapsed px-2 py-3 text-decoration-none text-dark" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">--}}
+{{--                            2023 Türkiye İhracat Stratejisi nedir?--}}
+{{--                        </button>--}}
+{{--                    </h2>--}}
+{{--                </div>--}}
+{{--                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">--}}
+{{--                    <div class="card-body">--}}
+{{--                        <p>--}}
+{{--                            2023 Türkiye İhracat Stratejisi, Türkiye’nin ulusal strateji ve politika dökümanlarında öngörülen--}}
+{{--                            çerçeveye uygun olarak, Ticaret Bakanlığı’nın koordinasyonunda, Ticaret Bakanlığı, Kalkınma Bakanlığı--}}
+{{--                            ve Türkiye İhracatçılar Meclisi (TİM) işbirliği içinde hazırlanmıştır.--}}
+{{--                        </p>--}}
+{{--                        <p>--}}
+{{--                            2023 Türkiye İhracat Stratejisinin Vizyonu, “Cumhuriyetimizin 100. kuruluş yıldönümü olan 2023 yılında--}}
+{{--                            500 milyar dolar ihracata ulaşarak, ülkemizin dünya ticaretinde lider ülkeler arasında yer almasının--}}
+{{--                            sağlanması” olarak belirlenmiştir.--}}
+{{--                        </p>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="card mb-4">--}}
+{{--                <div id="headingThree" class="card-header p-0 bg-white">--}}
+{{--                    <h2 class="mb-0">--}}
+{{--                        <button class="btn btn-link btn-block text-left collapsed px-2 py-3 text-decoration-none text-dark" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">--}}
+{{--                            Rest harchil moluptatur rest harchil moluptatur?--}}
+{{--                        </button>--}}
+{{--                    </h2>--}}
+{{--                </div>--}}
+{{--                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">--}}
+{{--                    <div class="card-body">--}}
+{{--                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon--}}
+{{--                        tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice--}}
+{{--                        lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--    --}}
+
+
         </div>
     </div>
 

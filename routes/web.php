@@ -54,6 +54,14 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::post('/update/{bulten}', 'Admin\BultenController@update')->name('update');
         Route::get('/delete/{bulten}', 'Admin\BultenController@destroy')->name('destroy');
     });
+    Route::group(['prefix'=>'faq','as'=>'faq.','middleware'=>'authAdmin'],function (){
+        Route::get('/', 'Admin\FaqController@index')->name('index');
+        Route::get('/create', 'Admin\FaqController@create')->name('create');
+        Route::post('/create', 'Admin\FaqController@store')->name('store');
+        Route::get('/edit/{faq}', 'Admin\FaqController@edit')->name('edit');
+        Route::post('/update/{faq}', 'Admin\FaqController@update')->name('update');
+        Route::get('/delete/{faq}', 'Admin\FaqController@destroy')->name('destroy');
+    });
     Route::group(['prefix'=>'kategori','as'=>'kategori.','middleware'=>'authAdmin'],function (){
         Route::get('/indexUst', 'Admin\KategoriController@indexUst')->name('indexUst');
         Route::get('/indexAlt', 'Admin\KategoriController@indexAlt')->name('indexAlt');
