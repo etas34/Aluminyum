@@ -345,7 +345,7 @@
 
 
         <!-- Modal -->
-        <div class="container">
+        <div style="margin-top: -100px" class="container">
             <div class="row text-center">
                 <div class="col-12">
                     <h1 class="font-weight-light">

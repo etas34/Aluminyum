@@ -12,7 +12,9 @@
                     <div style="text-align: center;">
                         <h2>&nbsp;</h2>
                     </div>
-                    <img src="https://via.placeholder.com/400X200">
+{{--                    <img src="https://via.placeholder.com/400X200">--}}
+                    <img width="400" height="300" src="{{asset('public/assets/images/reglog.png')}}">
+
                 </div>
 
                 <div class="col-md-7 ml-auto mr-8">
