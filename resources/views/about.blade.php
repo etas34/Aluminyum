@@ -32,7 +32,7 @@
                 @endif
                 <h2 class="text-danger">{{ $about->baslik }}</h2>
 
-                   {{  $about->metin }}
+                   {!!   $about->metin !!}
 
             </div>
         </div>

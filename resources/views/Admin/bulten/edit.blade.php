@@ -35,7 +35,7 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">İçerik</label>
-                                        <textarea class="form-control" name="icerik" rows="8" required>{{$bulten->icerik}}</textarea>
+                                        <textarea class="form-control" id="textarea" name="icerik" rows="8" required>{{$bulten->icerik}}</textarea>
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Tarih</label>

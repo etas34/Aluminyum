@@ -416,7 +416,7 @@
                                         <img class="card-img-top" src="{{$value->foto}}" alt="..."/>
                                         <div class="card-footer text-center bg-white">
                                             <h6>{{$value->ad}} </h6>
-
+                                            <p class="card-text">{{ $value->aciklama }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -440,7 +440,8 @@
                     <h3 class="text-danger">About Company</h3>
                     <br>
 
-                    {{ $user->hakkimizda }}
+                    {!!  $user->hakkimizda !!}
+
                 </div>
             </div>
             <div class="row mb-4">

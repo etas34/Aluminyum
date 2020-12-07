@@ -44,7 +44,7 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Metin</label>
-                                        <textarea class="form-control" name="metin" rows="8" required>{{$about->metin}}</textarea>
+                                        <textarea class="form-control" id="textarea" name="metin" rows="8" required>{{$about->metin}}</textarea>
                                     </div>
 
                                 </div>
@@ -72,35 +72,35 @@
 
     <script src="{{asset('public/adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
-        var _URL2 = window.URL || window.webkitURL;
-
-        $("#header").change(function (e) {
-            var file, img;
-            if ((file = this.files[0])) {
-                img = new Image();
-                var objectUrl = _URL2.createObjectURL(file);
-                img.onload = function () {
-
-                    if (this.width != 1200 && this.height != 470) {
-
-                        $('#error_header').html('<label class="text-danger">Lütfen  1200 X 470 boyutlarında yükleyiniz</label>');
-                        $('#header').addClass('has-error');
-                        $('#edit').attr('disabled', true);
-                    } else {
-
-                        $('#error_header').html('<label class="text-success"></label>');
-                        $('#header').removeClass('has-error');
-                        $('#edit').attr('disabled', false);
-
-                    }
-
-
-                    _URL2.revokeObjectURL(objectUrl);
-                };
-                img.src = objectUrl;
-            }
-
-        })
+        // var _URL2 = window.URL || window.webkitURL;
+        //
+        // $("#header").change(function (e) {
+        //     var file, img;
+        //     if ((file = this.files[0])) {
+        //         img = new Image();
+        //         var objectUrl = _URL2.createObjectURL(file);
+        //         img.onload = function () {
+        //
+        //             if (this.width != 1200 && this.height != 470) {
+        //
+        //                 $('#error_header').html('<label class="text-danger">Lütfen  1200 X 470 boyutlarında yükleyiniz</label>');
+        //                 $('#header').addClass('has-error');
+        //                 $('#edit').attr('disabled', true);
+        //             } else {
+        //
+        //                 $('#error_header').html('<label class="text-success"></label>');
+        //                 $('#header').removeClass('has-error');
+        //                 $('#edit').attr('disabled', false);
+        //
+        //             }
+        //
+        //
+        //             _URL2.revokeObjectURL(objectUrl);
+        //         };
+        //         img.src = objectUrl;
+        //     }
+        //
+        // })
 
         $(function () {
             // Summernote

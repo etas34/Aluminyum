@@ -22,7 +22,7 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Metin</label>
-                                        <textarea class="form-control" name="metin" rows="8" required>{{$privacy->metin}}</textarea>
+                                        <textarea class="form-control" id="textarea" name="metin" rows="8" required>{{$privacy->metin}}</textarea>
                                     </div>
 
                                 </div>

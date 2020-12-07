@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\AltKategori;
+use App\Kategori;
 use App\Urun;
 use App\User;
 use Auth;
@@ -40,6 +42,7 @@ class UrunController extends Controller
     public function store(Request $request)
     {
         $urun = new Urun();
+        $ustkategoris ="";
 
 
         if ($request->file('foto')) {
@@ -58,8 +61,21 @@ class UrunController extends Controller
         $urun->user_id = \Auth::id();
         $urun->ad = $request->ad;
         $urun->aciklama = $request->aciklama;
-        $urun->kategori_id = $request->category;
-        $urun->alt_kategori_id = $request->subcategory;
+        if ($urun->email != $request->email)
+            $validateData = $request->validate([
+                'email'=> 'required|unique:users|max:255'
+            ]);
+        $urun->alt_kategori_id = implode(',',$request->altkategori);
+
+        foreach ( $request->altkategori as $value ){
+            $altkategori = AltKategori::find($value)['ust_kategori_id'];
+            $ustkategoris .= Kategori::find($altkategori)['id'] . ",";
+
+        }
+
+
+        $ust_kategori = implode(',', array_unique(explode(',', $ustkategoris)));
+        $urun->kategori_id = rtrim($ust_kategori,",");
         $saved = $urun->save();
 
         if ($saved)
@@ -110,6 +126,10 @@ class UrunController extends Controller
      */
     public function update(Request $request, Urun $urun)
     {
+
+
+        $ustkategoris ="";
+
         if (Auth::id() == $urun->user_id) {
 
             if ($request->file('foto')) {
@@ -130,6 +150,17 @@ class UrunController extends Controller
             $urun->kategori_id = $request->category;
             $urun->alt_kategori_id = $request->subcategory;
             $urun->aciklama = $request->aciklama;
+            $urun->alt_kategori_id = implode(',',$request->altkategori);
+
+            foreach ( $request->altkategori as $value ){
+                $altkategori = AltKategori::find($value)['ust_kategori_id'];
+                $ustkategoris .= Kategori::find($altkategori)['id'] . ",";
+
+            }
+
+
+            $ust_kategori = implode(',', array_unique(explode(',', $ustkategoris)));
+            $urun->kategori_id = rtrim($ust_kategori,",");
             $saved = $urun->save();
 
             if ($saved)

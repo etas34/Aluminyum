@@ -40,7 +40,7 @@
 
                                     @endif
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Logo</label>
+                                        <label class="control-label">Logo  ( 1:1 )</label>
                                         <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
                                         <span id="error_foto"></span>
                                     </div>
@@ -54,7 +54,7 @@
 
                                     @endif
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Başlık Fotoğrafı</label>
+                                        <label class="control-label">Başlık Fotoğrafı  ( 1900 X 260 ) </label>
                                         <input id="header" type="file" name="header" class="form-control"
                                                accept="image/*">
                                         <span id="error_header"></span>
@@ -488,7 +488,7 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Hakkımızda</label>
-                                        <textarea rows="10" required class="form-control" name="hakkimizda"
+                                        <textarea rows="10" id="textarea" required class="form-control" name="hakkimizda"
                                         >{{$user->hakkimizda}}</textarea>
                                     </div>
 

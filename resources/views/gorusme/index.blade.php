@@ -18,7 +18,7 @@
                                     <thead>
                                     <tr>
                                         <th>Ad Soyad</th>
-                                        <th >Mesaj</th>
+                                        <th>Mesaj</th>
                                         <th>Tarih</th>
                                         <th>Firma Bilgileri</th>
                                         <th>Ülke</th>

@@ -472,7 +472,7 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Hakkımızda</label>
-                                        <textarea rows="10" required class="form-control" name="hakkimizda"
+                                        <textarea rows="10" id="textarea" required class="form-control" name="hakkimizda"
                                         >{{$user->hakkimizda}}</textarea>
                                     </div>
 

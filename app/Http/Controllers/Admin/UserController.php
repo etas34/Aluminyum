@@ -110,11 +110,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $validateData = $request->validate([
-            'email'=> 'required|unique:users|max:255'
-
-        ]);
-
+        if ($user->email != $request->email)
+            $validateData = $request->validate([
+                'email'=> 'required|unique:users|max:255'
+            ]);
 
         $ustkategoris ="";
 

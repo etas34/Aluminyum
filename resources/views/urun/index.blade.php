@@ -21,8 +21,8 @@
                                     <tr>
                                         <th>Ürün Görseli</th>
                                         <th>Ürün İsmi</th>
-                                        <th>Üst Kategori</th>
-                                        <th>Alt Kategori</th>
+                                        <th>Kategoriler</th>
+
                                         <th>Düzenle</th>
                                         <th>Kaldır</th>
                                     </tr>
@@ -32,8 +32,18 @@
                                         <tr>
                                             <td><img src="{{$value->foto}}" height="100px"></td>
                                             <td>{{$value->ad}}</td>
-                                            <td>{{\App\Kategori::find($value->kategori_id)['ust_kategori']}}</td>
-                                            <td>{{\App\AltKategori::find($value->alt_kategori_id)['alt_kategori']}}</td>
+                                            <td>
+                                                Üst kategori:   @foreach (explode(',',$value->kategori_id ) as $value2)
+                                                 {{ \App\Kategori::find($value2)['ust_kategori']  }}
+                                                   @endforeach
+                                                <br/>
+                                                 Alt kategori:   @foreach (explode(',',$value->alt_kategori_id ) as $value3)
+                                                 {{ \App\AltKategori::find($value3)['alt_kategori'] }}
+                                                   @endforeach
+
+
+
+                                            </td>
 
                                             <td><a href="{{route('urun.edit',$value)}}"><span
                                                         class="badge bg-warning p-2">Düzenle</span></a></td>

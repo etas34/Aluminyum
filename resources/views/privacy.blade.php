@@ -28,7 +28,7 @@
 
 {{--                <h2 class="text-danger">{{ $about->baslik }}</h2>--}}
 
-                   {{  $privacy->metin }}
+                   {!!   $privacy->metin !!}
 
             </div>
         </div>
