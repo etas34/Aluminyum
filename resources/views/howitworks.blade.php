@@ -13,17 +13,17 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex flex-wrap">
-                <h4>Meet with Aluminium Producers via 3 Steps</h4>
+                <h4 style="font-weight: 200 !important;" >Meet with Aluminium Producers via 3 Steps</h4>
 
-                <button class="btn btn-link text-dark ml-auto text-decoration-none">
+                <a href="#hiw" class="btn btn-link text-dark ml-auto text-decoration-none">
                     More Information <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
-                </button>
+                </a>
 
             </div>
         </div>
     </div>
     <hr />
-    <div class="container py-5">
+    <div class="container ">
         <div class="row">
             <div class="col-12">
                 @if($howitworks->foto)
@@ -32,7 +32,7 @@
                     <img src="{{asset('public/assets/images/about.svg')}}" class="img-fluid mb-5" alt="..." />
                 @endif
 
-                <h2 class="text-danger">{{ $howitworks->baslik }}</h2>
+                <h2 id="hiw" class="text-danger mb-5">{{ $howitworks->baslik }}</h2>
                     {!! $howitworks->metin !!}
             </div>
         </div>

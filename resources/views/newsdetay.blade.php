@@ -13,11 +13,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex flex-wrap">
-                <h3>{{$bulten->baslik}}</h3>
+                <h4 style="font-weight: 200 !important;" >{{$bulten->baslik}}</h4>
 
-                <button class="btn btn-link text-dark ml-auto text-decoration-none">
-                    Daha fazla bilgi <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
-                </button>
+{{--                <a href="#nd" class="btn btn-link text-dark ml-auto text-decoration-none">--}}
+{{--                   More Information <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />--}}
+{{--                </a>--}}
 
             </div>
         </div>
@@ -30,10 +30,10 @@
                 </a>
 
 {{--                <h5><a class="d-block text-secondary text-decoration-none" href="#">{{$bulten->baslik}}</a></h5>--}}
-        <div class="col-12">
-                        <h5><a class="d-block text-secondary text-decoration-none" href="#" class="date">{{$bulten->tarih}}</a></h5>
+        <div class="col-12 mt-5">
+            <div> {{$bulten->tarih}}</div>
         </div>
-                <div class="col-12 text-center">
+                <div id="nd" class="col-12">
                     <h1>{{$bulten->baslik}}</h1>
                 </div>
                  <div class="col-12">
@@ -41,7 +41,7 @@
                 </div>
 
         </div>
-    </div>
+
 
 </main>
 

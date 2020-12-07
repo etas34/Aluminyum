@@ -14,20 +14,20 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-flex flex-wrap">
-                <h4>We would love to hear from you</h4>
+                <h4 style="font-weight: 200">We would love to hear from you</h4>
 
-                <button class="btn btn-link text-dark ml-auto text-decoration-none">
-                    More Information <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
-                </button>
+{{--                <a href="#contact" class="btn btn-link text-dark ml-auto text-decoration-none">--}}
+{{--                    More Information <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />--}}
+{{--                </a>--}}
 
             </div>
         </div>
     </div>
     <hr />
-    <div class="container py-5">
+    <div class="container">
         <div class="row mb-4">
             <div class="col-12">
-                <h2 class="text-danger">Headquarters</h2>
+                <h2  class="text-danger">Headquarters</h2>
             </div>
         </div>
         <div class="row">
@@ -38,14 +38,14 @@
                 <h4 class="mb-4">Istanbul Ferrous and Non-Ferrous Metals Exporters' Association
 
                 </h4>
-                <h6 class="mb-4">
+                <div class="mb-4">
                     Sanayi Cad. No:3, Dış Ticaret Kompleksi <br />
                     A Blok, Çobançeşme Mevkii 34196 <br />
                     Bahçelievler / İSTANBUL
-                </h6>
-                <h5><a class="text-dark text-decoration-none mb-2 d-block" href="tel:02126111515">+90 (212) 611 15 15 (Pbx)</a></h5>
-                <h5><a class="text-dark text-decoration-none mb-4 d-block" href="mailto:info@turkishmetals.org">info@turkishmetals.org</a></h5>
-                <h5><a href="https://goo.gl/maps/bHnwuaoJxjgwSd1Q9" target="_blank" class="text-danger">Go to Address </a></h5>
+                </div>
+                <a class="text-dark text-decoration-none mb-2 d-block" href="tel:02126111515">+90 (212) 611 15 15 (Pbx)</a>
+                <a class="text-dark text-decoration-none mb-4 d-block" href="mailto:info@turkishmetals.org">info@turkishmetals.org</a>
+                <a href="https://goo.gl/maps/bHnwuaoJxjgwSd1Q9" target="_blank" class="text-danger">Go to Address </a>
             </div>
         </div>
     </div>

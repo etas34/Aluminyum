@@ -333,13 +333,14 @@
             </div>
 
         </div>
-        <div class="detailbg">
+
+        <div class="detailbg text-center">
             @if($user->header)
             <img src="{{$user->header}}" alt="..." class="img-fluid"/>
             @else
-            <img src="{{asset('public/assets/images/detaybg.svg')}}" alt="..." class="img-fluid"/>
+            <img style="background-color: #F1F1F1; border-color: #8C8C8C; border-style: solid; border-width: 1px; " src="{{asset('public/assets/images/detaybg.svg')}}" alt="..." class="img-fluid"/>
             @endif
-            <img height="200" width="200" src="{{$user->logo}}" alt="..." class="detail-logo"/>
+            <img style="background-color: #F1F1F1; border-color: #8C8C8C; border-style: solid; border-width: 1px; "  height="200" width="200" src="{{$user->logo}}" alt="..." class="detail-logo"/>
         </div>
 
 
@@ -483,14 +484,14 @@
                     <h4 class="mb-6">{{$user->name}} <br/>
 
                     </h4>
-                    <h6 class="mb-6">
-                        {{$user->adres}}
-                    </h6>
-                    <h5><a class="text-dark text-decoration-none mb-2 d-block"
-                           href="tel:{{$user->phone}}">{{$user->phone}}</a></h5>
-                    <h5><a class="text-dark text-decoration-none mb-4 d-block"
+                    <div class="mb-6">
+                        <span>{{$user->adres}}</span>
+                    </div>
+                  <a class="text-dark text-decoration-none mb-2 d-block"
+                           href="tel:{{$user->phone}}">{{$user->phone}}</a>
+                   <a class="text-dark text-decoration-none mb-4 d-block"
                            href="mailto:{{$user->email}}">{{$user->email}}</a>
-                    </h5>
+
                     {{--                    <h5><a href="#" class="text-danger">Adrese Git</a></h5>--}}
                 </div>
             </div>

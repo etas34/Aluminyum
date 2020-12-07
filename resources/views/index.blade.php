@@ -130,7 +130,7 @@
                             var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
                                 '<div class="card">' +
                                 '<div class="card-header">' +
-                                '<img class="card-img-top" src="'+firma['logo']+'" alt="..." height="255" width="360" />' +
+                                '<img class="card-img-top" src="'+firma['logo']+'" alt="..." />' +
                                 '</div>' +
                                 '<div class="card-footer text-center bg-white">' +
                                 '<p class="card-text">' +
@@ -181,7 +181,7 @@
                         var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
                             '<div class="card">' +
                             '<div class="card-header">' +
-                            '<img class="card-img-top" src="'+firma['logo']+'" alt="..." height="255" width="360" />' +
+                            '<img class="card-img-top" src="'+firma['logo']+'" alt="..."  />' +
                             '</div>' +
                             '<div class="card-footer text-center bg-white">' +
                             '<p class="card-text">' +
@@ -265,7 +265,7 @@
                             var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
                                 '<div class="card">' +
                                 '<div class="card-header">' +
-                                '<img class="card-img-top" src="'+firma['logo']+'" alt="..." height="255" width="360" />' +
+                                '<img class="card-img-top" src="'+firma['logo']+'" alt="..."  />' +
                                 '</div>' +
                                 '<div class="card-footer text-center bg-white">' +
                                 '<p class="card-text">' +
