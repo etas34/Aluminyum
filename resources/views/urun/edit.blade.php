@@ -107,8 +107,11 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label class="control-label">Fotoğraf</label>
-                                            <input type="file" name="foto" class="form-control" accept="image/*">
+                                            <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
+                                            <span id="error_foto"></span>
+
                                         </div>
+
 
 
 
@@ -123,7 +126,7 @@
 
                                     </div>
                                     <div class="card-footer pull-right">
-                                        <input type="submit" class="btn btn-success px-5 float-right" value="Kaydet">
+                                        <input type="submit" class="btn btn-success px-5 float-right"  id="edit" value="Kaydet">
                                     </div>
                                 </div>
                             </form>
@@ -147,6 +150,34 @@
 
     <script src="{{asset('public/adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
+        var _URL2 = window.URL || window.webkitURL;
+        $("#foto").change(function (e) {
+            var file, img;
+            if ((file = this.files[0])) {
+                img = new Image();
+                var objectUrl = _URL2.createObjectURL(file);
+                img.onload = function () {
+
+                    if (this.width != 800 && this.height != 600) {
+
+                        $('#error_foto').html('<label class="text-danger">Lütfen 800 X 600 boyutlarında yükleyiniz</label>');
+                        $('#foto').addClass('has-error');
+                        $('#edit').attr('disabled', true);
+                    } else {
+
+                        $('#error_foto').html('<label class="text-success"></label>');
+                        $('#foto').removeClass('has-error');
+                        $('#edit').attr('disabled', false);
+
+                    }
+
+
+                    _URL2.revokeObjectURL(objectUrl);
+                };
+                img.src = objectUrl;
+            }
+
+        })
         $('#urunaciklama').keyup(function () {
             if (this.value.length === 0) {
                 $('#limit2').show();
