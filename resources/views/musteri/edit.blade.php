@@ -40,7 +40,7 @@
 
                                     @endif
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Logo  ( 1:1 )</label>
+                                        <label class="control-label">Logo ( 1:1 )</label>
                                         <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
                                         <span id="error_foto"></span>
                                     </div>
@@ -54,7 +54,7 @@
 
                                     @endif
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Başlık Fotoğrafı  ( 1900 X 260 ) </label>
+                                        <label class="control-label">Başlık Fotoğrafı ( 1900 X 260 ) </label>
                                         <input id="header" type="file" name="header" class="form-control"
                                                accept="image/*">
                                         <span id="error_header"></span>
@@ -82,8 +82,8 @@
                                         </div>
                                         @error('email')
                                         <span class="text-danger">{{ $message }}</span>
-                                        @enderror
-                                        <!-- /.form group -->
+                                    @enderror
+                                    <!-- /.form group -->
 
                                     </div>
 
@@ -164,12 +164,10 @@
                                                         <option
 
                                                             @if($user->altkategori_id)
-                                                                    @if(  in_array( $alt->id  , explode(",",$user->altkategori_id) )   )
-                                                                        selected
-                                                                    @endif
+                                                            @if(  in_array( $alt->id  , explode(",",$user->altkategori_id) )   )
+                                                            selected
                                                             @endif
-
-
+                                                            @endif
 
 
                                                             value="{{ $alt->id }}"> {{ $alt->alt_kategori }}  </option>
@@ -488,7 +486,8 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Hakkımızda</label>
-                                        <textarea rows="10" id="textarea" required class="form-control" name="hakkimizda"
+                                        <textarea rows="10" id="textarea" required class="form-control"
+                                                  name="hakkimizda"
                                         >{{$user->hakkimizda}}</textarea>
                                     </div>
 
@@ -507,6 +506,14 @@
                                     </div>
 
 
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <input required type="checkbox" id="cb">
+                                        <label class="control-label" for="cb"><a href="#">Üyelik Sözleşmesini</a> okudum ve kabul ediyorum .</label>
+                                    </div>
                                 </div>
                                 <p style="padding: 19px"></p>
                                 <div class=" pull-right">

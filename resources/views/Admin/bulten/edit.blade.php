@@ -23,8 +23,9 @@
                                         <img type="file" src="{{$bulten->foto}}" height="200px" >
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Fotoğraf</label>
-                                        <input type="file"  name="foto" class="form-control" accept="image/*" >
+                                        <label class="control-label">Fotoğraf (4:3)</label>
+                                        <input type="file" id="foto" name="foto" class="form-control" accept="image/*"  required>
+                                        <span id="error_foto"></span>
                                     </div>
 
                                     <div class="form-group col-md-12">
@@ -67,6 +68,35 @@
 
     <script src="{{asset('public/adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
+        var _URL1 = window.URL || window.webkitURL;
+        $("#foto").change(function (e) {
+            var file, img;
+            if ((file = this.files[0])) {
+                img = new Image();
+                var objectUrl = _URL1.createObjectURL(file);
+                img.onload = function () {
+
+                    if (  this.width / this.height === (4 / 3)) {
+
+                        $('#error_foto').html('<label class="text-success"></label>');
+                        $('#foto').removeClass('has-error');
+                        $('#edit').attr('disabled', false);
+                    } else {
+
+                        $('#error_foto').html('<label class="text-danger">Lütfen 4:3 Oranında Fotoğraf Yükleyiniz</label>');
+                        $('#foto').addClass('has-error');
+                        $('#edit').attr('disabled', true);
+
+
+                    }
+
+
+                    _URL1.revokeObjectURL(objectUrl);
+                };
+                img.src = objectUrl;
+            }
+
+        })
         $(function () {
             // Summernote
             $('#textarea').summernote({

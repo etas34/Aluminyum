@@ -69,6 +69,15 @@
                     </a>
 
                 </li>
+                <li class="nav-item">
+                    <a href="{{route('kullanim.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-question-circle"></i>
+                        <p>
+                            Panel Kullanımı
+                        </p>
+                    </a>
+
+                </li>
 
             </ul>
         </nav>

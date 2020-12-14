@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <div class="content-wrapper" style="min-height: 1203.6px;">
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -28,7 +27,7 @@
 
                                     @endif
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Logo</label>
+                                        <label class="control-label">Logo ( 1:1 )</label>
                                         <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
                                         <span id="error_foto"></span>
                                     </div>
@@ -42,7 +41,7 @@
 
                                     @endif
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Başlık Fotoğrafı</label>
+                                        <label class="control-label">Başlık Fotoğrafı ( 1900 X 260 ) </label>
                                         <input id="header" type="file" name="header" class="form-control"
                                                accept="image/*">
                                         <span id="error_header"></span>
@@ -65,14 +64,16 @@
                                                 <input required type="email" value="{{$user->email}}" name="email"
                                                        class="form-control">
                                             </div>
+
                                             <!-- /.input group -->
                                         </div>
                                         @error('email')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                     <!-- /.form group -->
 
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Firma Yetkilisi</label>
@@ -472,7 +473,8 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Hakkımızda</label>
-                                        <textarea rows="10" id="textarea" required class="form-control" name="hakkimizda"
+                                        <textarea rows="10" id="textarea" required class="form-control"
+                                                  name="hakkimizda"
                                         >{{$user->hakkimizda}}</textarea>
                                     </div>
 
@@ -491,6 +493,14 @@
                                     </div>
 
 
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12">
+                                        <input required type="checkbox" id="cb">
+                                        <label class="control-label" for="cb"><a href="#">Üyelik Sözleşmesini</a> okudum ve kabul ediyorum .</label>
+                                    </div>
                                 </div>
                                 <p style="padding: 19px"></p>
                                 <div class=" pull-right">

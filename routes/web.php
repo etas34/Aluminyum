@@ -107,10 +107,11 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
 
 }) ;
 Route::Group(['prefix'=>'firma','middleware'=>'auth'],function() {
+    Route::get('/panel-kullanim','MusteriController@index')->name('kullanim.index');
     Route::get('/edit','MusteriController@edit')->name('musteri.edit');
     Route::post('/edit','MusteriController@update')->name('musteri.update');
 }) ;
-Route::Group(['prefix'=>'urun','as'=>'urun.','middleware' => ['auth', 'musteriOnay']],function() {
+Route::Group(['prefix'=>'urun','as'=>'urun.','middleware' => ['auth']],function() {
     Route::get('/','UrunController@index')->name('index');
     Route::get('/create','UrunController@create')->name('create');
     Route::get('/edit/{urun}','UrunController@edit')->name('edit');
@@ -118,7 +119,7 @@ Route::Group(['prefix'=>'urun','as'=>'urun.','middleware' => ['auth', 'musteriOn
     Route::post('/edit/{urun}','UrunController@update')->name('update');
     Route::any('/delete/{urun}','UrunController@destroy')->name('destroy');
 }) ;
-Route::Group(['prefix'=>'gorusme','as'=>'gorusme.','middleware' => ['auth', 'musteriOnay']],function() {
+Route::Group(['prefix'=>'gorusme','as'=>'gorusme.','middleware' => ['auth']],function() {
     Route::get('/','GorusmeController@index')->name('index');
     Route::get('/bekleme/{gorusme}','GorusmeController@bekleme')->name('bekleme');
     Route::get('/kabul/{gorusme}','GorusmeController@kabul')->name('kabul');

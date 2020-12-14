@@ -20,7 +20,8 @@ class MusteriController extends Controller
      */
     public function index()
     {
-        //
+        return view('kullanim.index');
+
     }
 
     /**
@@ -83,6 +84,7 @@ class MusteriController extends Controller
         $ustkategoris ="";
 
         $user = \App\User::find(Auth::id());
+        $user->durum = 0;
         if ($user->email != $request->email)
             $validateData = $request->validate([
                 'email'=> 'required|unique:users|max:255'

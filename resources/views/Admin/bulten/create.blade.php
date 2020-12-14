@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Fotoğraf</label>
+                                        <label class="control-label">Fotoğraf (4:3)</label>
                                         <input type="file" id="foto" name="foto" class="form-control" accept="image/*"  required>
                                         <span id="error_foto"></span>
                                     </div>

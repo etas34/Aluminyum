@@ -92,10 +92,7 @@
 
 @push('scripts')
     <script>
-        $(function () {
-            $('#example1').DataTable()
 
-        })
     </script>
 
 @endpush

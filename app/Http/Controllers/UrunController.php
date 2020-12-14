@@ -44,6 +44,10 @@ class UrunController extends Controller
         $urun = new Urun();
         $ustkategoris ="";
 
+        $user = \App\User::find(\Illuminate\Support\Facades\Auth::id());
+        $user->durum = 0;
+        $user->save();
+
 
         if ($request->file('foto')) {
 
@@ -127,6 +131,9 @@ class UrunController extends Controller
     public function update(Request $request, Urun $urun)
     {
 
+        $user = \App\User::find(\Illuminate\Support\Facades\Auth::id());
+        $user->durum = 0;
+        $user->save();
 
         $ustkategoris ="";
 

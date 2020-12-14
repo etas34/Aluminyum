@@ -31,6 +31,7 @@
                 </div>
                 <a href="javascript:void(0);" class="toBottom text-dark"><img src="{{asset('public/assets/images/arrow-down.svg')}}" alt="" /></a>
             </div>
+
         </div>
     </div>
 </div>
@@ -85,6 +86,16 @@
 {{--                @endforeach--}}
 
 
+        </div>
+        <div class="container ">
+            <div class="row">
+                <div class="col-12">
+
+                        <img src="{{asset('public/assets/images/illu.png')}}" class="img-fluid mb-5" alt="..." />
+
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
