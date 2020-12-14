@@ -16,8 +16,8 @@ class CreateHowitworksTable extends Migration
         Schema::create('howitworks', function (Blueprint $table) {
             $table->id();
             $table->string('foto');
-            $table->string('baslik');
-            $table->text('metin');
+            $table->string('baslik')->nullable();
+            $table->text('metin')->nullable();
             $table->timestamps();
         });
     }

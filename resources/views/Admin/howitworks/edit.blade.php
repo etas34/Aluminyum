@@ -39,13 +39,13 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Baslik</label>
-                                        <input type="text"  name="baslik" class="form-control" value="{{$howitworks->baslik}}" required>
+                                        <input type="text"  name="baslik" class="form-control" value="{{$howitworks->baslik}}" >
                                     </div>
 
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Metin</label>
-                                        <textarea class="form-control" id="textarea" name="metin" rows="8" required>{{$howitworks->metin}}</textarea>
+                                        <textarea class="form-control" id="textarea" name="metin" rows="8" >{{$howitworks->metin}}</textarea>
                                     </div>
 
                                 </div>
