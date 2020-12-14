@@ -89,9 +89,9 @@
                 <div class="col-12">
                     <a href="{{route('about')}}" class="btn btn-outline-secondary mb-2 mr-2">About</a>
                     <a href="{{route('news')}}" class="btn btn-outline-secondary mb-2 mr-2">News</a>
-                    <button class="btn btn-outline-secondary mb-2 mr-2">How it works</button>
-                    <a href="{{route('contact')}}" class="btn btn-outline-secondary mb-2 mr-2">Contact</a><br/>
-                    <a href="{{route('login')}}" class="btn btn-outline-secondary">Exhibitor Login</a>
+                    <a href="{{ route('howitworks') }}" class="btn btn-outline-secondary mb-2 mr-2">How it works</a>
+                    <a href="{{route('contact')}}" class="btn btn-outline-secondary mb-2 mr-2">Contact</a>
+                    <a href="{{route('login')}}" class="btn btn-outline-secondary mb-2 mr-2">Exhibitor Login</a>
                 </div>
             </div>
         </div>
@@ -117,8 +117,8 @@
                         <li class="list-inline-item">All right reserved</li>
                         <li class="list-inline-item"><a class="text-dark" href="{{ route('privacy') }}">Privacy
                                 Policy </a></li>
-                        <li class="list-inline-item"><a class="text-dark" href="{{ route('howitworks') }}">How it
-                                Works </a></li>
+{{--                        <li class="list-inline-item"><a class="text-dark" href="{{ route('howitworks') }}">How it--}}
+{{--                                Works </a></li>--}}
                         {{--                        <li class="list-inline-item"><a class="text-dark" href="#">Terms of Use   </a></li>--}}
                         {{--                        <li class="list-inline-item"><a class="text-dark" href="#">Site Map   </a></li>--}}
                     </ul>
