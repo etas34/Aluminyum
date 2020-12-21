@@ -7,6 +7,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12">
                     <div class="card">
+
                         @if(\App\User::find(Auth::id())->durum == 0 )
                             <div class="row">
                                 <div class="col-lg-12">
@@ -509,10 +510,30 @@
 
 
                                 </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                “İş bu web sayfasına tarafınızdan yüklenen şirketinize ait fotoğraf, video, bilgi v.b. gibi bilgiler, İDDMİB tarafından gerekli görüşmesi halinde revize edilebilir/kaldırılabilir/ değiştirilebilir. Şirketiniz, belirtilen bilgi ve belgeleri yüklerken değişiklik ve revizeye onay verdiğini, bu nedenle İDDMİB’ten herhangi bir talepte bulunmayacağını kabul ve beyan eder.”
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                                <button type="button" data-dismiss="modal" id="kabultEt" class="btn btn-primary">Kabul Et</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <input required type="checkbox" id="cb">
-                                        <label class="control-label" for="cb"><a href="#">Üyelik Sözleşmesini</a> okudum ve kabul ediyorum .</label>
+                                        <label class="control-label" for="cb"><a  data-toggle="modal" data-target="#exampleModal" href="#">Üyelik Sözleşmesini</a> okudum ve kabul ediyorum.</label>
                                     </div>
                                 </div>
                                 <p style="padding: 19px"></p>
@@ -539,6 +560,12 @@
 
 
     <script>
+
+
+        $( "#kabultEt" ).click(function() {
+            $('#cb').prop('checked', true);
+        });
+
         var _URL1 = window.URL || window.webkitURL;
         var _URL2 = window.URL || window.webkitURL;
         $("#foto").change(function (e) {
