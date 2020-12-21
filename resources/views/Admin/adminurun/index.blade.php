@@ -22,21 +22,21 @@
                                             <table id="example1" class="table table-bordered table-striped  dataTable">
                                                 <thead>
                                                 <tr>
-                                                    <th>Müşteri</th>
+                                                    <th>Müşteri Ünvanı</th>
                                                     <th>Ürün Görseli</th>
                                                     <th>Ürün İsmi</th>
                                                     <th>Kategoriler</th>
 
                                                     <th>Düzenle</th>
-{{--                                                    <th>Kaldır</th>--}}
+                                                    <th>Kaldır</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
                                                 @foreach($urun as $key=>$value)
                                                     <tr>
-                                                        <td><b> Müşteri Ad Soyad: <b/> {{\App\User::find($value->user_id)->name}}
+                                                        <td>{{\App\User::find($value->user_id)->name}}
                                                             <br>
-                                                           <b>Müşteri E-posta:</b> {{\App\User::find($value->user_id)->email}}
+                                                        <b>{{\App\User::find($value->user_id)->email}}</b>
                                                         </td>
                                                         <td><img src="{{$value->foto}}" height="100px"></td>
                                                         <td>{{$value->ad}}</td>
