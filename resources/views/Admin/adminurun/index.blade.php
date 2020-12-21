@@ -34,9 +34,9 @@
                                                 <tbody>
                                                 @foreach($urun as $key=>$value)
                                                     <tr>
-                                                        <td>{{\App\User::find($value->user_id)->name}}
+                                                        <td>{{\App\User::find($value->user_id)['name']}}
                                                             <br>
-                                                        <b>{{\App\User::find($value->user_id)->email}}</b>
+                                                        <b>{{\App\User::find($value->user_id)['email']}}</b>
                                                         </td>
                                                         <td><img src="{{$value->foto}}" height="100px"></td>
                                                         <td>{{$value->ad}}</td>
