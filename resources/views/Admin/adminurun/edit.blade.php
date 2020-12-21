@@ -1,4 +1,4 @@
-@extends('Admin.layouts.mainFront')
+@extends('Admin.layouts.main')
 
 @section('content')
 
@@ -11,27 +11,14 @@
                     <div class="col-md-12">
                         <div class="card card-primary">
 
-                            <form action="{{route('urun.update',$urun)}}" method="post" autocomplete="off"
+                            <form action="{{route('admin.adminurun.update',$urun)}}" method="post" autocomplete="off"
                                   enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <div class="card-header">
                                     <h3 class="card-title">Ürün Düzenle</h3>
                                 </div>
                                 <div class="card-body">
-                                    @if(\App\User::find(Auth::id())->durum == 0 )
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="alert alert-danger alert-dismissible">
-                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-                                                        &times;
-                                                    </button>
-                                                    <h4><i class="icon fa fa-ban"></i> Uyarı!</h4>
-                                                    Firmanız henüz onaylanmadı. Firmanızın bilgilerini doldurduktan sonra, en kısa
-                                                    sürede firmanız onaylanacaktır
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
+
                                     <div class="row">
                                         <div class="form-group col-md-12">
                                             <label>Kategori Seçiniz</label>
@@ -44,9 +31,9 @@
                                                             <option
 
                                                                 @if($urun->alt_kategori_id)
-                                                                    @if(  in_array( $alt->id  , explode(",",$urun->alt_kategori_id) )   )
-                                                                    selected
-                                                                    @endif
+                                                                @if(  in_array( $alt->id  , explode(",",$urun->alt_kategori_id) )   )
+                                                                selected
+                                                                @endif
                                                                 @endif
 
 
@@ -106,7 +93,7 @@
                                             <img type="file" src="{{$urun->foto}}" height="200px">
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label class="control-label">Fotoğraf ( 800 X 600 )</label>
+                                            <label class="control-label">Fotoğraf (800 X 600 )</label>
                                             <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
                                             <span id="error_foto"></span>
 
@@ -202,9 +189,9 @@
         $(function () {
             // Summernote
 
-                $('.select2').select2()
+            $('.select2').select2()
 
-                $('#textarea').summernote({
+            $('#textarea').summernote({
 
                     height: 300,
                 }

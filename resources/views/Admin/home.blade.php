@@ -50,6 +50,18 @@
                             </div>
                             <a href="{{route('admin.user.index')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
+                        <!-- small box -->
+                        <div class="small-box bg-warning">
+                            <div class="inner">
+                                <h3>{{\App\Urun::count()}}</h3>
+
+                                <p>Tüm Firma Ürünleri</p>
+                            </div>
+                            <div class="icon">
+                                <i class="ion ion-navicon"></i>
+                            </div>
+                            <a href="{{route('admin.adminurun.index')}}" class="small-box-footer">Listele <i class="fas fa-arrow-circle-right"></i></a>
+                        </div>
                     </div>
                     <!-- ./col -->
                     <div class="col-lg-3 col-6">

@@ -92,6 +92,12 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function() {
         Route::post('/update/{user}', 'Admin\UserController@update')->name('update');
         Route::get('/delete/{user}', 'Admin\UserController@destroy')->name('destroy');
     });
+    Route::group(['prefix'=>'adminurun','as'=>'adminurun.','middleware'=>'authAdmin'],function (){
+        Route::get('/', 'Admin\AdminUrunController@index')->name('index');
+        Route::get('/edit/{urun}', 'Admin\AdminUrunController@edit')->name('edit');
+        Route::post('/update/{urun}', 'Admin\AdminUrunController@update')->name('update');
+        Route::get('/delete/{urun}', 'Admin\AdminUrunController@destroy')->name('destroy');
+    });
     Route::Group(['prefix'=>'about','as'=>'about.','middleware'=>'authAdmin'],function() {
         Route::get('/edit','Admin\AboutController@edit')->name('edit');
         Route::post('/edit','Admin\AboutController@update')->name('update');
