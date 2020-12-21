@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-md-12">
-
+                    <img class="img-fluid" src="{{asset('public/assets/images/66.png')}}" alt="...">
                 </div>
             </div>
         </div>
