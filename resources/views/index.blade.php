@@ -6,12 +6,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="museo900">Turkish Aluminium 365 ile</h1>
-                <h2 class="museo500">dijitalleşen alüminyum sektörü  <br />
-                    ihracat dünyasını keşfedin!
+                <h2 class="museo500">Discover the world of export<br /> in the digitalized aluminium industry <br />
+                    with Turkish Aluminium 365!
                 </h2>
-                <p class="font-weight-light">Ürün arama ve online b2b toplantı araçlarını kullanarak  <br />
-                    en iyi aliminyum ürünlerini ve üreticilerini keşfedin!
+                <p class="font-weight-light">Discover the best aluminium products and producers   <br />
+                    by using product research and online B2B meeting tools!
                 </p>
                 <div class="row mb-5">
                     <div class="col-md-3 mb-3 mb-md-0">
@@ -86,20 +85,22 @@
 {{--                @endforeach--}}
 
 
-        </div>
-        <div class="container ">
-            <div class="row">
-                <div class="col-12">
 
-                        <img src="{{asset('public/assets/images/illu.png')}}" class="img-fluid mb-5" alt="..." />
-
-
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <!-- filter end	 -->
+</div>
+<hr class="pb-5">
+<div class="container ">
+    <div class="row">
+        <div class="col-12">
+
+            <img src="{{asset('public/assets/images/illu.png')}}" class="img-fluid mb-5" alt="..." />
+
+
+        </div>
+    </div>
+</div>
 
 @endsection
 
