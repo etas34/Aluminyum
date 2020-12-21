@@ -222,7 +222,7 @@
                     data.forEach(function(altkategori) {
 
 
-                       var temp='<button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/assets/images')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
+                       var temp='<button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/icons')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
 
                         $("#altkategoriappend").append(temp);
                     });
@@ -308,7 +308,7 @@
                     data.forEach(function(altkategori) {
 
 
-                        var temp='<button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/assets/images')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
+                        var temp='<button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/icons')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
 
                         $("#altkategoriappend").append(temp);
                     });
