@@ -8,9 +8,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
-                    <div style="text-align: center;">
-                        <h2>&nbsp;</h2>
-                    </div>
+
 
                     <img class="img-fluid"  src="{{asset('public/assets/images/reglog.png')}}">
                 </div>
