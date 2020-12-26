@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Gorusme;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class GorusmeController extends Controller
 {
@@ -14,9 +15,9 @@ class GorusmeController extends Controller
      */
     public function index()
     {
-        $gorusme = Gorusme::where('user_id',\Auth::id())
+        $gorusme = Gorusme::where('user_id', \Auth::id())
             ->get();
-        return view('gorusme.index',compact('gorusme'));
+        return view('gorusme.index', compact('gorusme'));
     }
 
     /**
@@ -24,10 +25,13 @@ class GorusmeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function bekleme(Gorusme $gorusme)
+    public function bekleme(Request $request)
     {
+
+        $gorusme = Gorusme::find($request->gorusme_id2);
         if (\Auth::id() == $gorusme->user_id) {
             $gorusme->durum = 1;
+            $gorusme->reddetme_sebep = $request->neden;
             $saved = $gorusme->save();
             if ($saved)
                 $notification = array(
@@ -40,33 +44,32 @@ class GorusmeController extends Controller
                     'alert-type' => 'error'
                 );
             return redirect(route('gorusme.index'))->with($notification);
-        }
-        else
+        } else
             return abort(404);
     }
-   /**
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function kabul(Gorusme $gorusme)
     {
-        if (\Auth::id() == $gorusme->user_id){
+        if (\Auth::id() == $gorusme->user_id) {
             $gorusme->durum = 2;
             $saved = $gorusme->save();
             if ($saved)
-                $notification=array(
-                    'messege'=>'Görüşme Başarıyla Kabul Edildi.',
-                    'alert-type'=>'success'
+                $notification = array(
+                    'messege' => 'Görüşme Başarıyla Kabul Edildi.',
+                    'alert-type' => 'success'
                 );
             else
-                $notification=array(
-                    'messege'=>'Bir Şeyler Ters Gitti',
-                    'alert-type'=>'error'
+                $notification = array(
+                    'messege' => 'Bir Şeyler Ters Gitti',
+                    'alert-type' => 'error'
                 );
             return redirect(route('gorusme.index'))->with($notification);
-        }
-        else
+        } else
             return abort(404);
 
 
@@ -75,7 +78,7 @@ class GorusmeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -84,9 +87,51 @@ class GorusmeController extends Controller
     }
 
     /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function revize(Request $request)
+    {
+//        dd($request->saat);
+        $gorusme = Gorusme::find($request->gorusme_id);
+
+        $to_name = $gorusme->ad_soyad;
+        $to_email = $gorusme->email;
+        $firma = \Auth::user()->name;
+        $mesaj = "Merhaba, $to_name. $gorusme->tarih tarihinde olan toplantımızın saatini, $request->saat olarak revize etmek istiyorum.";
+        $data = array(
+            'name' => "$to_name",
+            "body" => $mesaj,
+            "firma" => $firma,
+            'firma_mail' =>\Auth::user()->email
+        );
+
+        Mail::send('revizemail', $data, function ($message) use ($firma, $to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                ->subject('Toplantı Revize');
+            $message->from('info@turkishaluminium365.com', $firma);
+        });
+        if (!Mail::failures())
+            $notification=array(
+                'messege'=>'Saat revizesi Yapıldı!.',
+                'alert-type'=>'success'
+            );
+        else
+            $notification=array(
+                'messege'=>'Bir Şeyler Ters Gitti \nEMAIL_SERVER_ERROR',
+                'alert-type'=>'error'
+            );
+
+        return back()->with($notification);
+
+    }
+
+    /**
      * Display the specified resource.
      *
-     * @param  \App\Gorusme  $gorusme
+     * @param \App\Gorusme $gorusme
      * @return \Illuminate\Http\Response
      */
     public function show(Gorusme $gorusme)
@@ -97,7 +142,7 @@ class GorusmeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Gorusme  $gorusme
+     * @param \App\Gorusme $gorusme
      * @return \Illuminate\Http\Response
      */
     public function edit(Gorusme $gorusme)
@@ -108,8 +153,8 @@ class GorusmeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Gorusme  $gorusme
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Gorusme $gorusme
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Gorusme $gorusme)
@@ -120,7 +165,7 @@ class GorusmeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Gorusme  $gorusme
+     * @param \App\Gorusme $gorusme
      * @return \Illuminate\Http\Response
      */
     public function destroy(Gorusme $gorusme)

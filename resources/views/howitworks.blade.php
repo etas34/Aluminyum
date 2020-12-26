@@ -36,6 +36,11 @@
                     {!! $howitworks->metin !!}
             </div>
         </div>
+        <br>
+
+        For more information please send us a e-mail: <a href="mailto:info@turkishaluminium365.com">info@turkishaluminium365.com</a>
+        <br>
+        <br>
     </div>
 
 </main>

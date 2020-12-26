@@ -47,22 +47,37 @@
                                             <td> {{ $value->ulke }} </td>
                                             <td>
                                                 @if($value->durum == 0) <span class="badge bg-cyan p-2">İşlem İçin Bekleniyor</span>
-                                                @elseif($value->durum == 1) <span class="badge bg-warning p-2">Beklemede</span>
+                                                @elseif($value->durum == 1) <span
+                                                    class="badge bg-danger p-2">Reddedildi</span>
+                                                <br>
+                                                    Sebep:<br>
+                                                    {{$value->reddetme_sebep}}
                                                 @elseif($value->durum == 2) <span class="badge bg-success p-2">Kabul Edildi</span>
                                                 @endif
                                             </td>
 
                                             <td class="text-center">
+                                                <a type="button" class="badge bg-primary p-2"
+                                                   data-id="{{$value->id}}"
+                                                   data-toggle="modal" data-target="#exampleModal">
+                                                    Saat revizesi yap
+                                                </a>
+                                                <br>
+                                                <br>
+                                                @if( $value->durum == 0)      <a
+                                                    type="button"
+                                                    data-id2="{{$value->id}}"
+                                                    data-toggle="modal" data-target="#exampleModal2"
 
-                                                @if( $value->durum == 0)      <a  href="{{route('gorusme.bekleme',$value->id)}}"
-                                                   onclick="return confirm('Görüşme Beklemeye Alınacak, Emin misiniz?')"
+                                                ><span class="badge bg-danger p-2">Reddet</span></a>@endif
 
-                                                ><span class="badge bg-warning p-2">Beklemeye Al</span></a>@endif
+
+
 
                                                 @if($value->durum == 1 or $value->durum == 0)
-                                                        <a href="{{route('gorusme.kabul',$value->id)}}"
-                                                onclick="return confirm('Görüşme Kabul Edilecek, Emin misiniz?')"><span
-                                                        class="badge bg-success p-2">Kabul Et</span></a> @endif
+                                                    <a href="{{route('gorusme.kabul',$value->id)}}"
+                                                       onclick="return confirm('Görüşme Kabul Edilecek, Emin misiniz?')"><span
+                                                            class="badge bg-success p-2">Kabul Et</span></a> @endif
 
                                             </td>
 
@@ -82,11 +97,75 @@
         </section>
 
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Saat revizesi yap</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('gorusme.revize')}}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <label for="time">Saat</label>
+                        <input required type="text" name="saat" placeholder="12:20" class="form-control">
+                        <input hidden type="text" name="gorusme_id" id="inputid" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        <button type="submit" class="btn btn-primary">Gönder</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reddetme Nedeni</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('gorusme.bekleme')}}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <label for="neden">Lütfen görüşmenizi neden reddetiğinizi kısaca açıklayın:</label>
+
+                        <textarea required id="neden" name="neden" class="form-control"></textarea>
+                        <input hidden type="text" name="gorusme_id2" id="inputid2" class="form-control">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        <button type="submit" class="btn btn-primary">Gönder</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
 
 
 @endsection
 
 @push('scripts')
 
+    <script>
+        $('#exampleModal').on('show.bs.modal', function (e) {
+            var Id = $(e.relatedTarget).data('id');
+            $('#inputid').val(Id);
+        })
+        $('#exampleModal2').on('show.bs.modal', function (e) {
+            var Id2 = $(e.relatedTarget).data('id2');
+            $('#inputid2').val(Id2);
+        })
 
+    </script>
 @endpush

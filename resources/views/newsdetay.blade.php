@@ -41,7 +41,44 @@
                 </div>
 
         </div>
+    <div class="container py-5">
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 text-center mb-4">
+                <h2 class="text-danger">Album</h2>
+            </div>
+            <div class="col-12 col-xl-11 position-relative">
+                <div class="d-flex justify-content-between d-lg-none mb-3">
+                    <button class="btn btn-light swiper-left-arrow"><img
+                            src="{{asset('public/assets/images/before-arrow.svg')}}" width="22" height="22"
+                            alt="..."/></button>
+                    <button class="btn btn-light swiper-right-arrow"><img
+                            src="{{asset('public/assets/images/next-arrow.svg')}}" width="22" height="22" alt=""/>
+                    </button>
+                </div>
+                <div class="threebox-slider swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach($allbulten as $value)
+                            <div class="swiper-slide">
+                                <div class="card">
+                                    <a href="{{route('newsdetay',$value)}}">     <img class="card-img-top" src="{{$value->foto}}" alt="..."/> </a>
+                                    <div class="card-footer text-center bg-white">
+                                       <a href="{{route('newsdetay',$value)}}"> <h6>{{$value->baslik}} </h6></a>
+{{--                                        <p class="card-text">{{ $value->aciklama }}</p>--}}
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
 
+                    </div>
+                </div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-left-arrow  d-none d-xl-block"><img
+                        src="{{asset('public/assets/images/left-arrow.svg')}}" alt="..."/></div>
+                <div class="swiper-right-arrow  d-none d-xl-block"><img
+                        src="{{asset('public/assets/images/right-arrow.svg')}}" alt="..."/></div>
+            </div>
+        </div>
+    </div>
 
 </main>
 

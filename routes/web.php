@@ -124,9 +124,10 @@ Route::Group(['prefix'=>'urun','as'=>'urun.','middleware' => ['auth']],function(
 }) ;
 Route::Group(['prefix'=>'gorusme','as'=>'gorusme.','middleware' => ['auth']],function() {
     Route::get('/','GorusmeController@index')->name('index');
-    Route::get('/bekleme/{gorusme}','GorusmeController@bekleme')->name('bekleme');
     Route::get('/kabul/{gorusme}','GorusmeController@kabul')->name('kabul');
+    Route::post('/bekleme','GorusmeController@bekleme')->name('bekleme');
     Route::any('/delete/{gorusme}','GorusmeController@destroy')->name('destroy');
+    Route::post('/revize','GorusmeController@revize')->name('revize');
 }) ;
 
 Route::get('/filtre', 'HomeController@index');

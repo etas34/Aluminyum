@@ -49,8 +49,8 @@ class HomeController extends Controller
     }
     public function newsdetay(Bulten $bulten)
     {
-
-        return view('newsdetay',compact('bulten'));
+        $allbulten = Bulten::all();
+        return view('newsdetay',compact('bulten','allbulten'));
     }
 
     public function contact()
