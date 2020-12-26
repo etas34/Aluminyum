@@ -24,6 +24,7 @@ class CreateGorusmesTable extends Migration
             $table->string('website');
             $table->string('ulke');
             $table->string('email');
+            $table->text('reddetme_sebep')->nullable();
             $table->tinyInteger('durum')->default(0);
             $table->timestamps();
         });
