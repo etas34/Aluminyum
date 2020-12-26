@@ -39,6 +39,8 @@
                                                 {{ $value->tel }}
                                                 <br/>
                                                 {{ $value->website }}
+                                                <br>
+                                                {{ $value->email }}
                                             </td>
 
 

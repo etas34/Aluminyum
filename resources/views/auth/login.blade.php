@@ -9,17 +9,15 @@
 
                 <div class="col-md-5">
 
-                    <div style="text-align: center;">
-                        <h2>&nbsp;</h2>
-                    </div>
+
 {{--                    <img src="https://via.placeholder.com/400X200">--}}
-                    <img width="400" height="300" src="{{asset('public/assets/images/reglog.png')}}">
+                    <img class="img-fluid" src="{{asset('public/assets/images/reglog.png')}}">
 
                 </div>
 
                 <div class="col-md-7 ml-auto mr-8">
 
-                    <div style="text-align: center;"><h2>{{ __('Login') }}</h2></div>
+                    <div style="text-align: center;"><h2>Login</h2></div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
@@ -27,7 +25,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -44,7 +42,7 @@
 
                             <div class="form-group row">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">Password</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -56,13 +54,14 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
+                                    <a class="mt-2" href="/password/reset" style="color: rgb(51, 51, 51); font-size: 14px; font-weight: bold;">Forgot your password?</a>
                                 </div>
                             </div>
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit"
-                                            class="btn btn-outline-danger mb-2 mr-2">{{ __('Login') }}</button>
+                                            class="btn btn-outline-danger mb-2 mr-2">Login</button>
                                 </div>
                             </div>
                         </form>

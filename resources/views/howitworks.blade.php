@@ -15,9 +15,9 @@
             <div class="col-12 d-flex flex-wrap">
                 <h4 style="font-weight: 200 !important;" >Meet with Aluminium Producers via 3 Steps</h4>
 
-                <a href="#hiw" class="btn btn-link text-dark ml-auto text-decoration-none">
-                    More Information <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />
-                </a>
+{{--                <a href="#hiw" class="btn btn-link text-dark ml-auto text-decoration-none">--}}
+{{--                    More Information <img class="ml-2" src="{{asset('public/assets/images/arrow-down-dark.svg')}}" width="22" height="22" alt="..." />--}}
+{{--                </a>--}}
 
             </div>
         </div>

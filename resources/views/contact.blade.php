@@ -32,7 +32,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d892.64562907046!2d28.821488269894534!3d40.999246640433554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1606133045783!5m2!1str!2str" width="540" height="305" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe class="container-fluid" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d892.64562907046!2d28.821488269894534!3d40.999246640433554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1str!2str!4v1606133045783!5m2!1str!2str" width="540" height="305" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
             <div class="col-md-6">
                 <h4 class="mb-4">Istanbul Ferrous and Non-Ferrous Metals Exporters' Association

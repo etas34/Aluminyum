@@ -48,10 +48,18 @@
 
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Firma Ünvanı</label>
                                             <input required type="text" value="{{$user->name}}" name="firma_unvan"
+                                                   class="form-control"/>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Vergi Numarası</label>
+                                            <input required type="text" value="{{$user->tax_id}}" name="tax_id"
                                                    class="form-control"/>
                                         </div>
 
@@ -493,13 +501,12 @@
                                     </div>
 
 
-
-
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
                                         <input required type="checkbox" id="cb">
-                                        <label class="control-label" for="cb"><a href="#">Üyelik Sözleşmesini</a> okudum ve kabul ediyorum .</label>
+                                        <label class="control-label" for="cb"><a href="#">Üyelik Sözleşmesini</a> okudum
+                                            ve kabul ediyorum .</label>
                                     </div>
                                 </div>
                                 <p style="padding: 19px"></p>

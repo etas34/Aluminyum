@@ -23,6 +23,7 @@ class CreateGorusmesTable extends Migration
             $table->string('tel');
             $table->string('website');
             $table->string('ulke');
+            $table->string('email');
             $table->tinyInteger('durum')->default(0);
             $table->timestamps();
         });

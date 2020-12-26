@@ -12,7 +12,7 @@
                         <h2>&nbsp;</h2>
                     </div>
 
-                    <img width="400" height="300" src="{{asset('public/assets/images/reglog.png')}}">
+                    <img class="img-fluid"  src="{{asset('public/assets/images/reglog.png')}}">
                 </div>
                 <div  class=" col-md-7 ml-auto mr-8">
 
@@ -39,11 +39,12 @@
 {{--                            </div>--}}
 
                             <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">Company Info</label>
+                                <label class="col-md-4 col-form-label text-md-right">Firma Ünvanı</label>
                                 <div class="col-md-6">
                                     <input type="text" required name="name" class="form-control" value=""/>
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
@@ -78,6 +79,25 @@
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Vergi Numarası</label>
+                                <div class="col-md-6">
+                                    <input type="text" required name="tax_id" class="form-control" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Adres</label>
+                                <div class="col-md-6">
+                                    <input type="text" required name="adres" class="form-control" value=""/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-4 col-form-label text-md-right">Telefon Numarası</label>
+                                <div class="col-md-6">
+                                    <input type="tel" required name="phone" class="form-control" value=""/>
+                                </div>
+                            </div>
+
 
 
 

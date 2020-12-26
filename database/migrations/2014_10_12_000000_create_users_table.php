@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('ihracat_tel')->nullable();
             $table->string('website')->nullable();
             $table->string('ulke')->nullable();
+            $table->string('tax_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

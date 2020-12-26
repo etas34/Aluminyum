@@ -135,6 +135,7 @@ class HomeController extends Controller
         $gorusme->tarih = $request->datetimes;
         $gorusme->firma_unvan = $request->firmaUnvan;
         $gorusme->tel = $request->telefon;
+        $gorusme->email = $request->email;
         $gorusme->website = $request->website;
         $gorusme->ulke = $request->ulke;
         $saved = $gorusme->save();

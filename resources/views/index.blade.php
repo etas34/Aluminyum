@@ -41,15 +41,15 @@
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-12">
-                <h2 class="text-danger">Aliminum Products</h2>
-                <h2 class="text-secondary font-weight-light">Explore aliminum categories and products</h2>
+                <h2 class="text-danger">Aluminium Products</h2>
+                <h2 class="text-secondary font-weight-light">Explore Aluminium categories and products</h2>
             </div>
         </div>
         <div class="row text-center mb-4">
             <div class="col-12 filterBtn">
 
                 @foreach($ustkategori as $key=>$value)
-                <button class="btn btn-outline-secondary mr-2 mb-2 mb-md-0 ustkategori" id="ustkat{{$value->id}}" onclick="myFunction2(this)" data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
+                <button class="btn btn-outline-secondary mr-2 mb-2 mb-md-2 ustkategori" id="ustkat{{$value->id}}" onclick="myFunction2(this)" data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
                     @endforeach
 
             </div>

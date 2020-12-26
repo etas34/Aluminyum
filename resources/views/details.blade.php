@@ -8,7 +8,9 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">
+                            SCHEDULE MEETING
+                        </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -19,7 +21,7 @@
 
                             <div class="row">
                                 <div class="form-group col-md-12">
-                                    <label>Tarih Ve Saat Seçiniz <span style="color: red">* </span></label>
+                                    <label>Date and Time <span style="color: red">* </span></label>
 
                                     <div class="input-group">
                                         <div class="input-group-addon">
@@ -32,30 +34,35 @@
                                 <!-- /.input group -->
 
                                 <div class="form-group col-md-6">
-                                    <label for="adSoyad" class="col-form-label">Ad Soyad <span
+                                    <label for="adSoyad" class="col-form-label">Full Name <span
                                             style="color: red">* </span></label>
                                     <input type="text" required class="form-control" name="adSoyad" id="adSoyad">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="firmaUnvan" class="col-form-label">Firma Ünvanı <span
+                                    <label for="adSoyad" class="col-form-label">Email<span
+                                            style="color: red">* </span></label>
+                                    <input type="text" required class="form-control" name="email" id="email">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="firmaUnvan" class="col-form-label">Company Name<span
                                             style="color: red">* </span></label>
                                     <input type="text" required class="form-control" name="firmaUnvan" id="firmaUnvan">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="telefon" class="col-form-label">Telefon Numarası <span
+                                    <label for="telefon" class="col-form-label">Phone Number <span
                                             style="color: red">* </span></label>
                                     <input type="tel" required class="form-control" name="telefon" id="telefon">
                                 </div>
 
-                                <div class="form-group col-md-6">
-                                    <label for="website" class="col-form-label">Web Adresi</label>
+                                <div class="form-group col-md-12">
+                                    <label for="website" class="col-form-label">Web Address</label>
                                     <input type="text" class="form-control" name="website" id="website">
                                 </div>
 
 
                                 <div class="form-group col-md-12">
 
-                                    <label for="ulke" class="col-form-label">Ülke <span
+                                    <label for="ulke" class="col-form-label">Country <span
                                             style="color: red">* </span></label>
                                     <select required class="form-control" name="ulke" id="ulke">
                                         <option value="Türkiye">Türkiye</option>
@@ -313,7 +320,7 @@
 
 
                                 <div class="form-group col-md-12">
-                                    <label for="message-text" class="col-form-label">Mesaj <span
+                                    <label for="message-text" class="col-form-label">Your Message <span
                                             style="color: red">* </span></label>
                                     <textarea required class="form-control" name="mesaj" id="message-text"></textarea>
                                 </div>
@@ -321,12 +328,12 @@
                                 <input type="text" hidden name="user_id" value="{{$user->id}}">
 
                             </div>
-                            <span style="color: red">* </span> : Gerekli alanlar
+                            <h6>  <span style="color: red">* </span>  : Required Fields</h6>
                         </div>
 
                         <div class="modal-footer">
                             <a class="btn btn-secondary" data-dismiss="modal">Close</a>
-                            <button type="submit" class="btn btn-outline-danger">Gönder</button>
+                            <button type="submit" class="btn btn-outline-danger">Send</button>
                         </div>
                     </form>
                 </div>

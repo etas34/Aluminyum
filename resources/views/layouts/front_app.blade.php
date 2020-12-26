@@ -27,7 +27,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
 
-    <title>Aliminum v1</title>
+    <title>Aluminium v1</title>
 </head>
 <body>
 

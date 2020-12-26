@@ -44,6 +44,9 @@
                                                         {{ $value->tel }}
                                                         <br/>
                                                         {{ $value->website }}
+                                                        <br>
+                                                        {{ $value->eposta }}
+
                                                     </td>
 
 

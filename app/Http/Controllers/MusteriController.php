@@ -107,6 +107,7 @@ class MusteriController extends Controller
         $user->youtube_link =$request->video_url;
         $user->yetkili =$request->firma_yetkili;
         $user->phone =$request->telefon;
+        $user->tax_id =$request->tax_id;
 
         $user->ihracat =$request->ihracat;
         $user->ihracat_tel =$request->ihracat_tel;

@@ -62,10 +62,18 @@
 
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Firma Ünvanı</label>
                                             <input required type="text" value="{{$user->name}}" name="firma_unvan"
+                                                   class="form-control"/>
+                                        </div>
+
+                                    </div>
+                                        <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Vergi Numarası</label>
+                                            <input required type="text" value="{{$user->tax_id}}" name="tax_id"
                                                    class="form-control"/>
                                         </div>
 
