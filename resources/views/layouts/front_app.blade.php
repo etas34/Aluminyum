@@ -163,6 +163,16 @@
     }
     @endif
 </script>
+
+<script>
+    $(document).on('click','.pagination a',function(e){
+        e.preventDefault();
+        var url = $(this).attr('href');
+        var page = url.split('page=')[1];
+        window.history.pushState("", "", url);
+        filtre(page);
+    })
+</script>
 @stack('scripts')
 </body>
 </html>

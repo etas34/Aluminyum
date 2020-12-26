@@ -15,10 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes([
-//    'reset' => true, // Password Reset Routes...
-//    'verify' => false, // Email Verification Routes...
-]);
+Auth::routes();
 //cache temizleme
 Route::get('/reset', function(){
     Artisan::call('config:cache');
@@ -132,7 +129,6 @@ Route::Group(['prefix'=>'gorusme','as'=>'gorusme.','middleware' => ['auth']],fun
     Route::any('/delete/{gorusme}','GorusmeController@destroy')->name('destroy');
 }) ;
 
-Route::post('/get', 'Admin\UserController@getUserbyId')->name('getUser');
-Route::post('/get2', 'Admin\UserController@getUserbyId2')->name('getUser2');
+Route::get('/filtre', 'HomeController@index');
+Route::post('/filtre', 'Admin\UserController@getFirma')->name('getFirma');
 Route::post('/get3', 'Admin\UserController@getUserbyId3')->name('getUser3');
-Route::post('/getAltkategori', 'Admin\KategoriController@getAltkategori')->name('getAltkategori');

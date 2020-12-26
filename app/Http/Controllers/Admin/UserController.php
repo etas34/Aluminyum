@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\AltKategori;
 use App\Http\Controllers\Controller;
 use App\Kategori;
+use App\Urun;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -194,41 +195,53 @@ class UserController extends Controller
     }
 
 
-    public function getUserbyId(Request $request)
+    public function getFirma(Request $request)
 
     {
 
-        $user =User::where('durum',1)
-            ->whereRaw('FIND_IN_SET('.$request->altkategori_id.',altkategori_id)')->get();
+        $firma=User::query();
+        $firma=$firma->where('durum',1);
+        $firma=$firma->whereRaw('FIND_IN_SET('.$request->ustkategori_id.',ustkategori_id)');
+        if($request->altkategori_id!='0') {
+            $firma=$firma->whereRaw('FIND_IN_SET('.$request->altkategori_id.',altkategori_id)');
+        }
+        $firma=$firma->paginate(9);
 
 
-        return response()->json($user);
+        $altkategori =AltKategori::where('ust_kategori_id',$request->ustkategori_id)->get();
+
+
+
+//        return view('firmalar',compact('firma'))->render();
+        return response()->json([
+            'view_firma' => view('firmalar', compact( 'firma'))->render(),
+            'altkategoriler' =>$altkategori
+        ]);
 
     }
 
-    public function getUserbyId2(Request $request)
-
-    {
-        $user =User::where('durum',1)
-            ->whereRaw('FIND_IN_SET('.$request->ustkategori_id.',ustkategori_id)')->get();
-
-
-        return response()->json($user);
-
-    }
     public function getUserbyId3(Request $request)
 
     {
 
         $altkategori=AltKategori::where('alt_kategori', '=', $request->text)->first();
+        $urun=Urun::where('ad', '=', $request->text)->select('user_id')->distinct('user_id')->pluck('user_id');
 
-
-        $user =User::where('durum',1)
+        $firma =User::where('durum',1)
             ->whereRaw('FIND_IN_SET('.$request->ustkategori_id.',ustkategori_id)')
-            ->whereRaw('FIND_IN_SET('.$altkategori->id.',altkategori_id)')
-            ->get();
+            ->where(function($query) use ($altkategori,$request,$urun){
+                if (isset($altkategori->id)) {
+                    $query->orwhereRaw('FIND_IN_SET('.$altkategori->id.',altkategori_id)');
+                }
+                if ($urun->count()>0) {
+                    $query->orwhereIn('id', $urun);
+                }
+                $query->orwhereJsonContains('anahtar_kelime',  ['value' => $request->text ]);
+            })
+            ->paginate(300);
 
-        return response()->json($user);
+
+        return view('firmalar',compact('firma'))->render();
 
     }
 

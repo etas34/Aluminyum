@@ -49,7 +49,7 @@
             <div class="col-12 filterBtn">
 
                 @foreach($ustkategori as $key=>$value)
-                <button class="btn btn-outline-secondary mr-2 mb-2 mb-md-2 ustkategori" id="ustkat{{$value->id}}" onclick="myFunction2(this)" data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
+                <button class="btn btn-outline-secondary mr-2 mb-2 mb-md-0 ustkategori" id="ustkat{{$value->id}}"  data-id="{{$value->id}}">{{$value->ust_kategori}}</button>
                     @endforeach
 
             </div>
@@ -67,26 +67,16 @@
 {{--                <h4>Aluminium Sheet Producers</h4>--}}
 {{--            </div>--}}
 {{--        </div>--}}
+
         <div class="row row-cols-sm-2 row-cols-md-3" id="firmaAppend">
+            @include('firmalar')
 
-{{--            @foreach($firma as $key=>$value)--}}
-{{--            <div class="col-12 mb-3 mb-md-5 firma">--}}
-{{--                <div class="card">--}}
-{{--                    <div class="card-header">--}}
-{{--                        <img class="card-img-top" src="{{$value->logo}} " height="255" width="360" alt="..." />--}}
-{{--                    </div>--}}
-{{--                    <div class="card-footer text-center bg-white">--}}
-{{--                        <p class="card-text">--}}
-{{--                           <a style="color: #212529;" href="{{route('details',$value->id)}}"> {{$value->name}}</a>--}}
-{{--                        </p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--                @endforeach--}}
+        </div>
+        <input type="hidden" id="selected_ustkat">
+        <input type="hidden" id="selected_altkat">
 
 
 
-    </div>
 </div>
 <!-- filter end	 -->
 </div>
@@ -118,124 +108,67 @@
 
         });
 
-        function myFunction(elem) {
-
-            $('.firma').remove();
-
-            var x = $(elem).attr("data-id");
-
-
-            $.ajax({
-
-                type:'POST',
-                url: '{{ route('getUser') }}',
-
-                data:{altkategori_id:x},
-
-                success:function(data){
-
-
-                    data.forEach(function(firma) {
-
-                        var url = '{{ route("details", ":id") }}';
-                            url = url.replace(':id', firma['id']);
-                            var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
-                                '<div class="card">' +
-                                '<div class="card-header">' +
-                                '<img class="card-img-top" src="'+firma['logo']+'" alt="..." />' +
-                                '</div>' +
-                                '<div class="card-footer text-center bg-white">' +
-                                '<p class="card-text">' +
-                                '<a  style="color: #212529;" href="'+url+'"> '+firma['name']+'</a><br />' +
-                                '</p></div></div></div>';
-
-                        $("#firmaAppend").append(temp);
-                        });
-
-                    // $("#ad").val(data.ad);
-
-                }
-
-            });
-
-
-            $(elem).siblings().removeClass("btn-danger").addClass("btn-outline-secondary");
-
-
-            $(elem).removeClass("btn-outline-secondary").addClass("btn-danger");
-
-        }
-
-
-        function myFunction2(elem) {
+        function filtre(page){
 
             $('.firma').remove();
             $('.altkategori').remove();
+            var selected_ustkat=$('#selected_ustkat').val();
+            var selected_altkat=$('#selected_altkat').val();
 
-            var x = $(elem).attr("data-id");
 
             $.ajax({
 
                 type:'POST',
-                url: '{{ route('getUser2') }}',
+                url: '{{ route('getFirma') }}',
 
-                data:{ustkategori_id:x},
-
-                success:function(data){
-
-
-                    data.forEach(function(firma) {
-
-
-
-                        var url = '{{ route("details", ":id") }}';
-                        url = url.replace(':id', firma['id']);
-                        var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
-                            '<div class="card">' +
-                            '<div class="card-header">' +
-                            '<img class="card-img-top" src="'+firma['logo']+'" alt="..."  />' +
-                            '</div>' +
-                            '<div class="card-footer text-center bg-white">' +
-                            '<p class="card-text">' +
-                            '<a style="color: #212529;"  href="'+url+'"> '+firma['name']+'</a><br />' +
-                            '</p></div></div></div>';
-
-                        $("#firmaAppend").append(temp);
-                    });
-
-                    // $("#ad").val(data.ad);
-
-                }
-
-            });
-
-            $.ajax({
-
-                type:'POST',
-                url: '{{ route('getAltkategori') }}',
-
-                data:{ustkategori_id:x},
+                data:{ustkategori_id:selected_ustkat,
+                    altkategori_id:selected_altkat,
+                    page:page},
 
                 success:function(data){
 
-                    console.log(data);
 
-                    data.forEach(function(altkategori) {
+                    $("#firmaAppend").html($(data.view_firma));
 
+                    data.altkategoriler.forEach(function(altkategori) {
 
-                       var temp='<button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/icons')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
+                        var temp='<button class="btn ';
+                        if(altkategori['id']==selected_altkat)
+                        {
+                            temp+=' btn-danger';
+                        }
+                        else{
+                            temp+=' btn-outline-secondary';
+                        }
+
+                        temp+=' mr-3 mb-2 mb-md-0 altkategori"  data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/icons')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
 
                         $("#altkategoriappend").append(temp);
                     });
 
-                    // $("#ad").val(data.ad);
-
                 }
 
+            });
+        }
+        $(".ustkategori").on("click",function(){
 
+            var x = $(this).attr("data-id");
+            $('#selected_ustkat').val(x);
+            $('#selected_altkat').val('0');
+            filtre();
         });
 
-        }
+
+        $(document).on('click', '.altkategori', function(){
+
+            var x = $(this).attr("data-id");
+            $('#selected_altkat').val(x);
+
+            // $(this).siblings().removeClass("btn-danger").addClass("btn-outline-secondary");
+            // $(this).removeClass("btn-outline-secondary").addClass("btn-danger");
+            filtre();
+        });
+
 
 
         function myFunction3() {
@@ -264,57 +197,12 @@
                 data:{
                     ustkategori_id:x,
                     text:text.value,
-                    },
+                },
 
                 success:function(data){
 
-                        data.forEach(function(firma) {
+                    $("#firmaAppend").html(data);
 
-
-
-                            var url = '{{ route("details", ":id") }}';
-                            url = url.replace(':id', firma['id']);
-                            var temp = '<div class="col-12 mb-3 mb-md-5 firma">' +
-                                '<div class="card">' +
-                                '<div class="card-header">' +
-                                '<img class="card-img-top" src="'+firma['logo']+'" alt="..."  />' +
-                                '</div>' +
-                                '<div class="card-footer text-center bg-white">' +
-                                '<p class="card-text">' +
-                                '<a style="color: #212529;"  href="'+url+'"> '+firma['name']+'</a><br />' +
-                                '</p></div></div></div>';
-
-                            $("#firmaAppend").append(temp);
-                        });
-
-
-                    }
-
-
-            });
-
-
-
-            $.ajax({
-
-                type:'POST',
-                url: '{{ route('getAltkategori') }}',
-
-                data:{ustkategori_id:x},
-
-                success:function(data){
-
-                    console.log(data);
-
-                    data.forEach(function(altkategori) {
-
-
-                        var temp='<button class="btn btn-outline-secondary mr-3 mb-2 mb-md-0 altkategori"  onclick="myFunction(this)" data-id="'+altkategori['id']+'"><img class="mr-2" src="{{asset('public/icons')}}/'+altkategori['icon']+'" alt="..." />'+altkategori['alt_kategori']+'</button>';
-
-                        $("#altkategoriappend").append(temp);
-                    });
-
-                    // $("#ad").val(data.ad);
 
                 }
 
@@ -322,7 +210,10 @@
             });
 
 
+
+
         }
+
 
     </script>
 

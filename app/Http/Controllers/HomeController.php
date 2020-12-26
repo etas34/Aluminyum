@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function index()
     {
 
-        $firma=User::where('durum',1)->paginate(9);
+        $firma=User::where('durum',199)->paginate(3);
         $ustkategori=Kategori::all();
         $ustkategori_ilk=Kategori::first();
         $altkategori=AltKategori::where('ust_kategori_id',$ustkategori_ilk->id)->get();
@@ -85,7 +85,7 @@ class HomeController extends Controller
     public function contactform(Request $request)
     {
         $to_name = $request->ad;
-        $to_email = 'afyonyazilimevi@gmail.com';
+        $to_email = 'info@turkishaluminium365.com';
         $data = array('name'=>"$to_name",
             "body" => "$request->konu",
             "eposta"=>$request->eposta,
@@ -94,8 +94,8 @@ class HomeController extends Controller
 
          Mail::send('mail', $data, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
-                ->subject('IND Endustriyel Dayanıklı Tuketim Urunleri San. ve Tic. A.S. DESTEK');
-            $message->from('afyonyazilimevi@gmail.com','IND Endustriyel Dayanıklı Tuketim Ürünleri San. ve Tic. A.S.');
+                ->subject('Turkish Aluminium Site Mesajı');
+            $message->from('info@turkishaluminium365.com','Turkish Aluminium');
         });
 
         if (!Mail::failures())
@@ -126,7 +126,7 @@ class HomeController extends Controller
          Mail::send('scheduleMail', $data, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
                 ->subject('Schedule Meeting');
-            $message->from('afyonyazilimevi@gmail.com','Schedule Meeting');
+            $message->from('info@turkishaluminium365.com','Turkish Aluminium');
         });
         $gorusme = new Gorusme();
         $gorusme->user_id = $request->user_id;
