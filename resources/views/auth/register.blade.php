@@ -1,10 +1,11 @@
 @extends('layouts.front_app')
 
 @section('content')
-
+    <hr/>
+    <div style="margin-bottom: 100px;"></div>
     <main class="py-4">
 
-        <hr/>
+
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
