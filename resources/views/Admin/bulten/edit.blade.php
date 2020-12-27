@@ -61,7 +61,7 @@
                                     @endif
 
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Albüm</label>
+                                        <label class="control-label">Albüm (800X600)</label>
                                         <input type="file" id="album" name="album[]" class="form-control" multiple accept="image/*"  required>
                                         <span id="error_foto"></span>
                                     </div>

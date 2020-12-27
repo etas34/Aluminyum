@@ -100,12 +100,12 @@ class HomeController extends Controller
 
         if (!Mail::failures())
             $notification=array(
-                'messege'=>'Mesajın Bize Ulaştı!\nSize En Kısa Zamanda Dönüş Yapacağız.',
+                'messege'=>'Your meeting requested',
                 'alert-type'=>'success'
             );
         else
             $notification=array(
-                'messege'=>'Bir Şeyler Ters Gitti \nEMAIL_SERVER_ERROR',
+                'messege'=>'Somethings went wrong! \nEMAIL_SERVER_ERROR',
                 'alert-type'=>'error'
             );
         return back()->with($notification);

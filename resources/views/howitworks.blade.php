@@ -38,9 +38,9 @@
         </div>
         <br>
 
-        For more information please send us a e-mail: <a href="mailto:info@turkishaluminium365.com">info@turkishaluminium365.com</a>
-        <br>
-        <br>
+       <div class="mb-5"> For more information, please send us an e-mail:
+           <a class="text-danger" href="mailto:info@turkishaluminium365.com">info@turkishaluminium365.com</a>
+       </div>
     </div>
 
 </main>

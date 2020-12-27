@@ -19,7 +19,7 @@ if($(".threebox-slider").length){
 			},
 			// when window width is >= 640px
 			992: {
-				slidesPerView: 3,
+				slidesPerView: 2,
 				// Navigation arrows
 				navigation: {
 					nextEl: '.swiper-left-arrow',

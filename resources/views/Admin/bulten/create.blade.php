@@ -33,7 +33,7 @@
                                          <textarea class="form-control" name="icerik" rows="8"  required></textarea>
                                     </div>
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Albüm</label>
+                                        <label class="control-label">Albüm (800X600)</label>
                                         <input type="file" id="album" name="album[]" class="form-control" multiple accept="image/*"  required>
                                         <span id="error_foto"></span>
                                     </div>
@@ -70,6 +70,7 @@
     <script src="{{asset('public/adminlte/plugins/summernote/summernote-bs4.min.js')}}"></script>
     <script>
         var _URL1 = window.URL || window.webkitURL;
+        var _URL2 = window.URL || window.webkitURL;
 
         $("#foto").change(function (e) {
             var file, img;
@@ -99,6 +100,34 @@
             }
 
         })
+        // $("#album").change(function (e) {
+        //     var file, img;
+        //     if ((file = this.files[0])) {
+        //         img = new Image();
+        //         var objectUrl = _URL1.createObjectURL(file);
+        //         img.onload = function () {
+        //
+        //             if (  this.width == 800 && this.height == 600) {
+        //
+        //                 $('#error_foto').html('<label class="text-success"></label>');
+        //                 $('#foto').removeClass('has-error');
+        //                 $('#edit').attr('disabled', false);
+        //             } else {
+        //
+        //                 $('#error_foto').html('<label class="text-danger">Lütfen 800X600 Oranında Fotoğraf Yükleyiniz</label>');
+        //                 $('#foto').addClass('has-error');
+        //                 $('#edit').attr('disabled', true);
+        //
+        //
+        //             }
+        //
+        //
+        //             _URL1.revokeObjectURL(objectUrl);
+        //         };
+        //         img.src = objectUrl;
+        //     }
+        //
+        // })
 
         $(function () {
             // Summernote
