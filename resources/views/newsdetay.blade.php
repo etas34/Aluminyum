@@ -44,9 +44,7 @@
     @if(($bulten->album))
     <div class="container py-5">
         <div class="row justify-content-center mb-5">
-            <div class="col-12 text-center mb-4">
-                <h2 class="text-danger">Album</h2>
-            </div>
+
             <div class="col-12 col-xl-11 position-relative">
                 <div class="d-flex justify-content-between d-lg-none mb-3">
                     <button class="btn btn-light swiper-left-arrow"><img
