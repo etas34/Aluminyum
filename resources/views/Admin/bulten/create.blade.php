@@ -32,6 +32,11 @@
                                         <label class="control-label">İçerik</label>
                                          <textarea class="form-control" name="icerik" rows="8"  required></textarea>
                                     </div>
+                                    <div class="form-group col-md-12">
+                                        <label class="control-label">Albüm</label>
+                                        <input type="file" id="album" name="album[]" class="form-control" multiple accept="image/*"  required>
+                                        <span id="error_foto"></span>
+                                    </div>
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Tarih</label>

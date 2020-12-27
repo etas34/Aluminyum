@@ -38,7 +38,9 @@ class BultenController extends Controller
      */
     public function store(Request $request)
     {
+//        dd(($request->album[0]->extension()));
         $bulten=new Bulten();
+
         $bulten->baslik=$request->baslik;
         $bulten->icerik=$request->icerik;
         $bulten->tarih=$request->tarih;
@@ -57,6 +59,26 @@ class BultenController extends Controller
             $bulten->foto=url($image_url);
 
         }
+
+        if($request->hasfile('album')){
+            foreach ( $request->file('album') as $key=>$album){
+
+                $ext=$album->extension();
+                $image_name="$key-album".time().".".$ext;
+                $upload_path='images/album/';
+                $image_url="storage/app/".$upload_path.$image_name;
+
+                $album->storeAs($upload_path,$image_name);
+                $albumler[] = url($image_url);
+
+
+            }
+            $bulten->album = serialize($albumler);
+        }
+
+
+
+
         $saved=$bulten->save();
         if ($saved)
             $notification=array(
@@ -123,6 +145,31 @@ class BultenController extends Controller
             $bulten->foto=url($image_url);
 
         }
+        if($request->hasfile('album')){
+            if ($bulten->album) {
+                foreach (unserialize($bulten->album) as $album){
+                    $path_parts = pathinfo($album);
+                    $deleted = unlink(storage_path('app/images/album/' . $path_parts['basename']));
+                }
+                $bulten->album = "";
+            }
+
+
+            foreach ( $request->file('album') as $key=>$album){
+
+                $ext=$album->extension();
+                $image_name="$key-album".time().".".$ext;
+                $upload_path='images/album/';
+                $image_url="storage/app/".$upload_path.$image_name;
+
+                $album->storeAs($upload_path,$image_name);
+                $albumler[] = url($image_url);
+
+
+            }
+            $bulten->album = serialize($albumler);
+        }
+
         $saved=$bulten->save();
         if ($saved)
             $notification=array(
@@ -146,7 +193,12 @@ class BultenController extends Controller
      */
     public function destroy(Bulten $bulten)
     {
-
+        if ($bulten->album) {
+            foreach (unserialize($bulten->album) as $album){
+                $path_parts = pathinfo($album);
+                $deleted = unlink(storage_path('app/images/album/' . $path_parts['basename']));
+            }
+        }
         $saved=$bulten->delete();
         if ($saved)
             $notification=array(

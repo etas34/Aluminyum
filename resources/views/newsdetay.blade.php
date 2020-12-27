@@ -41,10 +41,11 @@
                 </div>
 
         </div>
+    @if(($bulten->album))
     <div class="container py-5">
         <div class="row justify-content-center mb-5">
             <div class="col-12 text-center mb-4">
-                <h2 class="text-danger">Album</h2>
+                <h2 class="text-danger">Albums</h2>
             </div>
             <div class="col-12 col-xl-11 position-relative">
                 <div class="d-flex justify-content-between d-lg-none mb-3">
@@ -57,14 +58,15 @@
                 </div>
                 <div class="threebox-slider swiper-container">
                     <div class="swiper-wrapper">
-                        @foreach($allbulten as $value)
+
+                        @foreach(unserialize($bulten->album)  as $value)
                             <div class="swiper-slide">
                                 <div class="card">
-                                    <a href="{{route('newsdetay',$value)}}">     <img class="card-img-top" src="{{$value->foto}}" alt="..."/> </a>
-                                    <div class="card-footer text-center bg-white">
-                                       <a href="{{route('newsdetay',$value)}}"> <h6>{{$value->baslik}} </h6></a>
+                                <img class="card-img-top" src="{{$value}}" alt="..."/>
+{{--                                    <div class="card-footer text-center bg-white">--}}
+{{--                                       <a href="{{route('newsdetay',$value)}}"> <h6>{{$value->baslik}} </h6></a>--}}
 {{--                                        <p class="card-text">{{ $value->aciklama }}</p>--}}
-                                    </div>
+{{--                                    </div>--}}
                                 </div>
                             </div>
                         @endforeach
@@ -79,7 +81,7 @@
             </div>
         </div>
     </div>
-
+@endif
 </main>
 
 @endsection

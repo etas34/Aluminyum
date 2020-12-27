@@ -18,6 +18,7 @@ class CreateBultensTable extends Migration
             $table->string('foto');
             $table->string('baslik');
             $table->text('icerik');
+            $table->text('album')->nullable();
             $table->string('tarih');
             $table->timestamps();
         });
