@@ -31,8 +31,10 @@
                     @else
                         <img src="{{asset('public/assets/images/about.svg')}}" class="img-fluid mb-5" alt="..."/>
                     @endif
-                    @if( $howitworks->baslik or $howitworks->metin )
+                    @if( $howitworks->baslik!='' )
                         <h2 id="hiw" class="text-danger mb-5">{{ $howitworks->baslik }}</h2>
+                        @endif
+                        @if($howitworks->metin!='')
                         {!! $howitworks->metin !!}
                     @endif
                 </div>
