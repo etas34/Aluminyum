@@ -55,6 +55,8 @@ class HomeController extends Controller
 
     public function contact()
     {
+//        $user=User::whereJsonContains('anahtar_kelime',  ['value' => 'Aluminium' ]);
+//        dd($user->count());
         $faq = Faq::all();
         return view('contact',compact('faq'));
     }

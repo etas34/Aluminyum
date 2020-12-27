@@ -55,7 +55,7 @@
                                                         @if($value->durum == 0) <span class="badge bg-cyan p-2">İşlem İçin Bekleniyor</span>
                                                         @elseif($value->durum == 1) <span class="badge bg-danger p-2">Rededildi</span>
                                                     <br>
-                                                        Sebep:<br>
+                                                        <strong>Sebep:</strong>
                                                         {{$value->reddetme_sebep}}
                                                         @elseif($value->durum == 2) <span class="badge bg-success p-2">Kabul Edildi</span>
                                                         @endif
