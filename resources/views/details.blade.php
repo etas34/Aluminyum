@@ -41,7 +41,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="adSoyad" class="col-form-label">Email<span
                                             style="color: red">* </span></label>
-                                    <input type="text" required class="form-control" name="email" id="email">
+                                    <input type="text" required class="form-control" name="email_firma" id="email">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="firmaUnvan" class="col-form-label">Company Name<span
