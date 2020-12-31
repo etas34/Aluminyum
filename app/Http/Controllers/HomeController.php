@@ -102,7 +102,7 @@ class HomeController extends Controller
 
         if (!Mail::failures())
             $notification=array(
-                'messege'=>'Your meeting requested',
+                'messege'=>'Your Message Arrived',
                 'alert-type'=>'success'
             );
         else
@@ -147,12 +147,12 @@ class HomeController extends Controller
 
         if (!Mail::failures())
             $notification=array(
-                'messege'=>'Mesajın Bize Ulaştı!\nSize En Kısa Zamanda Dönüş Yapacağız.',
+                'messege'=>'Your Meeting Requested.',
                 'alert-type'=>'success'
             );
         else
             $notification=array(
-                'messege'=>'Bir Şeyler Ters Gitti \nEMAIL_SERVER_ERROR',
+                'messege'=>'Something Went Wrong \nEMAIL_SERVER_ERROR',
                 'alert-type'=>'error'
             );
 

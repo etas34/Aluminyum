@@ -27,7 +27,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
 
-    <title>Aluminium v1</title>
+    <title>Turkish Aluminium 365</title>
 </head>
 <body>
 
