@@ -31,7 +31,7 @@ class GorusmeController extends Controller
         $gorusme = Gorusme::find($request->gorusme_id2);
         if (\Auth::id() == $gorusme->user_id) {
             $gorusme->durum = 1;
-            $gorusme->reddetme_sebep = $request->neden;
+            $gorusme->reddetme_sebep = $request->neden ."  ".  $request->neden2;
             $saved = $gorusme->save();
             if ($saved)
                 $notification = array(

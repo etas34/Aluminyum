@@ -43,7 +43,7 @@
                     A Blok, Çobançeşme Mevkii 34196 <br />
                     Bahçelievler / İSTANBUL
                 </div>
-                <a class="text-dark text-decoration-none mb-2 d-block" href="tel:02126111515">+90 (212) 611 15 15 (Pbx)</a>
+                <a class="text-dark text-decoration-none mb-2 d-block" href="tel:02124540000">+90 (212) 454 00 00 (Pbx)</a>
                 <a class="text-dark text-decoration-none mb-4 d-block" href="mailto:info@turkishmetals.org">info@turkishmetals.org</a>
                 <a href="https://goo.gl/maps/bHnwuaoJxjgwSd1Q9" target="_blank" class="text-danger">Go to Address </a>
             </div>

@@ -148,10 +148,31 @@
                 <form action="{{route('gorusme.bekleme')}}" method="post">
                     @csrf
                     <div class="modal-body">
-                        <label for="neden">Lütfen görüşmenizi neden reddetiğinizi kısaca açıklayın:</label>
+                        <div class="row">
 
-                        <textarea required id="neden" name="neden" class="form-control"></textarea>
+                            <div class="col-md-12">
+                                <label class="control-label" for="othercheck">Reddetme nedeninizi aşağıdaki listedem seçiniz.</label>
+                                <select name="neden" id="othercheck" class="form-control">
+
+                                    <option value="Another meeting">Another meeting</option>
+                                    <option value="Out of Office">Out of Office</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-12">
+                                <div id="gizleme" style="display: none">
+
+                                    <label class="control-label" for="neden">Lütfen görüşmenizi neden reddetiğinizi kısaca açıklayın:</label>
+
+                                    <textarea id="neden2" name="neden2" class="form-control"></textarea>
+
+                                </div>
+                            </div>
+                        </div>
+
                         <input hidden type="text" name="gorusme_id2" id="inputid2" class="form-control">
+
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
@@ -227,6 +248,11 @@
             var Id2 = $(e.relatedTarget).data('id2');
             $('#inputid2').val(Id2);
         })
+        $(function() {
+            $("#othercheck").on("change",function() {
+                $('#gizleme').toggle(this.value == "Other");
+            }).change(); // in case of reload
+        });
 
 
     </script>
