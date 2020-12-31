@@ -60,7 +60,7 @@
                                                 <a type="button" class="badge bg-primary p-2"
                                                    data-id="{{$value->id}}"
                                                    data-toggle="modal" data-target="#exampleModal">
-                                                    Saat revizesi yap
+                                                    Tarih revizesi yap
                                                 </a>
                                                 <br>
                                                 <br>
@@ -103,7 +103,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Saat revizesi yap</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tarih revizesi yap</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -111,8 +111,19 @@
                 <form action="{{route('gorusme.revize')}}" method="post">
                     @csrf
                     <div class="modal-body">
-                        <label for="time">Saat</label>
-                        <input required type="text" name="saat" placeholder="12:20" class="form-control">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label>Tarih Giriniz <span style="color: red">* </span></label>
+
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-clock-o"></i>
+                                    </div>
+                                    <input type="text" class="form-control" name="datetimes"/>
+                                </div>
+                                <!-- /.input group -->
+                            </div>
+                            <!-- /.input group -->                        </div>
                         <input hidden type="text" name="gorusme_id" id="inputid" class="form-control">
                     </div>
                     <div class="modal-footer">
@@ -157,6 +168,56 @@
 
 @push('scripts')
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script>
+
+        $(function () {
+            $('input[name="datetimes"]').daterangepicker({
+                singleDatePicker: true,
+                timePicker: true,
+                timePicker24Hour: true,
+                startDate: moment().startOf('hour'),
+                endDate: moment().startOf('hour').add(32, 'hour'),
+                locale: {
+                    format:
+                        'DD/MM/YYYY H:mm',
+                    "separator": " - ",
+                    "applyLabel": "Uygula",
+                    "cancelLabel": "Vazgeç",
+                    "fromLabel": "Dan",
+                    "toLabel": "a",
+                    "customRangeLabel": "Seç",
+                    "daysOfWeek": [
+                        "Pt",
+                        "Sl",
+                        "Çr",
+                        "Pr",
+                        "Cm",
+                        "Ct",
+                        "Pz"
+                    ],
+                    "monthNames": [
+                        "Ocak",
+                        "Şubat",
+                        "Mart",
+                        "Nisan",
+                        "Mayıs",
+                        "Haziran",
+                        "Temmuz",
+                        "Ağustos",
+                        "Eylül",
+                        "Ekim",
+                        "Kasım",
+                        "Aralık"
+                    ],
+                    "firstDay": 1
+                }
+
+            });
+        });
+    </script>
+
     <script>
         $('#exampleModal').on('show.bs.modal', function (e) {
             var Id = $(e.relatedTarget).data('id');
@@ -166,6 +227,7 @@
             var Id2 = $(e.relatedTarget).data('id2');
             $('#inputid2').val(Id2);
         })
+
 
     </script>
 @endpush

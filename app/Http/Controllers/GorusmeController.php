@@ -95,12 +95,17 @@ class GorusmeController extends Controller
     public function revize(Request $request)
     {
 //        dd($request->saat);
-        $gorusme = Gorusme::find($request->gorusme_id);
 
+
+        $gorusme = Gorusme::find($request->gorusme_id);
+        $old_date =  $gorusme->tarih;
+        $gorusme->tarih = $request->datetimes;
+        $gorusme->save();
         $to_name = $gorusme->ad_soyad;
         $to_email = $gorusme->email;
+
         $firma = \Auth::user()->name;
-        $mesaj = "Merhaba, $to_name. $gorusme->tarih tarihinde olan toplantımızın saatini, $request->saat olarak revize etmek istiyorum.";
+        $mesaj = "Merhaba, $to_name. $old_date tarihinde olan toplantımızın tarihini, $request->datetimes olacak şekilde revize etmek istiyorum.";
         $data = array(
             'name' => "$to_name",
             "body" => $mesaj,

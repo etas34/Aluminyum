@@ -522,7 +522,7 @@
                 endDate: moment().startOf('hour').add(32, 'hour'),
                 locale: {
                     format:
-                        'DD/MM/YYYY hh:mm',
+                        'DD/MM/YYYY H:mm',
                     "separator": " - ",
                     "applyLabel": "Uygula",
                     "cancelLabel": "Vazgeç",
