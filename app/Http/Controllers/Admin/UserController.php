@@ -267,11 +267,13 @@ class UserController extends Controller
 //        }
         if ($user->logo){
             $path_parts = pathinfo($user->logo);
-            $deleted = unlink(storage_path('app/logolar/'.$path_parts['basename']));
+            if(storage_path('app/logolar/'.$path_parts['basename']))
+                 $deleted = unlink(storage_path('app/logolar/'.$path_parts['basename']));
         }
         if ($user->header){
             $path_parts = pathinfo($user->header);
-            $deleted = unlink(storage_path('app/headerlar/'.$path_parts['basename']));
+            if(storage_path('app/headerlar/'.$path_parts['basename']))
+                $deleted = unlink(storage_path('app/headerlar/'.$path_parts['basename']));
         }
 
 
