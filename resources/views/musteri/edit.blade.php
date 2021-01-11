@@ -11,11 +11,11 @@
                         @if(\App\User::find(Auth::id())->durum == 0 )
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="alert alert-danger alert-dismissible">
+                                    <div class="alert alert-warning alert-dismissible">
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
                                             &times;
                                         </button>
-                                        <h4><i class="icon fa fa-ban"></i> Uyarı!</h4>
+                                        <h4><i class="icon fa fa-exclamation"></i> Bilgilendirme</h4>
                                         Firmanız henüz onaylanmadı. Firmanızın bilgilerini doldurduktan sonra, en kısa
                                         sürede firmanız onaylanacaktır
                                     </div>
