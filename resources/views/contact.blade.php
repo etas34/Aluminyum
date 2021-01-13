@@ -57,7 +57,7 @@
             </div>
         </div>
 
-        <form action="{{route('schedule')}}" method="post" autocomplete="off"  enctype="multipart/form-data">
+        <form action="{{route('contactform')}}" method="post" autocomplete="off"  enctype="multipart/form-data">
             {{csrf_field()}}
         <div class="row mb-4">
             <div class="col-12">

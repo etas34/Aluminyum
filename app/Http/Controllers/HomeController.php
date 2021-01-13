@@ -97,7 +97,7 @@ class HomeController extends Controller
          Mail::send('mail', $data, function($message) use ($to_name, $to_email) {
             $message->to($to_email, $to_name)
                 ->subject('Turkish Aluminium Site Mesajı');
-            $message->from('info@turkishaluminium365.com','Turkish Aluminium');
+            $message->from('info@turkishaluminium365.com','Turkish Aluminyum');
         });
 
         if (!Mail::failures())
