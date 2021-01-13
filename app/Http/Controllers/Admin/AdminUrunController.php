@@ -19,7 +19,7 @@ class AdminUrunController extends Controller
     public function index()
     {
         $urun = Urun::all();
-        return view('admin.adminurun.index',compact('urun'));
+        return view('Admin.adminurun.index',compact('urun'));
     }
 
     /**
@@ -63,7 +63,7 @@ class AdminUrunController extends Controller
     public function edit(Urun $urun)
     {
 //        dd('');
-        return view('admin.adminurun.edit',compact('urun'));
+        return view('Admin.adminurun.edit',compact('urun'));
     }
 
     /**

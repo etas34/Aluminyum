@@ -86,7 +86,7 @@ class HomeController extends Controller
 
     public function contactform(Request $request)
     {
-        $to_name = $request->ad;
+        $to_name = 'info@turkishaluminium365.com';
         $to_email = 'info@turkishaluminium365.com';
         $data = array('name'=>"$to_name",
             "body" => "$request->konu",
