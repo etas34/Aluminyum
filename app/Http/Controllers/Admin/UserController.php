@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\AltKategori;
 use App\Http\Controllers\Controller;
 use App\Kategori;
+use App\Keywords;
 use App\Urun;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -171,7 +173,17 @@ class UserController extends Controller
             $user->header=url($image_url);
 
         }
-dd($request->anahtar_kelime);
+
+        $a_kelimes = json_decode($request->anahtar_kelime);
+
+        Keywords::where('user_id',Auth::id())->delete();
+
+        foreach ($a_kelimes as $a_kelime) {
+            $keyword = new Keywords;
+            $keyword->user_id = Auth::id();
+            $keyword->name = $a_kelime->value;
+            $keyword->save();
+        }
 
         $user->adres =$request->adres;
         $user->hakkimizda =$request->hakkimizda;
