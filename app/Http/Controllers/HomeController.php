@@ -9,6 +9,7 @@ use App\Faq;
 use App\Gorusme;
 use App\Howitworks;
 use App\Kategori;
+use App\Keywords;
 use App\Privacy;
 use App\Urun;
 use App\User;
@@ -29,7 +30,7 @@ class HomeController extends Controller
      */
     public function deneme()
     {
-        $firma = User::find(48);
+//        $firma = User::find(48);
 
         /*   $firma =User::where('durum',1)
                ->whereRaw('FIND_IN_SET(1,ustkategori_id)')
@@ -38,7 +39,19 @@ class HomeController extends Controller
                    $query->where('anahtar_kelime',  ['value' => 'Aluminium' ]);
                })
                ->get();*/
-        dd($firma->keywords);
+//        dd($firma->keywords);
+        $user = User::where('durum',1)
+            ->get();
+        foreach ($user as $item) {
+            $a_kelimes = json_decode( $item->anahtar_kelime);
+
+            foreach ($a_kelimes as $a_kelime) {
+                $keyword = new Keywords;
+                $keyword->user_id = $item->id;
+                $keyword->name = $a_kelime->value;
+                $keyword->save();
+            }
+        }
 
     }
 
