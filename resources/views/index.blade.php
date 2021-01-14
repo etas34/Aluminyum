@@ -169,7 +169,11 @@
             filtre();
         });
 
-
+        $("#searchinput").on('keyup', function (e) {
+            if (e.key === 'Enter' || e.keyCode === 13) {
+                myFunction3()
+            }
+        });
 
         function myFunction3() {
             var ustkategori_id = document.getElementById("category");
