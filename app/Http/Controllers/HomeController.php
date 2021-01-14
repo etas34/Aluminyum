@@ -30,16 +30,18 @@ class HomeController extends Controller
      */
     public function deneme()
     {
-//        $firma = User::find(48);
-
-        /*   $firma =User::where('durum',1)
-               ->whereRaw('FIND_IN_SET(1,ustkategori_id)')
-               ->where(function($query){
-
-                   $query->where('anahtar_kelime',  ['value' => 'Aluminium' ]);
-               })
-               ->get();*/
-//        dd($firma->keywords);
+//       $firma = User::find(48);
+//
+//          $firma =User::where('durum',1)
+//              ->join('keywords','users.id','keywords.user_id')
+//               ->whereRaw('FIND_IN_SET(1,ustkategori_id)')
+//               ->where(function($query){
+//
+//                   $query->orwhere('keywords.name', 'Alüminyum');
+//               })
+//              ->select('users.*')
+//               ->get();
+//        dd($firma);
         $user = User::whereNotNull('anahtar_kelime')
             ->get();
 

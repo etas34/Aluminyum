@@ -19,8 +19,8 @@ class CreateUrunsTable extends Migration
             $table->string('foto');
             $table->string('ad');
             $table->text('aciklama')->nullable();
-            $table->id('kategori_id')->nullable();
-            $table->id('alt_kategori_id')->nullable();
+            $table->integer('kategori_id')->nullable();
+            $table->integer('alt_kategori_id')->nullable();
             $table->timestamps();
         });
     }

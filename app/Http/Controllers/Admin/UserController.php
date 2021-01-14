@@ -240,6 +240,7 @@ class UserController extends Controller
         $urun=Urun::where('ad', '=', $request->text)->select('user_id')->distinct('user_id')->pluck('user_id');
 
         $firma =User::where('durum',1)
+            ->join('keywords','users.id','keywords.user_id')
             ->whereRaw('FIND_IN_SET('.$request->ustkategori_id.',ustkategori_id)')
             ->where(function($query) use ($altkategori,$request,$urun){
                 if (isset($altkategori->id)) {
@@ -248,8 +249,9 @@ class UserController extends Controller
                 if ($urun->count()>0) {
                     $query->orwhereIn('id', $urun);
                 }
-                $query->orwhereJsonContains('anahtar_kelime',  ['value' => $request->text ]);
+                $query->orwhere('keywords.name',  $request->text);
             })
+            ->select('users.*')
             ->paginate(300);
 
 
