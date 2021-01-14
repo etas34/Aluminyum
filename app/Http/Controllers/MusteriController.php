@@ -79,6 +79,7 @@ class MusteriController extends Controller
     public function update(Request $request)
     {
 
+        ($request->anahtar_kelime as $value)
 
 
         $ustkategoris ="";

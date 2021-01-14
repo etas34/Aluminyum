@@ -171,7 +171,7 @@ class UserController extends Controller
             $user->header=url($image_url);
 
         }
-
+dd($request->anahtar_kelime);
 
         $user->adres =$request->adres;
         $user->hakkimizda =$request->hakkimizda;
