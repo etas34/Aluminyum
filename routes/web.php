@@ -23,6 +23,9 @@ Route::get('/reset', function(){
     Artisan::call('cache:clear');
 
 });
+Route::get('/deneme', 'HomeController@deneme');
+
+
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/news', 'HomeController@news')->name('news');
 Route::get('/details/{user}', 'HomeController@details')->name('details');

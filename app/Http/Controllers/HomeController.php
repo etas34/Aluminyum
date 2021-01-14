@@ -27,6 +27,21 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function deneme()
+    {
+
+        $firma =User::where('durum',1)
+            ->whereRaw('FIND_IN_SET(1,ustkategori_id)')
+            ->where(function($query){
+
+                $query->orwhereJsonContains('anahtar_kelime',  ['value' => 'Aluminium' ]);
+            })
+            ->paginate(300);
+
+        dd($firma);
+
+    }
+
     public function index()
     {
 
