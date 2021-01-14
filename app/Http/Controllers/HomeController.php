@@ -42,19 +42,23 @@ class HomeController extends Controller
 //              ->select('users.*')
 //               ->get();
 //        dd($firma);
-        $user = User::whereNotNull('anahtar_kelime')
-            ->get();
 
-        foreach ($user as $item) {
-            $a_kelimes = json_decode( $item->anahtar_kelime);
 
-            foreach ($a_kelimes as $a_kelime) {
-                $keyword = new Keywords;
-                $keyword->user_id = $item->id;
-                $keyword->name = $a_kelime->value;
-                $keyword->save();
-            }
-        }
+        // keywords doldurma
+
+//        $user = User::whereNotNull('anahtar_kelime')
+//            ->get();
+//
+//        foreach ($user as $item) {
+//            $a_kelimes = json_decode( $item->anahtar_kelime);
+//
+//            foreach ($a_kelimes as $a_kelime) {
+//                $keyword = new Keywords;
+//                $keyword->user_id = $item->id;
+//                $keyword->name = $a_kelime->value;
+//                $keyword->save();
+//            }
+//        }
 
     }
 
