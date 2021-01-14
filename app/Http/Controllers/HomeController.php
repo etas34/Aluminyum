@@ -40,8 +40,9 @@ class HomeController extends Controller
                })
                ->get();*/
 //        dd($firma->keywords);
-        $user = User::where('durum',1)
+        $user = User::whereNotNull('anahtar_kelime')
             ->get();
+
         foreach ($user as $item) {
             $a_kelimes = json_decode( $item->anahtar_kelime);
 
