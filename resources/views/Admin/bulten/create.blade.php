@@ -107,7 +107,7 @@
         //         var objectUrl = _URL1.createObjectURL(file);
         //         img.onload = function () {
         //
-        //             if (  this.width == 800 && this.height == 600) {
+        //             if (  this.width == 800 || this.height == 600) {
         //
         //                 $('#error_foto').html('<label class="text-success"></label>');
         //                 $('#foto').removeClass('has-error');

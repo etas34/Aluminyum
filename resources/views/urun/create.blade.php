@@ -34,7 +34,7 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="form-group col-md-12">
-                                            <label class="control-label">Fotoğraf (800X600)</label>
+                                            <label class="control-label">Fotoğraf (800X600px)</label>
                                             <input type="file" name="foto" id="foto" class="form-control" accept="image/*"
                                                    required>
                                             <span id="error_foto"></span>
@@ -147,7 +147,7 @@
                 var objectUrl = _URL2.createObjectURL(file);
                 img.onload = function () {
 
-                    if (this.width != 800 && this.height != 600) {
+                    if (this.width != 800 || this.height != 600) {
 
                         $('#error_foto').html('<label class="text-danger">Lütfen 800 X 600 boyutlarında yükleyiniz</label>');
                         $('#foto').addClass('has-error');

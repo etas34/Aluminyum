@@ -59,7 +59,7 @@
                 var objectUrl = _URL2.createObjectURL(file);
                 img.onload = function () {
 
-                    if (this.width != 1200 && this.height != 470) {
+                    if (this.width != 1200 || this.height != 470) {
 
                         $('#error_header').html('<label class="text-danger">Lütfen  1200 X 470 boyutlarında yükleyiniz</label>');
                         $('#header').addClass('has-error');

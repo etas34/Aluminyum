@@ -105,7 +105,7 @@
                                             <img type="file" src="{{$urun->foto}}" height="200px">
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <label class="control-label">Fotoğraf ( 800 X 600 )</label>
+                                            <label class="control-label">Fotoğraf ( 800 X 600px )</label>
                                             <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
                                             <span id="error_foto"></span>
 
@@ -157,9 +157,9 @@
                 var objectUrl = _URL2.createObjectURL(file);
                 img.onload = function () {
 
-                    if (this.width != 800 && this.height != 600) {
+                    if (this.width != 800 || this.height != 600) {
 
-                        $('#error_foto').html('<label class="text-danger">Lütfen 800 X 600 boyutlarında yükleyiniz</label>');
+                        $('#error_foto').html('<label class="text-danger">Lütfen 800 X 600px boyutlarında yükleyiniz</label>');
                         $('#foto').addClass('has-error');
                         $('#edit').attr('disabled', true);
                     } else {

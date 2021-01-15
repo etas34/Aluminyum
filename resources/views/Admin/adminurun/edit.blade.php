@@ -145,7 +145,7 @@
                 var objectUrl = _URL2.createObjectURL(file);
                 img.onload = function () {
 
-                    if (this.width != 800 && this.height != 600) {
+                    if (this.width != 800 || this.height != 600) {
 
                         $('#error_foto').html('<label class="text-danger">Lütfen 800 X 600 boyutlarında yükleyiniz</label>');
                         $('#foto').addClass('has-error');

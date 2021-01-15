@@ -27,7 +27,7 @@
 
                                     @endif
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Logo ( 1:1 )</label>
+                                        <label class="control-label">Logo ( 1080 X 1080px )</label>
                                         <input type="file" id="foto" name="foto" class="form-control" accept="image/*">
                                         <span id="error_foto"></span>
                                     </div>
@@ -41,7 +41,7 @@
 
                                     @endif
                                     <div class="form-group col-md-12">
-                                        <label class="control-label">Başlık Fotoğrafı ( 1900 X 260 ) </label>
+                                        <label class="control-label">Başlık Fotoğrafı ( 1900 X 260px ) </label>
                                         <input id="header" type="file" name="header" class="form-control"
                                                accept="image/*">
                                         <span id="error_header"></span>
@@ -58,8 +58,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label>Vergi Numarası</label>
-                                            <input required type="text" value="{{$user->tax_id}}" name="tax_id"
+                                          <label>Vergi Numarası (10 haneli olmalıdır)  </label>
+                                            <input required type="text" value="{{$user->tax_id}}" name="tax_id" minlength="10"
                                                    class="form-control"/>
                                         </div>
 
@@ -93,11 +93,11 @@
 
                                     <div class="form-group col-md-6">
                                         <div class="form-group">
-                                            <label>Telefon</label>
+                                            <label>Telefon  (Başında 0 ve +90 olmadan girilmelidir)</label>
 
                                             <div class="input-group">
                                                 <input required type="text" value="{{$user->phone}}"
-                                                       class="form-control" name="telefon" id="phone">
+                                                       placeholder="(555) 666-7788"        class="form-control" name="telefon" id="phone">
                                             </div>
                                             <!-- /.input group -->
                                         </div>
@@ -115,11 +115,11 @@
 
                                     <div class="form-group col-md-6">
                                         <div class="form-group">
-                                            <label>İhracat Sorumlusunun Telefon Numarası</label>
+                                            <label>İhracat Sorumlusunun Telefon Numarası  (Başında 0 ve +90 olmadan girilmelidir)</label>
 
                                             <div class="input-group">
                                                 <input required type="text" value="{{$user->ihracat_tel}}"
-                                                       class="form-control" name="ihracat_tel" id="phone2">
+                                                       placeholder="(555) 666-7788"   class="form-control" name="ihracat_tel" id="phone2">
                                             </div>
                                             <!-- /.input group -->
                                         </div>
@@ -542,8 +542,8 @@
                 var objectUrl = _URL1.createObjectURL(file);
                 img.onload = function () {
 
-                    if (this.width != this.height) {
-                        $('#error_foto').html('<label class="text-danger">Lütfen 1:1 Oranında Fotoğraf Yükleyiniz</label>');
+                    if (this.width != 1080 || this.height != 1080) {
+                        $('#error_foto').html('<label class="text-danger">Lütfen 1080 X 1080 Oranında Fotoğraf Yükleyiniz</label>');
                         $('#foto').addClass('has-error');
                         $('#edit').attr('disabled', true);
                     } else {
@@ -567,7 +567,7 @@
                 var objectUrl = _URL2.createObjectURL(file);
                 img.onload = function () {
 
-                    if (this.width != 1900 && this.height != 260) {
+                    if (this.width != 1900 || this.height != 260) {
 
                         $('#error_header').html('<label class="text-danger">Lütfen 1900 X 260 boyutlarında yükleyiniz</label>');
                         $('#header').addClass('has-error');

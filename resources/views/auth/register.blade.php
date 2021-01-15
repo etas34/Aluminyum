@@ -81,7 +81,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">Tax ID</label>
                                 <div class="col-md-6">
-                                    <input type="text" required name="tax_id" class="form-control" value=""/>
+                                    <input type="text" required name="tax_id" minlength="10" class="form-control" value=""/>
                                 </div>
                             </div>
                             <div class="form-group row">
