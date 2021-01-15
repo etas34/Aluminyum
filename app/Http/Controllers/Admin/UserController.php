@@ -9,7 +9,6 @@ use App\Keywords;
 use App\Urun;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -176,11 +175,11 @@ class UserController extends Controller
 
         $a_kelimes = json_decode($request->anahtar_kelime);
 
-        Keywords::where('user_id',Auth::id())->delete();
+        Keywords::where('user_id',$user->id)->delete();
 
         foreach ($a_kelimes as $a_kelime) {
             $keyword = new Keywords;
-            $keyword->user_id = Auth::id();
+            $keyword->user_id = $user->id;
             $keyword->name = $a_kelime->value;
             $keyword->save();
         }
