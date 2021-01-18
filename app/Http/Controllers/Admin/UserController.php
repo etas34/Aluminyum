@@ -172,16 +172,17 @@ class UserController extends Controller
             $user->header=url($image_url);
 
         }
+        if (json_decode($request->anahtar_kelime)) {
+            $a_kelimes = json_decode($request->anahtar_kelime);
 
-        $a_kelimes = json_decode($request->anahtar_kelime);
+            Keywords::where('user_id', $user->id)->delete();
 
-        Keywords::where('user_id',$user->id)->delete();
-
-        foreach ($a_kelimes as $a_kelime) {
-            $keyword = new Keywords;
-            $keyword->user_id = $user->id;
-            $keyword->name = $a_kelime->value;
-            $keyword->save();
+            foreach ($a_kelimes as $a_kelime) {
+                $keyword = new Keywords;
+                $keyword->user_id = $user->id;
+                $keyword->name = $a_kelime->value;
+                $keyword->save();
+            }
         }
 
         $user->adres =$request->adres;

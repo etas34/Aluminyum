@@ -146,7 +146,7 @@ class MusteriController extends Controller
         $user->anahtar_kelime = $request->anahtar_kelime;
         $user->fuar = $request->fuar;
 
-
+        if (json_decode($request->anahtar_kelime)){
         $a_kelimes = json_decode($request->anahtar_kelime);
 
         Keywords::where('user_id',Auth::id())->delete();
@@ -156,6 +156,7 @@ class MusteriController extends Controller
             $keyword->user_id = Auth::id();
             $keyword->name = $a_kelime->value;
             $keyword->save();
+        }
         }
         $saved = $user->save();
 
