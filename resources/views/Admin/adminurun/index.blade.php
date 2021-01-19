@@ -26,7 +26,6 @@
                                                     <th>Ürün Görseli</th>
                                                     <th>Ürün İsmi</th>
                                                     <th>Kategoriler</th>
-
                                                     <th>Düzenle</th>
                                                     <th>Kaldır</th>
                                                 </tr>
@@ -34,25 +33,25 @@
                                                 <tbody>
                                                 @foreach($urun as $key=>$value)
                                                     <tr>
-                                                        <td>{{\App\User::find($value->user_id)['name']}}
+                                                        <td>{{\App\User::find($value->user_id)['name'] ?? ''}}
                                                             <br>
-                                                        <b>{{\App\User::find($value->user_id)['email']}}</b>
+                                                        <b>{{\App\User::find($value->user_id)['email'] ?? ''}}</b>
                                                         </td>
                                                         <td><img src="{{$value->foto}}" height="100px"></td>
                                                         <td>{{$value->ad}}</td>
                                                         <td>
                                                             Üst kategori:   @foreach (explode(',',$value->kategori_id ) as $value2)
-                                                                {{ \App\Kategori::find($value2)['ust_kategori']  }}
+                                                                {{ \App\Kategori::find($value2)['ust_kategori'] ?? '' }}
                                                             @endforeach
                                                             <br/>
                                                             Alt kategori:   @foreach (explode(',',$value->alt_kategori_id ) as $value3)
-                                                                {{ \App\AltKategori::find($value3)['alt_kategori'] }}
+                                                                {{ \App\AltKategori::find($value3)['alt_kategori']  ?? ''}}
+                                                                {{ \App\AltKategori::find($value3)['alt_kategori']  ?? ''}}
                                                             @endforeach
 
 
 
                                                         </td>
-
                                                         <td><a href="{{route('admin.adminurun.edit',$value)}}"><span
                                                                     class="badge bg-warning p-2">Düzenle</span></a></td>
                                                         <td><a href="{{route('admin.adminurun.destroy',$value)}}"

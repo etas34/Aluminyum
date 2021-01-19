@@ -29,8 +29,8 @@ class UserController extends Controller
      */
     public function onaylanmamis()
     {
-        $users = User::where('durum','=',0)
-        ->get();
+        $users = User::where('durum','=',0)->orderBy('updated_at','desc')
+            ->get();
         return view('Admin.user.index', compact('users'));
     }
 

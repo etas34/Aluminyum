@@ -503,7 +503,7 @@
 
                                     <div class="form-group col-md-12">
                                         <label class="control-label">Anahtar Kelimeler</label>
-                                        <input height="100" name="anahtar_kelime" id="tag"
+                                        <input required height="100" name="anahtar_kelime" id="tag"
                                                placeholder="örn : (Aluminyum - Aluminium Sheet - Aluminium Sheet  )"
                                                value="{{$user->anahtar_kelime}}">
                                     </div>
