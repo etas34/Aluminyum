@@ -248,11 +248,12 @@ class UserController extends Controller
                     $query->orwhereRaw('FIND_IN_SET('.$altkategori->id.',altkategori_id)');
                 }
                 if ($urun->count()>0) {
-                    $query->orwhereIn('id', $urun);
+                    $query->orwhereIn('users.id', $urun);
                 }
                 $query->orwhere('keywords.name',  $request->text);
             })
             ->select('users.*')
+            ->distinct('users.id')
             ->orderBy('name','asc')
             ->paginate(300);
 

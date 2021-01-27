@@ -30,35 +30,31 @@ class HomeController extends Controller
      */
     public function deneme()
     {
-//       $firma = User::find(48);
-//
-//          $firma =User::where('durum',1)
-//              ->join('keywords','users.id','keywords.user_id')
-//               ->whereRaw('FIND_IN_SET(1,ustkategori_id)')
-//               ->where(function($query){
-//
-//                   $query->orwhere('keywords.name', 'Alüminyum');
-//               })
-//              ->select('users.*')
-//               ->get();
-//        dd($firma);
+        $rtext='SHUTTER SYSTEMS';
+
+        $altkategori=AltKategori::where('alt_kategori', '=', $rtext)->first();
+        $urun=Urun::where('ad', '=', $rtext)->select('user_id')->distinct('user_id')->pluck('user_id');
+
+        $firma =User::where('durum',1)
+            ->join('keywords','users.id','keywords.user_id')
+            ->whereRaw('FIND_IN_SET(4,ustkategori_id)')
+            ->where(function($query) use ($altkategori,$rtext,$urun){
+                if (isset($altkategori->id)) {
+                    $query->orwhereRaw('FIND_IN_SET('.$altkategori->id.',altkategori_id)');
+                }
+                if ($urun->count()>0) {
+                    $query->orwhereIn('users.id', $urun);
+                }
+                $query->orwhere('keywords.name',  $rtext);
+            })
+            ->select('users.*')
+            ->distinct('users.id')
+            ->orderBy('name','asc')
+            ->paginate(300);
+
+        dd($firma);
 
 
-        // keywords doldurma
-
-//        $user = User::whereNotNull('anahtar_kelime')
-//            ->get();
-//
-//        foreach ($user as $item) {
-//            $a_kelimes = json_decode( $item->anahtar_kelime);
-//
-//            foreach ($a_kelimes as $a_kelime) {
-//                $keyword = new Keywords;
-//                $keyword->user_id = $item->id;
-//                $keyword->name = $a_kelime->value;
-//                $keyword->save();
-//            }
-//        }
 
     }
 
