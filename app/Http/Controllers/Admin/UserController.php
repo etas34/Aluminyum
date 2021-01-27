@@ -217,6 +217,7 @@ class UserController extends Controller
         if($request->altkategori_id!='0') {
             $firma=$firma->whereRaw('FIND_IN_SET('.$request->altkategori_id.',altkategori_id)');
         }
+        $firma=$firma->orderBy('name','asc');
         $firma=$firma->paginate(9);
 
 
@@ -252,6 +253,7 @@ class UserController extends Controller
                 $query->orwhere('keywords.name',  $request->text);
             })
             ->select('users.*')
+            ->orderBy('name','asc')
             ->paginate(300);
 
 
