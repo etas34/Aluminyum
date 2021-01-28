@@ -59,11 +59,9 @@
                     <li class="user-body">
 
                         <div>
-                            <a href="{{route('musteri.edit')}}" class="dropdown-item">
-                                <i class="nav-icon fas fa-user">
-                                   &nbsp;&nbsp; Firma Ayarları
-                                </i>
-                            </a>
+                            <button type="button" class="btn btn-default dropdown-item" data-toggle="modal" data-target="#modal-default">
+                                Şifre Değiştir
+                            </button>
                         </div>                <!-- /.row -->
 
                         <hr>

@@ -132,6 +132,8 @@ class UserController extends Controller
         $user->ustkategori_id = rtrim($ust_kategori,",");
 //       dd($user->ustkategori_id);
 
+        if ($request->sifre)
+            $user->password = bcrypt($request->sifre);
         $user->name =$request->firma_unvan;
         $user->email = $request->email;
         $user->youtube_link =$request->video_url;

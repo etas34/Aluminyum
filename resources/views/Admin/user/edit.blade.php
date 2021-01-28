@@ -504,9 +504,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group col-md-12">
-                                        <input required type="checkbox" id="cb">
-                                        <label class="control-label" for="cb"><a href="#">Üyelik Sözleşmesini</a> okudum
-                                            ve kabul ediyorum .</label>
+                                        <div class="form-group">
+                                            <label>Şifre</label>
+                                            <input type="text" name="sifre" minlength="6" placeholder="Boş Bırakırsanız Eski Şifresi Geçerli Olur"
+                                                   class="form-control"/>
+                                        </div>
                                     </div>
                                 </div>
                                 <p style="padding: 19px"></p>

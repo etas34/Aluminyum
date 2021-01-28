@@ -174,6 +174,32 @@ class MusteriController extends Controller
         return back()->with($notification);
     }
 
+    public function sifre(Request $request)
+    {
+        $validated = $request->validate([
+            'sifre' => 'required|min:6'
+        ]);
+        $user=Auth::user();
+
+        $user->password = bcrypt($request->sifre);
+
+        $saved = $user->save();
+
+        if ($saved)
+            $notification = array(
+                'messege' => 'Güncelleme Başarılı',
+                'alert-type' => 'success'
+            );
+        else
+            $notification = array(
+                'messege' => 'Dikkat ! Bir Hata Oluştu',
+                'alert-type' => 'error'
+            );
+
+        return back()->with($notification);
+
+    }
+
     /**
      * Remove the specified resource from storage.
      *

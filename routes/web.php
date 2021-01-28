@@ -116,6 +116,7 @@ Route::Group(['prefix'=>'firma','middleware'=>'auth'],function() {
     Route::get('/panel-kullanim','MusteriController@index')->name('kullanim.index');
     Route::get('/edit','MusteriController@edit')->name('musteri.edit');
     Route::post('/edit','MusteriController@update')->name('musteri.update');
+    Route::post('/sifre','MusteriController@sifre')->name('musteri.sifre');
 }) ;
 Route::Group(['prefix'=>'urun','as'=>'urun.','middleware' => ['auth']],function() {
     Route::get('/','UrunController@index')->name('index');
